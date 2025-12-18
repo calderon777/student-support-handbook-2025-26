@@ -1,0 +1,1194 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={77 Links for Student Support \& Experience},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{77 Links for Student Support \& Experience}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Department of Economics}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\phantomsection\label{quarto-tiles-index-static}
+Assessment \& Timetable Information
+
+{}
+
+Timetable Information
+
+{}
+
+SEAtS Mobile app
+
+{}
+
+Examination Timetable
+
+{}
+
+Extensions
+
+{}
+
+eVision for Extenuating Circumstances
+
+{}
+
+Academic Misconduct
+
+{}
+
+Student Appeals
+
+{}
+
+Student Union Advise \& Support
+
+{}
+
+Progression and Awards
+
+Key Economics Staff for Student Support
+
+{}
+
+Personal Tutor Year 1
+
+{}
+
+Personal Tutor Year 2
+
+{}
+
+Personal Tutor Year 3
+
+{}
+
+UG Programmes Director
+
+{}
+
+Personal Tutor \& PG Director
+
+{}
+
+Course Officers UG
+
+{}
+
+Course Officers PG
+
+{}
+
+Student Experience Director
+
+{}
+
+Head of Education
+
+{}
+
+SPGA Student Wellbeing Support
+
+{}
+
+Support@City
+
+{}
+
+Student Health \& Wellbeing e-Referral
+
+{}
+
+Student Health \& Wellbeing
+
+{}
+
+PG online Authorised Absence form
+
+{}
+
+Authorised Absence for Research students via Research Manager
+
+{}
+
+Attendance and Engagement
+
+Student Support services
+
+{}
+
+Library
+
+{}
+
+Study Spaces
+
+{}
+
+service now
+
+{}
+
+Student Guides to Educational Technology
+
+{}
+
+CityBuddy
+
+{}
+
+Apply to get a mentor
+
+{}
+
+Support@City
+
+{}
+
+Accommodation
+
+{}
+
+Uni Cares
+
+{}
+
+International Student \& Visa Advice
+
+{}
+
+Student Funding
+
+{}
+
+Student Health \& Wellbeing
+
+{}
+
+School Student Welfare teams
+
+{}
+
+Student Support Hub Advisers
+
+{}
+
+The Student Support Hub
+
+{}
+
+Academic English support
+
+{}
+
+Academic Skills
+
+{}
+
+Careers \& Employability
+
+{}
+
+Digital Skills
+
+{}
+
+AppsAnywhere
+
+{}
+
+International Student \& Visa Advice
+
+{}
+
+IT Service Desk
+
+{}
+
+Togetherall
+
+{}
+
+The Report+Support platform
+
+{}
+
+Stay City Safe
+
+{}
+
+Your guide to staying safe in London
+
+Students Union
+
+{}
+
+Student's Union
+
+{}
+
+Student Societies
+
+{}
+
+Start a new society
+
+{}
+
+SU Events
+
+{}
+
+Sports
+
+{}
+
+Short Term Loans
+
+{}
+
+Programme rep training
+
+{}
+
+GetHeard@City
+
+{}
+
+Programme Rep nomination form
+
+{}
+
+Questions about Reps
+
+Careers and Employability
+
+{}
+
+Employability Economics
+
+{}
+
+Careers Hub
+
+{}
+
+Careers Fairs and employer events
+
+{}
+
+Micro-Placements
+
+{}
+
+Professional Mentoring Scheme
+
+{}
+
+Unitemps
+
+{}
+
+Student Ambassador scheme
+
+{}
+
+Book a Career appointment
+
+Other useful information
+
+{}
+
+Term Dates
+
+{}
+
+Registration
+
+{}
+
+Registration team
+
+{}
+
+Fees and Finance
+
+{}
+
+Evision-Get Official Letters and Pay Fees
+
+{}
+
+CitySport
+
+{}
+
+Faith, belief and culture at City St George's
+
+{}
+
+Health information
+
+{}
+
+Help and support \textbar{} Student Hub \textbar{} City, University of
+London
+
+Resources for staff
+
+{}
+
+Toolkit for Supporting Students
+
+{}
+
+personal tutors
+
+{}
+
+Wellbeing \& Mental Health E-Learning
+
+{}
+
+Staff Supporting Students
+
+{}
+
+Managers Supporting Staff
+
+{}
+
+Wellbeing Strategies
+
+{}
+
+Risks and Crises
+
+{}
+
+Attendance and Engagement Monitoring
+
+{}
+
+SEAtS
+
+{}
+
+find out more about SEAtS attendance and monitoring training here
+
+{}
+
+including Powerpoint slides to incorporate into Induction activities, as
+well as more information on programme content on the Learning and
+Teaching Hub
+
+\section{Assessment \& Timetable
+Information}\label{assessment-timetable-information}
+
+\href{https://mytimetable.city.ac.uk/}{Timetable Information}
+
+\href{https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in}{SEAtS
+Mobile app}: view your timetable and keep track of your attendance
+
+\href{https://studenthub.city.ac.uk/timetabling-term-dates-exams/exams/exam-timetable}{Examination
+Timetable}: assessment dates will be also available within your Moodle
+Module pages, and exam dates can also be on this link.
+
+\href{https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx}{Extensions}:
+can be used when you need up to 1 week extra to complete coursework.
+
+\href{https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx}{Extenuating
+Circumstances}: can be used when you cannot take an examination or
+assessment by the time of the deadline. This means you apply for a
+deferment of the assessment to the next available assessment period
+(normally, that would be the resit period in summer).
+
+\href{https://evision.city.ac.uk/}{eVision for Extenuating
+Circumstances}: Apply for Extenuating Circumstances via no eVision no
+later than 7 days after your assessment deadline.
+
+Late submission policy for coursework: Any work that is submitted more
+than 1 minute past the deadline but within 48 hours will have 10 marks
+deducted as a penalty. Work submitted after 48 hours will receive a
+zero.
+
+\href{https://studenthub.city.ac.uk/help-and-support/academic-integrity-and-misconduct}{Academic
+Misconduct}: any action that produces or seeks to produce an improper
+advantage for you in relation to your assessment(s) or deliberately and
+unnecessarily disadvantages other students. It includes, but it is not
+limited to plagiarism, collusion and contract cheating.
+
+\href{https://studenthub.city.ac.uk/help-and-support/extenuating-circumstances-complaints-appeals}{Student
+Appeals}: The appeals process is intended for the very rare cases where
+no resolution or remedy was possible at an earlier stage (i.e.~prior to
+the Assessment Board approving the results of taught students or a
+decision being made regarding the registration status or examination
+results of research students).
+
+\href{https://csgsu.co.uk/advice-and-support}{Student Union Advise \&
+Support}: you can contact the Student Union for advise and support,
+contact the union to make an appointment.
+
+\href{https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards}{Progression
+and Awards}: important information about your assessment results, your
+programme and the support available to you and details of the timescales
+if you want to make an appeal.
+
+\section{Key Economics Staff for Student
+Support}\label{key-economics-staff-for-student-support}
+
+\textbf{Your Module Leader}\,is the first point of contact for any
+queries about the content or organisation of the module you are
+studying. you can also book a meeting with a Module Leader during their
+designated `office hours'. Module leader details are available in
+Moodle.
+
+\textbf{Your Personal Tutor}\,acts as a mentor and guide you to any
+support you may need. You can talk to your personal tutor about any
+struggles with your studies and personal life.\,Your personal tutor also
+can refer you to the University's more specialised services for
+academic, mental health and wellbeing support.\,You can discuss your
+career aspirations with your personal tutor and receive advice on how to
+plan your studies accordingly.
+
+\href{mailto:econ-y1-tutor@city.ac.uk}{Personal Tutor Year 1}: Dr
+Seefat-E-Rabbi Khan
+
+\href{mailto:econ-y2-tutor@city.ac.uk}{Personal Tutor Year 2}: P Klaus
+Zauner
+
+\href{mailto:econ-y3-tutor@city.ac.uk}{Personal Tutor Year 3}: P Keith
+Pilbeam
+
+\href{mailto:pipat.wongsa-art@city.ac.uk}{UG Programmes Director}: Dr
+Wongsa Pipat
+
+\href{mailto:lena.hassani-nezhad@city.ac.uk}{Personal Tutor \& PG
+Director}: Dr lena.hassani-nezhad@city.ac.uk
+
+\href{mailto:economics.ug@city.ac.uk}{Course Officers UG} and
+\href{mailto:pgspga@city.ac.uk}{Course Officers PG}; or visit the Course
+Office information desk in Room A129, College Building (Monday--Friday,
+10:00 AM--5:00 PM).Course Officers handle the course and official
+records of students, including:
+
+\begin{itemize}
+\tightlist
+\item
+  Moodle page enrolment
+\item
+  Programme or module changes
+\item
+  timetabling clashes
+\item
+  how to submit an assessment
+\item
+  grades releases.
+\item
+  advice on extensions
+\item
+  submitting an Extenuating circumstance.
+\item
+  Suspension and interruption of studies
+\end{itemize}
+
+\href{mailto:camilo.calderon@city.ac.uk}{Student Experience Director}:
+Dr Camilo Calderon. The Student Experience Director has an overview of
+all operational issues concerning your experience at the University.
+They also act as a second point of contact in case you cannot reach to
+your Personal Tutor.
+
+\href{mailto:panagiotis.giannarakis@city.ac.uk}{Head of Education}: Dr
+Panagiotis Giannarakis
+
+\href{https://evision.city.ac.uk/}{eVision for Personal Tutor contact}:
+How to contact: Details of student Personal Tutors will be available on
+Evision.
+
+\textbf{Student Welfare and Engagement Officers}\,are your first points
+of contact for any wellbeing or student experience related issues. Some
+topics which students discuss with Student Engagement Officers can
+include, but are not limited to; stress and anxiety, general wellbeing
+issues, financial stress, challenging living environments,
+time-consuming work or caring commitments, and disabilities. Based on
+the topic either a Student Welfare or Student Engagement Officer will
+reply to your query and provide advice on how you can best access the
+support services available to you at the University. They may also
+suggest that you meet with them so they can get more details on the
+support you need.
+
+\href{https://outlook.office365.com/book/SchoolofPolicyandGlobalAffairsStudentWellbeingSupport@cityuni.onmicrosoft.com/?ae=true&ismsaljsauthenabled=true}{SPGA
+Student Wellbeing Support}
+
+\href{https://support.city.ac.uk/create-case/}{Support@City}: Log a case
+here for support.
+
+\href{https://support.city.ac.uk/eReferral/?_gl=1\%2A1yf5nzx\%2A_gcl_au\%2AMTUzMzI5MTY4Ny4xNzQ4NjAxODEy\%2A_ga\%2ANzcwMjIyODIzLjE3NDA2NTA3Mjg.\%2A_ga_YLSK0292X4\%2AczE3NTU1OTIyOTkkbzM2MiRnMSR0MTc1NTU5NDg4MCRqMzYkbDAkaDA.}{Student
+Health \& Wellbeing e-Referral}: If you are experiencing mental health
+Issues or have a diagnosed mental health condition or disability it is
+important that you register with the Student Mental Health Services,
+even if you are currently receiving support externally. The Student
+Mental Health Service can put in place an individualized Student Support
+Plan with reasonable adjustments recommendations. You can complete an
+e-Referral to the Student Health \& Wellbeing service.
+
+\href{https://outlook.office365.com/book/StudentHealthWellbeing@cityuni.onmicrosoft.com/s/fmv9wdkSi0m08PSZBNQghg2?ismsaljsauthenabled=true}{Student
+Health \& Wellbeing}: if you would prefer to meet with a Student Health
+and Wellbeing Engagement Advisor.
+
+If you are unable to attend classes for more than seven calendar days
+due to extenuating circumstances, you may request an Authorised Absence.
+If approved, the period covered will be formally excluded from your
+attendance calculations. Absences of seven days or fewer do not require
+formal approval. How to apply:
+
+\href{https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in}{UG
+Authorised Absence form via SEAtS Mobile App}.
+
+\href{https://cityunilondon.eu.qualtrics.com/jfe/form/SV_5hzQmuXfZBM5plk}{PG
+online Authorised Absence form}
+
+\href{https://researchmanager.city.ac.uk/do/city-login/login}{Authorised
+Absence for Research students via Research Manager}.
+
+\href{https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement}{Attendance
+and Engagement}: Further guidance on managing absences, including
+eligibility and evidence requirements, is available on the Student Hub
+page.
+
+\section{Student Support services}\label{student-support-services}
+
+\href{https://libraryservices.city.ac.uk/}{Library}: provides printed
+resources, study spaces (for group study, quiet study and individual
+silent study), networked PCs and wi-fi across five levels.
+
+\href{https://studenthub.city.ac.uk/information-technology/citynav}{Study
+Spaces}: these spaces include quiet areas for focused work, silent study
+zones, and more social spaces for collaborative learning.
+
+\href{https://studenthub.city.ac.uk/information-technology/citynav}{CityNav}:
+hor more information on where to find these Study Spaces.
+
+\subsection{IT support}\label{it-support}
+
+\href{https://www.city.ac.uk/itservicedesk}{service now}: If students
+experience IT issues, a ticket can be logged on this link.
+
+Alternatively, students can call the IT help desk on 0207 040 8181 or
+visit the IT help desk in person where they can help with issues such as
+wi-fi access etc. The helpdesk in located in University Building.
+
+\href{https://city-uk-ett.libguides.com/student}{Student Guides to
+Educational Technology}: guidance on the use of educational technology
+at City St Georges, such as Moodle, Microsoft teams, etc., is available
+here.
+
+\href{https://buddy.city.ac.uk/apply/mentee/}{CityBuddy} is a second- or
+third-year student who will mentor a first-year student on their course.
+They are there to show new students all that City has to offer; answer
+any questions they may have and provide a valuable insight into studying
+on the course.
+
+\href{https://cityunilondon.eu.qualtrics.com/jfe/form/SV_9M41s2FmiwmYVM2}{Apply
+to get a mentor}
+
+\href{https://support.city.ac.uk/create-case/?_gl=1\%2asv17k1\%2a_ga\%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.\%2a_ga_YLSK0292X4\%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w}{Support@City}:
+it's the online system allowing students to submit and track their
+queries through a dedicated portal. The platform brings together many of
+City St George's student support services in a secure portal to better
+understand and address students' needs.
+
+The system includes the following teams:
+
+\href{https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub}{Accommodation}
+
+\href{https://studenthub.city.ac.uk/help-and-support/city-cares}{Uni
+Cares}: City's dedicated support network for care-experienced students,
+young adult carers, young estranged students, refugees and asylum
+seekers.
+
+\href{https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students}{International
+Student \& Visa Advice}
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-funding}{Student
+Funding}
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing}{Student
+Health \& Wellbeing}
+
+\href{https://studenthub.city.ac.uk/help-and-support/support-within-your-school}{School
+Student Welfare teams}
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team}{Student
+Support Hub Advisers}
+
+\href{https://www.city.ac.uk/about/facilities/specialist-facilities/student-support-hub}{The
+Student Support Hub}: located in Level 1, Drysdale Building, it's
+designed to provide in-person access to a wide range of essential
+student support services. The Student Support Hub will operate from
+9:00am to 6:30pm during term time.
+
+Along with general enquiries, you can visit the following support
+services:
+
+\href{https://studenthub.city.ac.uk/help-and-support/english-for-academic-purposes}{Academic
+English support}: academic writing and English language support for
+international students and for students whose first language is not
+English.
+
+\href{https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills}{Academic
+Skills}: runs workshops, webinars and one-to-one support sessions to
+help you to become a more effective learner.
+
+\href{https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub}{Accommodation}:
+can help with the application process, any queries regarding the rooms,
+halls, fees and contracts, support if you are looking for accommodation
+during the academic year, viewing halls and much more.
+
+\href{https://studenthub.city.ac.uk/careers-and-employability}{Careers
+\& Employability}: encompass careers, employability, and student
+development activities, including careers resources and appointments,
+skills sessions, employer events, community volunteering, professional
+mentoring, the Micro-Placement Programme and the City Buddies scheme.
+
+\href{https://studenthub.city.ac.uk/help-and-support/city-cares}{Uni
+Cares}: City's dedicated support network for care-experienced students,
+young adult carers, young estranged students, refugees and asylum
+seekers.
+
+\href{https://studenthub.city.ac.uk/help-and-support/studying-online/digital-skills-and-support}{Digital
+Skills}: supports you to effectively use digital technologies and
+incorporate them into your learning, student experience and
+employability.
+
+\href{https://city-uk-ett.libguides.com/student}{Student Guides to
+Educational Technology}: guidance on the use of educational technology
+at City St Georges, such as Moodle, Microsoft Teams, and other learning
+tools.
+
+\href{https://studentcommunications.newsweaver.com/1w52bcjsfr/18i0udma1fv/external?a=6&p=4118384&t=27571}{AppsAnywhere}:
+a platform where you can access many City St George's applications
+remotely.
+
+\href{https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students/responsibilities}{International
+Student \& Visa Advice}: provides confidential advice and guidance to
+applicants and students on study-related visa and immigration issues.
+
+\href{https://studenthub.citystgeorges.ac.uk/student-support-services/it-services}{IT
+Service Desk}: is the first point of contact for all IT queries.
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-funding}{Student
+Funding}: provides advice on student funding available to support your
+studies at City.
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing}{Student
+Health \& Wellbeing}: provides practical, emotional and specialist
+disability related support to our students.
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team}{Student
+Support Hub Advisers}: helps with:
+
+\begin{itemize}
+\tightlist
+\item
+  Production of ID cards - expired, lost/stolen, new (outside of the
+  main registration period)
+\item
+  Production of a range of letters, student status, bank letter,
+  Schengen visa letter
+\item
+  Help with 18+ oyster card application
+\item
+  Signing of railcard documents
+\item
+  Registration (outside of the main registration period)
+\item
+  Updating student details
+\item
+  Collection point for graduation certificates
+\end{itemize}
+
+\href{https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing/togetherall}{Togetherall}:
+it's a safe, online peer support community where you can get and give
+support to improve your mental health and wellbeing. The community is
+moderated 24/7 by mental health professionals ensuring the safety and
+anonymity of all members.
+
+\href{https://reportandsupport.city.ac.uk/}{The Report+Support
+platform}: provides staff and students with a confidential way to report
+instances of unacceptable behaviour, such as bullying, harassment,
+discrimination, hate incidents, domestic abuse, or sexual violence.
+Whether you have personally experienced these behaviours or have
+witnessed them happening to someone else, the platform offers a
+straightforward and accessible way to report your concerns.
+
+\href{https://studenthub.city.ac.uk/help-and-support/stay-city-safe}{Stay
+City Safe}: this initiative provides you with essential information on
+what to do in case of an incident, how to report it, and where to seek
+assistance.
+
+\href{https://studenthub.city.ac.uk/__data/assets/pdf_file/0006/814416/3748-Stay-City-Safe-booklet-AL1i-digital-1.pdf}{Your
+guide to staying safe in London}: download our safety booklet.
+
+\section{Students Union}\label{students-union}
+
+\href{https://www.csgsu.co.uk/}{Student's Union}:it's a membership-led
+organisation, independent of the University, which exists to make sure
+you have the best overall experience at City both socially and
+academically. The Union is in Level 2 of the Student Support Hub in
+Drysdale Building.
+
+SU offers:
+
+\href{https://csgsu.co.uk/advice-and-support}{Union advice}: on academic
+appeals, academic misconduct, complaints, extenuating circumstances and
+more.
+
+\href{https://csgsu.co.uk/explore-and-join/societies}{Student
+Societies}: these are groups created, run and lead by students for
+students. These can be hobbies, campaigns, cultural, academic, basically
+anything you can think of. Any student can join a society. Joining a
+society is super easy through our website, just click on any society you
+are interested in and purchase the standard membership (even if it is
+free)!
+
+\href{https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group}{Start
+a new society}: Any student at City St George's can apply to set up a
+new student group. Setting up a new student group equips you with
+employability skills including; leadership, teamwork, communication and
+events planning.
+
+\href{https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group}{Society
+idea - application form}!
+
+\href{https://events.csgsu.co.uk/}{SU Events}
+
+\href{https://csgsu.co.uk/sports}{Sports}
+
+\href{https://csgsu.co.uk/advice-and-support/finances}{Short Term
+Loans}: Interest free loans of up to £200.
+
+\href{https://csgsu.co.uk/your-voice/programme-and-year-representatives}{Programme
+rep training}
+
+\href{https://city.unitu.co.uk/Account/Login}{GetHeard@City}: digital
+platform for student voice to ask questions to your Programme Reps,
+discuss your experiences with other students, and give feedback to the
+Students' Union and University staff.
+
+\href{https://csgsu.co.uk/your-voice/programme-and-year-representatives}{Become
+a Programme rep}. You are invited to nominate yourself to become a
+Program rep. Programme Reps play a key role in ensuring that all
+students have a voice and an opportunity to share feedback about their
+learning experience. They help students make as many positive changes as
+possible and ultimately, help improve the quality of education at City
+St George's.
+
+\href{https://forms.office.com/e/6MEdG2EStU}{Programme Rep nomination
+form}: usually by early October.
+
+\href{https://csgsu.co.uk/your-voice/programme-and-year-representatives}{more
+info about Programme Reps (csgsu.co.uk)}.
+
+\href{studentrep@city.ac.uk}{Questions about Reps}: or visit SU Welcome
+Desk in Student Support Hub.
+
+\section{Careers and Employability}\label{careers-and-employability}
+
+Careers \& Employability team encompasses careers, employability, and
+student development activities, including careers resources and
+appointments, skills sessions, employer events, community volunteering,
+professional mentoring, the Micro-Placement Programme and the City
+Buddies scheme. Our resourceful careers team can offer expertise and
+support, to assist you in developing your career prospects whilst at
+City, and beyond.
+
+\href{https://cityuni.sharepoint.com/teams/CUoL-Employability-Economics/SitePages/LearningTeamHome.aspx}{Employability
+Economics}
+
+\href{https://studenthub.city.ac.uk/careers-and-employability}{Careers
+\& Employability}
+
+Year 2 students can apply to the SPGA Placement and Exchange Programmes:
+
+\begin{itemize}
+\tightlist
+\item
+  SPGA Placement Programme
+\item
+  SPGA Exchange Programme
+\end{itemize}
+
+\href{https://careershub.city.ac.uk/s/resources}{Careers Hub} has
+everything you need to start your career journey. Each section has a
+list of key information for that topic and links to documents and
+websites on the subject.
+
+\href{https://careershub.city.ac.uk/students/events}{Careers Fairs and
+employer events}
+
+\href{https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme}{Micro-Placements}
+are an exciting way to gain professional experience via short summer
+placements with a wide range of UK-based employers for year 1 and 2 UG
+students. The deadline for application is usually in October.
+
+\href{https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme}{Professional
+Mentoring Scheme}: it's a six-month programme that pairs students with
+industry professionals in order to develop their skills, confidence and
+future employability. The deadline for application is 23:59, Sunday,
+October 6th, 2024.
+
+\href{https://www.unitemps.com/}{Unitemps}: City St George's in-house
+temporary jobs agency which offers part time paid temporary work in and
+around the University for students and graduates: You can sign up and
+apply for roles on the \href{https://www.unitemps.com/}{Unitemps
+website}.
+
+\href{https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme}{Student
+Ambassador scheme}: Develop your skills, make friends and earn some
+extra money by becoming a Student Ambassador at City St George's!
+
+\href{https://careershub.city.ac.uk/students/appointments/topics?campusId=704}{Book
+a Career appointment}: The best way to think about your career is in
+conversation with one of our expert career consultants. They can respond
+directly to your questions and concerns and help give you direction,
+even if you are not sure of exactly what career path you want to follow.
+
+\section{Other useful information}\label{other-useful-information}
+
+\href{https://www.city.ac.uk/about/vision-and-strategy/academic-excellence/education/academic-year-and-term-dates}{Term
+Dates}
+
+\href{https://studenthub.city.ac.uk/student-administration/registration}{Registration}
+- all new and returning students of City, University of London are
+required to register for their course each year. If you have any other
+questions regarding registration, please email the
+\href{mailto:registration@city.ac.uk}{Registration team} If you think
+you may be late completing registration and need more time, please
+contact the Course Officer for your course within your Department as
+this will need to be considered by your academic Course Director.
+
+\href{https://studenthub.city.ac.uk/student-administration/fees-and-finance}{Fees
+and Finance}- financial information for students who are studying at
+City St George's, University of London.
+
+\href{https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w}{Evision-Get
+Official Letters and Pay Fees}. You may need a proof of study letter for
+various things such as council tax exemption, registering with a doctors
+surgery, or even opening a student bank account. You can produce some of
+these documents yourselves by logging into Evision with their student
+details.
+
+\href{https://www.citysport.org.uk/}{CitySport} - manages the
+high-quality sport facilities at CitySport and deliver a range of
+health, fitness, and wellbeing initiatives across the University.
+\href{https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support}{Faith,
+belief and culture at City St George's}
+
+For International Students:
+
+\href{https://studenthub.city.ac.uk/help-and-support/your-health}{Health
+information}
+
+\href{https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students}{International
+Student \& Visa Advice}: advice and guidance to applicants and students
+on study-related visa and immigration issues.
+
+\href{https://studenthub.city.ac.uk/help-and-support}{Help and support
+\textbar{} Student Hub \textbar{} City, University of London}: You can
+find more information about student services.
+
+\section{Expected Behaviour in the
+Classroom}\label{expected-behaviour-in-the-classroom}
+
+\subsection{General conduct}\label{general-conduct}
+
+Behave professionally -- be punctual, engaged and nondisruptive in all
+teaching and learning sessions.
+
+Respect the physical and digital environment of the institution and our
+local community.
+
+Behave responsibly and respectfully.
+
+Be aware that people come from different backgrounds and cultures.
+
+Treat fellow students, staff and visitors with respect.
+
+Behave collaboratively and collegially in shared spaces -- classrooms,
+library, computer rooms and online spaces.
+
+\subsection{Attendance}\label{attendance}
+
+It is in your interests to attend; you will gain far more from your
+university experience if you attend classes and engage with your
+studies, your tutors and your classmates. There is clear evidence that
+those who attend classes get better results.
+
+It is also worth noting that your attendance / engagement record may be
+requested as part of a reference.
+
+Attendance at classes is monitored; both so that we can comply with UKVI
+requirements, for students on visas, and to help us identify students
+who may need support.
+
+We won't ask you to explain every absence but we will contact you if
+your attendance / engagement raises concerns about your wellbeing.
+Remember to take your student card to class so that you can `tap in'.
+
+Do not ``tap into'' a class and then leave before it begins or not long
+into it, just to get your attendance recorded. This disturbs classes and
+does not benefit you in any way. It is also dishonest.
+
+We conduct manual checks of electronic attendance records and, if you
+are found to be falsifying your record in this way, you could be subject
+to a disciplinary investigation.
+
+If you can't stay for the whole class, leave during the break, rather
+than disturbing others.
+
+Remember all lectures are recorded so, if you can't attend, you can
+watch it at a more convenient time.
+
+If you cannot attend a small group class for some good reason you should
+request to attend an alternative class, where this is available. Contact
+your lecturer or course office for more information.
+
+Arrive on time for all your scheduled classes. Be present and in a seat,
+ready to begin the class at the scheduled start time. If there is a
+break, return promptly.
+
+\textbf{If you are late:} enter as quietly as possible, and take the
+closest available seat so that you minimise the disturbance to others.
+
+In a lecture theatre, use the rear entrance, where available.
+
+\section{Classroom engagement}\label{classroom-engagement}
+
+Prepare the work set.
+
+Whether this is reading and / or carrying out specific exercises, if you
+have not prepared you will not get the full benefit from the class.
+
+Being prepared benefits your group; for example, ensuring there is
+active discussion; or that you all play your part in the skills based
+classes.
+
+If you cannot prepare, for some good reason, you should let your tutor
+know. This may prevent you from being put on the spot when called upon
+to answer a question which you do not know the answer to.
+
+Engage with the class by:
+
+\begin{itemize}
+\item
+  Taking part in any polls or quizzes / questions set by the tutor.
+\item
+  Taking an active part in the smaller group classes. Join in with group
+  discussions; answer the questions asked of you; listen and pay
+  attention.
+\end{itemize}
+
+If you were not able to prepare fully, or at all, pay close attention;
+answer or discuss any aspect you are able to. Often you will find you
+can take a more active part than you thought.
+
+Don't talk during class, unless you are participating in the class. This
+is a distraction to other students who want to listen to the class and
+gain the benefit from it. You will not learn from the class if you're
+talking about something else.
+
+\subsection{Email communication}\label{email-communication}
+
+Email is our primary means of communication with you; make sure you
+check your City St George's email several times a day, especially first
+thing in the morning, in case there are any last minute changes to your
+timetable due to staff illness.
+
+Remember that email is a formal means of communication: Address all
+members of our community politely and formally. When emailing City St
+Georges staff, please include your student ID, course name and subject
+of query, this helps us to find you on the system and resolve your query
+quickly.
+
+Do not say something in an email or message that you would not say to
+that person's face, or in a way that you would not want to be addressed
+yourself.
+
+Remember that humour or sarcasm can easily be misunderstood, especially
+when not accompanied by facial expressions or body language.
+
+Remember that most staff work 9-5 Monday-Friday so you are should not
+expect to receive a response outside these times.
+
+
+
+
+\end{document}

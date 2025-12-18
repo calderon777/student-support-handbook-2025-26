@@ -1,0 +1,994 @@
+---
+title: "77 Links for Student Support & Experience"
+subtitle: "Department of Economics"
+description: "Design and updates: camilo.calderon@city.ac.uk.<br><br>Resources and guidance for students. Useful information and links for all students."
+format:
+  html:
+    embed-resources: true
+    toc: false
+    number-sections: false
+  pdf:
+    toc: false
+---
+
+
+
+```{=html}
+<!-- Consolidated tiles index inserted after the main title. Groups tiles by subsection headings (h2) and hides them in print. -->
+<style>
+  /* hide left-hand sidebar and add 1cm left/right page padding */
+  #quarto-margin-sidebar, .sidebar.margin-sidebar { display: none !important; }
+  #quarto-content { grid-template-columns: 1fr !important; padding-left: 1cm; padding-right: 1cm; box-sizing: border-box; }
+  main.content { width: 100% !important; max-width: none !important; margin-left: 0 !important; }
+
+  /* Increase spacing before each main subsection */
+  section.level1 { margin-top: 2.25rem; }
+  section.level1 > h1 { margin-top: 0.25rem; }
+  .quarto-tiles-index { margin: 1.25rem 0 1.75rem; }
+  .quarto-tiles-index .tiles-group { margin-top: 1.25rem; margin-bottom: 0.75rem; }
+  .quarto-tiles-index .group-title { font-weight:700; margin:0.5rem 0 0.35rem; }
+  .quarto-tiles-grid { display: grid; gap: 0.5rem; grid-template-columns: repeat(1, 1fr); margin: 0.5rem 0; }
+  @media (min-width: 576px) { .quarto-tiles-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 768px) { .quarto-tiles-grid { grid-template-columns: repeat(5, 1fr); } }
+  .quarto-tiles-grid .tile-card { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0.75rem; min-height:68px; border-radius:10px; border:1.3px solid rgba(0,0,0,0.08); background:#fff; text-align:center; color:inherit; text-decoration:none }
+  .quarto-tiles-grid .tile-card { position:relative; padding-top:1rem; padding-left:2.25rem; text-align:left; }
+  .quarto-tiles-grid .tile-card .tile-icon{ position:absolute; top:0.5rem; left:0.6rem; font-size:24px; color:#0b66a0; }
+
+  @media (max-width:575px) {
+    .quarto-tiles-grid .tile-card { padding-left:1rem; }
+    .quarto-tiles-grid .tile-card .tile-icon{ left:0.5rem; }
+  }
+  .quarto-tiles-grid .tile-label{ font-size:0.95rem; margin:0; }
+  .quarto-tiles-grid .tile-card.tile-important { border-color: rgba(200,30,45,0.18); background: linear-gradient(180deg, rgba(255,240,240,0.6), rgba(255,255,255,0.0)); }
+  .quarto-tiles-grid .tile-card.tile-important .tile-icon { color: #c82333; }
+  .quarto-tiles-grid .tile-card:focus-visible{ outline:3px solid #0b66a0; box-shadow:0 8px 20px rgba(11,102,160,0.12) }
+  .quarto-tiles-grid .tile-card { transition: transform 180ms ease, box-shadow 180ms ease; cursor: pointer; will-change: transform; }
+  .quarto-tiles-grid .tile-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(11,102,160,0.14); }
+  @media print { .quarto-tiles-index, .quarto-tiles-grid { display:none !important } }
+  /* email badge: small @ overlay on person icon */
+  .quarto-tiles-grid .tile-icon--email{ position: absolute; }
+  .quarto-tiles-grid .tile-icon--email::after{
+    content: "@";
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #fff;
+    color: #c82333;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+  function buildTilesIndex() {
+    try {
+      const main = document.querySelector('main.content') || document;
+      const mainTitle = main.querySelector('h1') || document.querySelector('h1');
+      if (!mainTitle) return;
+
+      // remove any existing index
+      const old = main.querySelector('.quarto-tiles-index'); if (old) old.remove();
+
+      // collect headings (skip the main title)
+      const allHeadings = Array.from(main.querySelectorAll('h1,h2'));
+      const headings = allHeadings.filter(h => h !== mainTitle);
+
+      const index = document.createElement('div'); index.className = 'quarto-tiles-index';
+      const seen = new Set();
+
+      headings.forEach(heading => {
+        // gather anchors from nodes until next h1/h2
+        const items = [];
+        let node = heading.nextSibling;
+        while (node && !(node.nodeType === 1 && (node.matches('h1') || node.matches('h2')))) {
+          if (node.nodeType === 1) {
+            Array.from(node.querySelectorAll('a[href]')).forEach(a => {
+              const href = (a.href || a.getAttribute('href') || '').trim();
+              if (!href || href.startsWith('#')) return;
+              if (seen.has(href)) return; // global dedupe: show each service only once
+              seen.add(href);
+              const raw = (a.textContent || a.getAttribute('title') || href).trim();
+              const label = raw.length > 60 ? raw.slice(0,57).trim() + '…' : raw;
+              items.push({ href, label });
+            });
+          }
+          node = node.nextSibling;
+        }
+
+        if (items.length > 0) {
+          const group = document.createElement('div'); group.className = 'tiles-group';
+          const gt = document.createElement('div'); gt.className = 'group-title'; gt.textContent = heading.textContent.trim(); group.appendChild(gt);
+          const grid = document.createElement('div'); grid.className = 'quarto-tiles-grid';
+          // choose a semantic icon for each tile based on label or href
+          function chooseImportant(text, href) {
+            const s = (text + ' ' + (href || '')).toLowerCase();
+            const keywords = ['exam','examination','timetable','registration','evision','extension','extenuating','support@city','support','funding','fees','accommodation','health','wellbeing','attendance','seats','urgent'];
+            return keywords.some(k => s.includes(k));
+          }
+
+          // ---- Explicit per-tile icon overrides (exact label match) ----
+// Add/modify entries to force a specific icon for a specific tile label.
+// Uses Bootstrap Icons (https://icons.getbootstrap.com/) classes like 'bi-calendar3'.
+const ICON_EXACT_MAP = {
+  // Already agreed / good
+  "Term Dates": "bi-calendar3",
+  "Timetable Information": "bi-calendar3",
+  "Examination Timetable": "bi-clock",
+  "Extensions": "bi-file-earmark-text",
+  "Academic Misconduct": "bi-shield-exclamation",
+  "Student Appeals": "bi-clipboard-check",
+  "Student Union Advise & Support": "bi-people",
+  "Library": "bi-book",
+
+  // Fix obvious mismatches
+  "SEAtS Mobile app": "bi-phone",
+  "Student Health & Wellbeing e-Referral": "bi-heart-pulse",
+  "Student Support Hub Advisers": "bi-person-lines-fill",
+  "The Student Support Hub": "bi-building",
+
+  // Authorised absence forms
+  "PG online Authorised Absence form": "bi-calendar-check",
+  "Authorised Absence for Research students via Research Man…": "bi-calendar-check",
+
+  // Buddying / mentoring
+  "CityBuddy": "bi-people",
+  "Apply to get a mentor that will be your personal guide to…": "bi-person-plus",
+
+  // Core support areas
+  "Accommodation": "bi-house-door",
+  "Uni Cares": "bi-life-preserver",
+  "International Student & Visa Advice": "bi-globe2",
+  "Student Funding": "bi-cash-coin",
+  "School Student Welfare teams": "bi-heart",
+
+  // Study support / skills
+  "Academic English support": "bi-chat-text",
+  "Academic Skills": "bi-mortarboard",
+  "Digital Skills": "bi-laptop",
+
+  // Student Hub catch-all
+  "Help and support | Student Hub | City, University of London": "bi-question-circle",
+
+  // SU / reps / nominations
+  "the nomination form": "bi-pencil-square",
+
+  // Careers / mentoring
+  "Professional Mentoring Scheme": "bi-person-badge",
+
+  // Faith & culture
+  "Faith, belief and culture at City St George’s": "bi-people",
+
+  // Staff resources
+  "Toolkit for Supporting Students": "bi-tools",
+  "personal tutors": "bi-person-workspace",
+
+  // E-learning / teaching resources
+  "Staff Supporting Students": "bi-play-circle",
+  "Managers Supporting Staff": "bi-play-circle",
+  "Risks and Crises": "bi-shield-exclamation",
+  "including Powerpoint slides to incorporate into Induction…": "bi-easel2"
+};
+
+// ---------------------------------------------------------------
+
+            function chooseIconClass(text, href) {
+            const k = (text || '').trim();
+            if (ICON_EXACT_MAP[k]) return ICON_EXACT_MAP[k];
+            const s = (text + ' ' + (href || '')).toLowerCase();
+            // more specific matches first to reduce reuse
+            if (s.includes('youtube.com') || s.includes('youtube')) return 'bi-youtube';
+            if (s.includes('instagram.com') || s.includes('instagram')) return 'bi-instagram';
+            if (s.includes('progression') || s.includes('award') || s.includes('awards')) return 'bi-trophy';
+            if (s.includes('term dates') || s.includes('term date') || (s.includes('term') && s.includes('dates'))) return 'bi-calendar3';
+            if (s.includes('timetable') || s.includes('mytimetable') || s.includes('calendar')) return 'bi-calendar3';
+            if (s.includes('examin') || s.includes('exam')) return 'bi-clock';
+            if (s.includes('extension') || s.includes('extensions') || s.includes('late submission')) return 'bi-file-earmark-text';
+            if (s.includes('count me in') || s.includes('attendance') || s.includes('seats')) return 'bi-check2-square';
+            if (s.includes('getheard') || s.includes('get heard') || s.includes('feedback') || s.includes('voice') || s.includes('unitu')) return 'bi-megaphone';
+            if (s.includes('citynav') || s.includes('city nav') || s.includes('map') || s.includes('nav')) return 'bi-compass';
+            if (s.includes('study spaces') || s.includes('library') || s.includes('libguides')) return 'bi-book';
+            if (s.includes('student guides') || s.includes('educational technology') || s.includes('educational') || s.includes('technology')) return 'bi-laptop';
+            if (s.includes('appsanywhere') || s.includes('apps anywhere') || s.includes('appsanywhere') || s.includes('apps anywhere')) return 'bi-box-seam';
+            if (s.includes('careers') || s.includes('employability') || s.includes('jobs') || s.includes('unitemps')) return 'bi-briefcase';
+            if (s.includes('union') || s.includes('students union') || s.includes('csgsu')) return 'bi-people';
+            if (s.includes('misconduct') || s.includes('academic misconduct')) return 'bi-shield-exclamation';
+            if (s.includes('appeal') || s.includes('appeals')) return 'bi-file-earmark-text';
+            if (s.includes('progression') || s.includes('award') || s.includes('awards')) return 'bi-trophy';
+            if (s.includes('reportandsupport') || s.includes('report+support') || (s.includes('report') && s.includes('support'))) return 'bi-shield-lock';
+            if (s.includes('stay city safe') || s.includes('stay city') || s.includes('stay-city')) return 'bi-shield-check';
+            if (s.includes('citysport') || s.includes('sport') || s.includes('sports')) return 'bi-trophy';
+            if (s.includes('registration') || s.includes('register')) return 'bi-person-badge';
+            if (s.includes('fee') || s.includes('finance') || s.includes('fees')) return 'bi-wallet2';
+            if (s.includes('evision')) return 'bi-person-badge';
+            if (s.includes('it') || s.includes('it service') || s.includes('helpdesk') || s.includes('service now')) return 'bi-laptop';
+            if (s.includes('support@city') || s.includes('support hub') || s.includes('create-case') || s.includes('support.city')) return 'bi-headset';
+            if (s.includes('health') || s.includes('wellbeing') || s.includes('mental') || s.includes('togetherall')) return 'bi-heart';
+            return 'bi-link-45deg';
+          }
+
+          items.forEach(it => {
+            const tile = document.createElement('a'); tile.className = 'tile-card'; tile.href = it.href; tile.target = '_blank'; tile.rel = 'noopener noreferrer'; tile.setAttribute('aria-label', it.label);
+            // mark important tiles
+            if (chooseImportant(it.label, it.href)) tile.classList.add('tile-important');
+            const icon = document.createElement('i');
+            const iconClass = chooseIconClass(it.label, it.href);
+            const emailRegex = /\S+@\S+\.\S+/;
+            const isEmail = (it.href && it.href.startsWith('mailto:')) || emailRegex.test(it.href) || emailRegex.test(it.label);
+            if (isEmail) {
+              icon.className = 'tile-icon bi bi-person tile-icon--email';
+            } else {
+              icon.className = 'tile-icon bi ' + iconClass;
+            }
+            icon.setAttribute('aria-hidden', 'true');
+            const txt = document.createElement('div'); txt.className = 'tile-label'; txt.textContent = it.label;
+            tile.appendChild(icon); tile.appendChild(txt); grid.appendChild(tile);
+          });
+          group.appendChild(grid); index.appendChild(group);
+        }
+      });
+
+      // insert after the title description (so credit + instructions stay above tiles)
+var desc = document.querySelector('#title-block-header .description');
+var subtitle = main.querySelector('.subtitle, .quarto-subtitle, h2.subtitle, p.subtitle, .page-subtitle');
+
+var insertAfter =
+  (desc && desc.textContent && desc.textContent.trim()) ? desc :
+  ((subtitle && subtitle.textContent && subtitle.textContent.trim()) ? subtitle : mainTitle);
+
+insertAfter.insertAdjacentElement('afterend', index);
+    } catch (e) { console.error('Tiles index generator error', e); }
+  }
+
+  if (ENABLE_DYNAMIC_TILES) {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildTilesIndex); else buildTilesIndex();
+  }
+})();
+</script>
+```
+
+
+
+
+<!-- Static tiles index (SharePoint-safe: no JS required) -->
+<div class="quarto-tiles-index" id="quarto-tiles-index-static">
+<div class="tiles-group">
+  <div class="group-title">Assessment &amp; Timetable Information</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://mytimetable.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
+  <div class="tile-label">Timetable Information</div>
+</a>
+<a class="tile-card" href="https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-phone"></i></span>
+  <div class="tile-label">SEAtS Mobile app</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/timetabling-term-dates-exams/exams/exam-timetable" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-clock"></i></span>
+  <div class="tile-label">Examination Timetable</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
+  <div class="tile-label">Extensions</div>
+</a>
+<a class="tile-card" href="https://evision.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-badge"></i></span>
+  <div class="tile-label">eVision for Extenuating Circumstances</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/academic-integrity-and-misconduct" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-exclamation"></i></span>
+  <div class="tile-label">Academic Misconduct</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/extenuating-circumstances-complaints-appeals" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-clipboard-check"></i></span>
+  <div class="tile-label">Student Appeals</div>
+</a>
+<a class="tile-card" href="https://csgsu.co.uk/advice-and-support" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Student Union Advise &amp; Support</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
+  <div class="tile-label">Progression and Awards</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
+  <div class="group-title">Key Economics Staff for Student Support</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="mailto:econ-y1-tutor@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Personal Tutor Year 1</div>
+</a>
+<a class="tile-card" href="mailto:econ-y2-tutor@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Personal Tutor Year 2</div>
+</a>
+<a class="tile-card" href="mailto:econ-y3-tutor@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Personal Tutor Year 3</div>
+</a>
+<a class="tile-card" href="mailto:pipat.wongsa-art@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">UG Programmes Director</div>
+</a>
+<a class="tile-card" href="mailto:lena.hassani-nezhad@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Personal Tutor &amp; PG Director</div>
+</a>
+<a class="tile-card" href="mailto:economics.ug@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Course Officers UG</div>
+</a>
+<a class="tile-card" href="mailto:pgspga@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Course Officers PG</div>
+</a>
+<a class="tile-card" href="mailto:camilo.calderon@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Student Experience Director</div>
+</a>
+<a class="tile-card" href="mailto:panagiotis.giannarakis@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Head of Education</div>
+</a>
+<a class="tile-card" href="https://outlook.office365.com/book/SchoolofPolicyandGlobalAffairsStudentWellbeingSupport@cityuni.onmicrosoft.com/?ae=true&amp;ismsaljsauthenabled=true" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">SPGA Student Wellbeing Support</div>
+</a>
+<a class="tile-card" href="https://support.city.ac.uk/create-case/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Support@City</div>
+</a>
+<a class="tile-card" href="https://support.city.ac.uk/eReferral/?_gl=1%2A1yf5nzx%2A_gcl_au%2AMTUzMzI5MTY4Ny4xNzQ4NjAxODEy%2A_ga%2ANzcwMjIyODIzLjE3NDA2NTA3Mjg.%2A_ga_YLSK0292X4%2AczE3NTU1OTIyOTkkbzM2MiRnMSR0MTc1NTU5NDg4MCRqMzYkbDAkaDA." target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-heart-pulse"></i></span>
+  <div class="tile-label">Student Health &amp; Wellbeing e-Referral</div>
+</a>
+<a class="tile-card" href="https://outlook.office365.com/book/StudentHealthWellbeing@cityuni.onmicrosoft.com/s/fmv9wdkSi0m08PSZBNQghg2?ismsaljsauthenabled=true" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Student Health &amp; Wellbeing</div>
+</a>
+<a class="tile-card" href="https://cityunilondon.eu.qualtrics.com/jfe/form/SV_5hzQmuXfZBM5plk" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar-check"></i></span>
+  <div class="tile-label">PG online Authorised Absence form</div>
+</a>
+<a class="tile-card" href="https://researchmanager.city.ac.uk/do/city-login/login" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Authorised Absence for Research students via Research Manager</div>
+</a>
+<a class="tile-card" href="https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">Attendance and Engagement</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
+  <div class="group-title">Student Support services</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://libraryservices.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-book"></i></span>
+  <div class="tile-label">Library</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/information-technology/citynav" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-compass"></i></span>
+  <div class="tile-label">Study Spaces</div>
+</a>
+<a class="tile-card" href="https://www.city.ac.uk/itservicedesk" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">service now</div>
+</a>
+<a class="tile-card" href="https://city-uk-ett.libguides.com/student" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-book"></i></span>
+  <div class="tile-label">Student Guides to Educational Technology</div>
+</a>
+<a class="tile-card" href="https://buddy.city.ac.uk/apply/mentee/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">CityBuddy</div>
+</a>
+<a class="tile-card" href="https://cityunilondon.eu.qualtrics.com/jfe/form/SV_9M41s2FmiwmYVM2" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Apply to get a mentor</div>
+</a>
+<a class="tile-card" href="https://support.city.ac.uk/create-case/?_gl=1%2asv17k1%2a_ga%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.%2a_ga_YLSK0292X4%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Support@City</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-house-door"></i></span>
+  <div class="tile-label">Accommodation</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/city-cares" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-life-preserver"></i></span>
+  <div class="tile-label">Uni Cares</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-globe2"></i></span>
+  <div class="tile-label">International Student &amp; Visa Advice</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/student-funding" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-cash-coin"></i></span>
+  <div class="tile-label">Student Funding</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Student Health &amp; Wellbeing</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/support-within-your-school" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-heart"></i></span>
+  <div class="tile-label">School Student Welfare teams</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-lines-fill"></i></span>
+  <div class="tile-label">Student Support Hub Advisers</div>
+</a>
+<a class="tile-card" href="https://www.city.ac.uk/about/facilities/specialist-facilities/student-support-hub" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-building"></i></span>
+  <div class="tile-label">The Student Support Hub</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/english-for-academic-purposes" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-chat-text"></i></span>
+  <div class="tile-label">Academic English support</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-mortarboard"></i></span>
+  <div class="tile-label">Academic Skills</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/careers-and-employability" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Careers &amp; Employability</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/studying-online/digital-skills-and-support" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Digital Skills</div>
+</a>
+<a class="tile-card" href="https://studentcommunications.newsweaver.com/1w52bcjsfr/18i0udma1fv/external?a=6&amp;p=4118384&amp;t=27571" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-box-seam"></i></span>
+  <div class="tile-label">AppsAnywhere</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students/responsibilities" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-globe2"></i></span>
+  <div class="tile-label">International Student &amp; Visa Advice</div>
+</a>
+<a class="tile-card" href="https://studenthub.citystgeorges.ac.uk/student-support-services/it-services" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">IT Service Desk</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing/togetherall" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Togetherall</div>
+</a>
+<a class="tile-card" href="https://reportandsupport.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-lock"></i></span>
+  <div class="tile-label">The Report+Support platform</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/stay-city-safe" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-check"></i></span>
+  <div class="tile-label">Stay City Safe</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/__data/assets/pdf_file/0006/814416/3748-Stay-City-Safe-booklet-AL1i-digital-1.pdf" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-check"></i></span>
+  <div class="tile-label">Your guide to staying safe in London</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
+  <div class="group-title">Students Union</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://www.csgsu.co.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Student’s Union</div>
+</a>
+<a class="tile-card" href="https://csgsu.co.uk/explore-and-join/societies" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Student Societies</div>
+</a>
+<a class="tile-card" href="https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Start a new society</div>
+</a>
+<a class="tile-card" href="https://events.csgsu.co.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">SU Events</div>
+</a>
+<a class="tile-card" href="https://csgsu.co.uk/sports" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Sports</div>
+</a>
+<a class="tile-card" href="https://csgsu.co.uk/advice-and-support/finances" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Short Term Loans</div>
+</a>
+<a class="tile-card" href="https://csgsu.co.uk/your-voice/programme-and-year-representatives" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-megaphone"></i></span>
+  <div class="tile-label">Programme rep training</div>
+</a>
+<a class="tile-card" href="https://city.unitu.co.uk/Account/Login" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-megaphone"></i></span>
+  <div class="tile-label">GetHeard@City</div>
+</a>
+<a class="tile-card" href="https://forms.office.com/e/6MEdG2EStU" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-link-45deg"></i></span>
+  <div class="tile-label">Programme Rep nomination form</div>
+</a>
+<a class="tile-card" href="studentrep@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Questions about Reps</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
+  <div class="group-title">Careers and Employability</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-Employability-Economics/SitePages/LearningTeamHome.aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Employability Economics</div>
+</a>
+<a class="tile-card" href="https://careershub.city.ac.uk/s/resources" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Careers Hub</div>
+</a>
+<a class="tile-card" href="https://careershub.city.ac.uk/students/events" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Careers Fairs and employer events</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Micro-Placements</div>
+</a>
+<a class="tile-card" href="https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-badge"></i></span>
+  <div class="tile-label">Professional Mentoring Scheme</div>
+</a>
+<a class="tile-card" href="https://www.unitemps.com/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Unitemps</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Student Ambassador scheme</div>
+</a>
+<a class="tile-card" href="https://careershub.city.ac.uk/students/appointments/topics?campusId=704" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+  <div class="tile-label">Book a Career appointment</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
+  <div class="group-title">Other useful information</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://www.city.ac.uk/about/vision-and-strategy/academic-excellence/education/academic-year-and-term-dates" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
+  <div class="tile-label">Term Dates</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/student-administration/registration" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-badge"></i></span>
+  <div class="tile-label">Registration</div>
+</a>
+<a class="tile-card" href="mailto:registration@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Registration team</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/student-administration/fees-and-finance" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-wallet2"></i></span>
+  <div class="tile-label">Fees and Finance</div>
+</a>
+<a class="tile-card" href="https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-wallet2"></i></span>
+  <div class="tile-label">Evision-Get Official Letters and Pay Fees</div>
+</a>
+<a class="tile-card" href="https://www.citysport.org.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-trophy"></i></span>
+  <div class="tile-label">CitySport</div>
+</a>
+<a class="tile-card" href="https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">Faith, belief and culture at City St George’s</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/your-health" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Health information</div>
+</a>
+<a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-question-circle"></i></span>
+  <div class="tile-label">Help and support | Student Hub | City, University of London</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
+  <div class="group-title">Resources for staff</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-tools"></i></span>
+  <div class="tile-label">Toolkit for Supporting Students</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-workspace"></i></span>
+  <div class="tile-label">personal tutors</div>
+</a>
+<a class="tile-card" href="https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Wellbeing &amp; Mental Health E-Learning</div>
+</a>
+<a class="tile-card" href="https://elearning.charliewaller.org/course-details/681ed6fc-46e1-4753-8a18-21063ad94f1f" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-play-circle"></i></span>
+  <div class="tile-label">Staff Supporting Students</div>
+</a>
+<a class="tile-card" href="https://elearning.charliewaller.org/course-details/630cf33e-725b-4d3e-948e-2fcd279e400d" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-play-circle"></i></span>
+  <div class="tile-label">Managers Supporting Staff</div>
+</a>
+<a class="tile-card" href="https://elearning.charliewaller.org/course-details/655f3612-b251-4001-a3a1-5d9106e67491" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-heart"></i></span>
+  <div class="tile-label">Wellbeing Strategies</div>
+</a>
+<a class="tile-card" href="https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-exclamation"></i></span>
+  <div class="tile-label">Risks and Crises</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&amp;parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">Attendance and Engagement Monitoring</div>
+</a>
+<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">SEAtS</div>
+</a>
+<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/5u2ufkq6fke1ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">find out more about SEAtS attendance and monitoring training here</div>
+</a>
+<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/jigmhvwn6171ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub</div>
+</a>
+  </div>
+</div>
+</div>
+
+
+# Assessment & Timetable Information
+
+[Timetable Information](https://mytimetable.city.ac.uk/)
+
+[SEAtS Mobile app](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in): view your timetable and keep track of your attendance
+
+[Examination Timetable](https://studenthub.city.ac.uk/timetabling-term-dates-exams/exams/exam-timetable): assessment dates will be also available within your Moodle Module pages, and exam dates can also be on this link.
+
+[Extensions](https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx): can be used when you need up to 1 week extra to complete coursework.
+
+[Extenuating Circumstances](https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx): can be used when you cannot take an examination or assessment by the time of the deadline. This means you apply for a deferment of the assessment to the next available assessment period (normally, that would be the resit period in summer).  
+
+[eVision for Extenuating Circumstances](https://evision.city.ac.uk/): Apply for Extenuating Circumstances via no eVision no later than 7 days after your assessment deadline.
+
+Late submission policy for coursework: Any work that is submitted more than 1 minute past the deadline but within 48 hours will have 10 marks deducted as a penalty. Work submitted after 48 hours will receive a zero.
+
+[Academic Misconduct](https://studenthub.city.ac.uk/help-and-support/academic-integrity-and-misconduct): any action that produces or seeks to produce an improper advantage for you in relation to your assessment(s) or deliberately and unnecessarily disadvantages other students. It includes, but it is not limited to plagiarism, collusion and contract cheating.
+
+[Student Appeals](https://studenthub.city.ac.uk/help-and-support/extenuating-circumstances-complaints-appeals): The appeals process is intended for the very rare cases where no resolution or remedy was possible at an earlier stage (i.e. prior to the Assessment Board approving the results of taught students or a decision being made regarding the registration status or examination results of research students).
+
+[Student Union Advise & Support](https://csgsu.co.uk/advice-and-support): you can contact the Student Union for advise and support, contact the union to make an appointment.
+
+[Progression and Awards](https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards): important information about your assessment results, your programme and the support available to you and details of the timescales if you want to make an appeal.
+
+# Key  Economics Staff for Student Support
+
+**Your Module Leader** is the first point of contact for any queries about the content or organisation of the module you are studying. you can also book a meeting with a Module Leader during their designated ‘office hours’. Module leader details are available in Moodle.
+
+**Your Personal Tutor** acts as a mentor and guide you to any support you may need. You can talk to your personal tutor about any struggles with your studies and personal life. Your personal tutor also can refer you to the University’s more specialised services for academic, mental health and wellbeing support. You can discuss your career aspirations with your personal tutor and receive advice on how to plan your studies accordingly.
+
+[Personal Tutor Year 1](mailto:econ-y1-tutor@city.ac.uk): Dr Seefat-E-Rabbi Khan
+
+[Personal Tutor Year 2](mailto:econ-y2-tutor@city.ac.uk): P Klaus Zauner
+
+[Personal Tutor Year 3](mailto:econ-y3-tutor@city.ac.uk): P Keith Pilbeam
+
+[UG Programmes Director](mailto:pipat.wongsa-art@city.ac.uk): Dr Wongsa Pipat 
+
+[Personal Tutor & PG Director](mailto:lena.hassani-nezhad@city.ac.uk): Dr lena.hassani-nezhad@city.ac.uk
+
+[Course Officers UG](mailto:economics.ug@city.ac.uk) and [Course Officers PG](mailto:pgspga@city.ac.uk); or visit the Course Office information desk in Room A129, College Building (Monday–Friday, 10:00 AM–5:00 PM).Course Officers handle the course and official records of students, including:
+
+- Moodle page enrolment
+- Programme or module changes
+- timetabling clashes
+- how to submit an assessment
+- grades releases.
+- advice on extensions
+- submitting an Extenuating circumstance.
+- Suspension and interruption of studies
+
+[Student Experience Director](mailto:camilo.calderon@city.ac.uk):  Dr Camilo Calderon. The Student Experience Director has an overview of all operational issues concerning your experience at the University. They also act as a second point of contact in case you cannot reach to your Personal Tutor.
+
+[Head of Education](mailto:panagiotis.giannarakis@city.ac.uk): Dr Panagiotis Giannarakis
+
+[eVision for Personal Tutor contact](https://evision.city.ac.uk/): How to contact:   Details of student Personal Tutors will be available on Evision.
+
+**Student Welfare and Engagement Officers** are your first points of contact for any wellbeing or student experience related issues. Some topics which students discuss with Student Engagement Officers can include, but are not limited to; stress and anxiety, general wellbeing issues, financial stress, challenging living environments, time-consuming work or caring commitments, and disabilities. Based on the topic either a Student Welfare or Student Engagement Officer will reply to your query and provide advice on how you can best access the support services available to you at the University. They may also suggest that you meet with them so they can get more details on the support you need. 
+
+[SPGA Student Wellbeing Support](https://outlook.office365.com/book/SchoolofPolicyandGlobalAffairsStudentWellbeingSupport@cityuni.onmicrosoft.com/?ae=true&ismsaljsauthenabled=true)
+
+[Support@City](https://support.city.ac.uk/create-case/): Log a case here for support.
+
+[Student Health & Wellbeing e-Referral](https://support.city.ac.uk/eReferral/?_gl=1%2A1yf5nzx%2A_gcl_au%2AMTUzMzI5MTY4Ny4xNzQ4NjAxODEy%2A_ga%2ANzcwMjIyODIzLjE3NDA2NTA3Mjg.%2A_ga_YLSK0292X4%2AczE3NTU1OTIyOTkkbzM2MiRnMSR0MTc1NTU5NDg4MCRqMzYkbDAkaDA.): If you are experiencing mental health Issues or have a diagnosed mental health condition or disability it is important that you register with the Student Mental Health Services, even if you are currently receiving support externally. The Student Mental Health Service can put in place an individualized Student Support Plan with reasonable adjustments recommendations.  You can complete an e-Referral to the Student Health & Wellbeing service.
+
+[Student Health & Wellbeing](https://outlook.office365.com/book/StudentHealthWellbeing@cityuni.onmicrosoft.com/s/fmv9wdkSi0m08PSZBNQghg2?ismsaljsauthenabled=true): if you would prefer to meet with a Student Health and Wellbeing Engagement Advisor.
+
+If you are unable to attend classes for more than seven calendar days due to extenuating circumstances, you may request an Authorised Absence. If approved, the period covered will be formally excluded from your attendance calculations. Absences of seven days or fewer do not require formal approval. How to apply:
+
+[UG Authorised Absence form via SEAtS Mobile App](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in).
+
+[PG online Authorised Absence form](https://cityunilondon.eu.qualtrics.com/jfe/form/SV_5hzQmuXfZBM5plk)
+
+[Authorised Absence for Research students via Research Manager](https://researchmanager.city.ac.uk/do/city-login/login).
+
+[Attendance and Engagement](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement): Further guidance on managing absences, including eligibility and evidence requirements, is available on the Student   Hub page.
+
+# Student Support services
+
+[Library](https://libraryservices.city.ac.uk/): provides printed resources, study spaces (for group study, quiet study and individual silent study), networked PCs and wi-fi across five levels.
+
+[Study Spaces](https://studenthub.city.ac.uk/information-technology/citynav): these spaces include quiet areas for focused work, silent study zones, and more social spaces for collaborative learning.
+
+[CityNav](https://studenthub.city.ac.uk/information-technology/citynav): hor more information on where to find these Study Spaces.
+
+## IT support
+
+[service now](https://www.city.ac.uk/itservicedesk): If students experience IT issues, a ticket can be logged on this link.
+
+Alternatively, students can call the IT help desk on 0207 040 8181 or visit the IT help desk in person where they can help with issues such as wi-fi access etc. The helpdesk in located in University Building.
+
+[Student Guides to Educational Technology](https://city-uk-ett.libguides.com/student): guidance on the use of educational technology at City St Georges, such as Moodle, Microsoft teams, etc., is available here.
+
+[CityBuddy](https://buddy.city.ac.uk/apply/mentee/) is a second- or third-year student who will mentor a first-year student on their course. They are there to show new students all that City has to offer; answer any questions they may have and provide a valuable insight into studying on the course. 
+
+[Apply to get a mentor](https://cityunilondon.eu.qualtrics.com/jfe/form/SV_9M41s2FmiwmYVM2)
+
+[Support@City](https://support.city.ac.uk/create-case/?_gl=1%2asv17k1%2a_ga%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.%2a_ga_YLSK0292X4%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w): it's the online system allowing students to submit and track their queries through a dedicated portal. The platform brings together many of City St George’s student support services in a secure portal to better understand and address students' needs. 
+
+The system includes the following teams:
+
+[Accommodation](https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub)
+
+[Uni Cares](https://studenthub.city.ac.uk/help-and-support/city-cares): City's dedicated support network for care-experienced students, young adult carers, young estranged students, refugees and asylum seekers.
+
+[International Student & Visa Advice](https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students)
+
+[Student Funding](https://studenthub.city.ac.uk/help-and-support/student-funding)
+
+[Student Health & Wellbeing](https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing)
+
+[School Student Welfare teams](https://studenthub.city.ac.uk/help-and-support/support-within-your-school)
+
+[Student Support Hub Advisers](https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team)
+
+[The Student Support Hub](https://www.city.ac.uk/about/facilities/specialist-facilities/student-support-hub): located in Level 1, Drysdale Building, it's designed to provide in-person access to a wide range of essential student support services. The Student Support Hub will operate from 9:00am to 6:30pm during term time. 
+
+Along with general enquiries, you can visit the following support services:
+
+[Academic English support](https://studenthub.city.ac.uk/help-and-support/english-for-academic-purposes): academic writing and English language support for international students and for students whose first language is not English.
+
+[Academic Skills](https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills): runs workshops, webinars and one-to-one support sessions to help you to become a more effective learner.
+
+[Accommodation](https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub): can help with the application process, any queries regarding the rooms, halls, fees and contracts, support if you are looking for accommodation during the academic year, viewing halls and much more.
+
+[Careers & Employability](https://studenthub.city.ac.uk/careers-and-employability): encompass careers, employability, and student development activities, including careers resources and appointments, skills sessions, employer events, community volunteering, professional mentoring, the Micro-Placement Programme and the City Buddies scheme.
+
+[Uni Cares](https://studenthub.city.ac.uk/help-and-support/city-cares): City's dedicated support network for care-experienced students, young adult carers, young estranged students, refugees and asylum seekers.
+
+[Digital Skills](https://studenthub.city.ac.uk/help-and-support/studying-online/digital-skills-and-support): supports you to effectively use digital technologies and incorporate them into your learning, student experience and employability.
+
+[Student Guides to Educational Technology](https://city-uk-ett.libguides.com/student): guidance on the use of educational technology at City St Georges, such as Moodle, Microsoft Teams, and other learning tools.
+
+[AppsAnywhere](https://studentcommunications.newsweaver.com/1w52bcjsfr/18i0udma1fv/external?a=6&p=4118384&t=27571): a platform where you can access many City St George's applications remotely.
+
+[International Student & Visa Advice](https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students/responsibilities): provides confidential advice and guidance to applicants and students on study-related visa and immigration issues.
+
+[IT Service Desk](https://studenthub.citystgeorges.ac.uk/student-support-services/it-services): is the first point of contact for all IT queries.
+
+[Student Funding](https://studenthub.city.ac.uk/help-and-support/student-funding): provides advice on student funding available to support your studies at City.
+
+[Student Health & Wellbeing](https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing): provides practical, emotional and specialist disability related support to our students.
+
+[Student Support Hub Advisers](https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team): helps with:
+
+- Production of ID cards - expired, lost/stolen, new (outside of the main registration period)
+- Production of a range of letters, student status, bank letter, Schengen visa letter
+- Help with 18+ oyster card application
+- Signing of railcard documents
+- Registration (outside of the main registration period)
+- Updating student details
+- Collection point for graduation certificates
+
+[Togetherall](https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing/togetherall): it's a safe, online peer support community where you can get and give support to improve your mental health and wellbeing. The community is moderated 24/7 by mental health professionals ensuring the safety and anonymity of all members.
+
+[The Report+Support platform](https://reportandsupport.city.ac.uk/): provides staff and students with a confidential way to report instances of unacceptable behaviour, such as bullying, harassment, discrimination, hate incidents, domestic abuse, or sexual violence. Whether you have personally experienced these behaviours or have witnessed them happening to someone else, the platform offers a straightforward and accessible way to report your concerns.
+
+[Stay City Safe](https://studenthub.city.ac.uk/help-and-support/stay-city-safe): this initiative provides you with essential information on what to do in case of an incident, how to report it, and where to seek assistance. 
+
+[Your guide to staying safe in London](https://studenthub.city.ac.uk/__data/assets/pdf_file/0006/814416/3748-Stay-City-Safe-booklet-AL1i-digital-1.pdf): download our safety booklet.
+
+# Students Union
+
+[Student’s Union](https://www.csgsu.co.uk/):it's a membership-led organisation, independent of the University, which exists to make sure you have the best overall experience at City both socially and academically. The Union is in Level 2 of the Student Support Hub in Drysdale Building.
+
+SU offers:
+
+[Union advice](https://csgsu.co.uk/advice-and-support): on academic appeals, academic misconduct, complaints, extenuating circumstances and more.
+
+[Student Societies](https://csgsu.co.uk/explore-and-join/societies): these are groups created, run and lead by students for students. These can be hobbies, campaigns, cultural, academic, basically anything you can think of.  Any student can join a society. Joining a society is super easy through our website, just click on any society you are interested in and purchase the standard membership 
+(even if it is free)!
+
+[Start a new society](https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group): Any student at City St George's can apply to set up a new student group. Setting up a new student group equips you with employability skills including; leadership, teamwork, communication and events planning.  
+
+[Society idea - application form](https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group)!
+
+[SU Events](https://events.csgsu.co.uk/)
+
+[Sports](https://csgsu.co.uk/sports)
+
+[Short Term Loans](https://csgsu.co.uk/advice-and-support/finances): Interest free loans of up to £200.
+
+[Programme rep training](https://csgsu.co.uk/your-voice/programme-and-year-representatives)
+
+[GetHeard@City](https://city.unitu.co.uk/Account/Login): digital platform for student voice to ask questions to your Programme Reps, discuss your experiences with other students, and give feedback to the Students’ Union and University staff.
+
+[Become a Programme rep](https://csgsu.co.uk/your-voice/programme-and-year-representatives). You are invited to nominate yourself to become a Program rep. Programme Reps play a key role in ensuring that all students have a voice and an opportunity to share feedback about their learning experience. They help students make as many positive changes as possible and ultimately, help improve the quality of education at City St George’s.
+
+[Programme Rep nomination form](https://forms.office.com/e/6MEdG2EStU): usually by early October.
+
+[more info about Programme Reps (csgsu.co.uk)](https://csgsu.co.uk/your-voice/programme-and-year-representatives).
+
+[Questions about Reps](studentrep@city.ac.uk): or visit SU Welcome Desk in Student Support Hub.
+
+# Careers and Employability
+
+Careers & Employability team encompasses careers, employability, and student development activities, including careers resources and appointments, skills sessions, employer events, community volunteering, professional mentoring, the Micro-Placement Programme and the City Buddies scheme. Our resourceful careers team can offer expertise and support, to assist you in developing your career prospects whilst at City, and beyond.
+
+[Employability Economics](https://cityuni.sharepoint.com/teams/CUoL-Employability-Economics/SitePages/LearningTeamHome.aspx)
+
+[Careers & Employability](https://studenthub.city.ac.uk/careers-and-employability)
+
+Year 2 students can apply to the SPGA Placement and Exchange Programmes:
+
+- SPGA Placement Programme
+- SPGA Exchange Programme
+
+[Careers Hub](https://careershub.city.ac.uk/s/resources) has everything you need to start your career journey. Each section has a list of key information for that topic and links to documents and websites on the subject.
+
+[Careers Fairs and employer events](https://careershub.city.ac.uk/students/events)
+
+[Micro-Placements](https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme) are an exciting way to gain professional experience via short summer placements with a wide range of UK-based employers for year 1 and 2 UG students. The deadline for application is usually in October.
+
+[Professional Mentoring Scheme](https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme): it's a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. The deadline for application is 23:59, Sunday, October 6th, 2024.
+
+[Unitemps](https://www.unitemps.com/): City St George’s in-house temporary jobs agency which offers part time paid temporary work in and around the University for students and graduates: You can sign up and apply for roles on the [Unitemps website](https://www.unitemps.com/).
+
+[Student Ambassador scheme](https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme): Develop your skills, make friends and earn some extra money by becoming a Student Ambassador at City St George’s!
+
+[Book a Career appointment](https://careershub.city.ac.uk/students/appointments/topics?campusId=704): The best way to think about your career is in conversation with one of our expert career consultants. They can respond directly to your questions and concerns and help give you direction, even if you are not sure of exactly what career path you want to follow.
+
+# Other useful information
+
+[Term Dates](https://www.city.ac.uk/about/vision-and-strategy/academic-excellence/education/academic-year-and-term-dates)
+
+[Registration](https://studenthub.city.ac.uk/student-administration/registration) - all new and returning students of City, University of London are required to register for their course each year. If you have any other questions regarding registration, please email the [Registration team](mailto:registration@city.ac.uk)
+If you think you may be late completing registration and need more time, please contact the Course Officer for your course within your Department as this will need to be considered by your academic Course Director.
+
+[Fees and Finance](https://studenthub.city.ac.uk/student-administration/fees-and-finance)- financial information for students who are studying at City St George’s, University of London.
+
+[Evision-Get Official Letters and Pay Fees](https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w). You may need a proof of study letter for various things such as council tax exemption, registering with a doctors surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.
+
+[CitySport](https://www.citysport.org.uk/) - manages the high-quality sport facilities at CitySport and deliver a range of health, fitness, and wellbeing initiatives across the University.
+[Faith, belief and culture at City St George's](https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support)
+
+For International Students:
+
+[Health information](https://studenthub.city.ac.uk/help-and-support/your-health)
+
+[International Student & Visa Advice](https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students): advice and guidance to applicants and students on study-related visa and immigration issues.
+
+[Help and support | Student Hub | City, University of London](https://studenthub.city.ac.uk/help-and-support): You can find more information about student services.
+
+
+# Expected Behaviour in the Classroom
+
+## General conduct
+Behave professionally – be punctual, engaged and nondisruptive in all teaching and learning sessions.
+
+Respect the physical and digital environment of the institution and our local community.
+
+Behave responsibly and respectfully.
+
+Be aware that people come from different backgrounds and cultures.
+
+Treat fellow students, staff and visitors with respect.
+
+Behave collaboratively and collegially in shared spaces – classrooms, library, computer rooms and online spaces.
+
+## Attendance
+It is in your interests to attend; you will gain far more from your university experience if you attend classes and engage with your studies, your tutors and your classmates. There is clear evidence that those who attend classes get better results.
+
+It is also worth noting that your attendance / engagement record may be requested as part of a reference.
+
+Attendance at classes is monitored; both so that we can comply with UKVI requirements, for students on visas, and to help us identify students who may need support.
+
+We won’t ask you to explain every absence but we will contact you if your attendance / engagement raises concerns about your wellbeing.
+Remember to take your student card to class so that you can ‘tap in’.
+
+Do not “tap into” a class and then leave before it begins or not long into it, just to get your attendance recorded.
+This disturbs classes and does not benefit you in any way. It is also dishonest.
+
+We conduct manual checks of electronic attendance records and, if you are found to be falsifying your record in this way, you could be subject to a disciplinary investigation.
+
+If you can’t stay for the whole class, leave during the break, rather than disturbing others.
+
+Remember all lectures are recorded so, if you can’t attend, you can watch it at a more convenient time.
+
+If you cannot attend a small group class for some good reason you should request to attend an alternative class, where this is available. Contact your lecturer or course office for more information.
+
+Arrive on time for all your scheduled classes. Be present and in a seat, ready to begin the class at the scheduled start time. If there is a break, return promptly.
+
+**If you are late:** enter as quietly as possible, and take the closest available seat so that you minimise the disturbance to others.
+
+In a lecture theatre, use the rear entrance, where available.
+
+# Classroom engagement
+
+Prepare the work set.
+
+Whether this is reading and / or carrying out specific exercises, if you have not prepared you will not get the full benefit from the class.
+
+Being prepared benefits your group; for example, ensuring there is active discussion; or that you all play your part in the skills based classes.
+
+If you cannot prepare, for some good reason, you should let your tutor know. This may prevent you from being put on the spot when called upon to answer a question which you do not know the answer to.
+
+Engage with the class by:
+
+- Taking part in any polls or quizzes / questions set by the tutor.
+
+- Taking an active part in the smaller group classes. Join in with group discussions; answer the questions asked of you; listen and pay attention.
+
+If you were not able to prepare fully, or at all, pay close attention; answer or discuss any aspect you are able to. Often you will find you can take a more active part than you thought.
+
+Don’t talk during class, unless you are participating in the class.
+This is a distraction to other students who want to listen to the class and gain the benefit from it. You will not learn from the class if you’re talking about something else.
+
+## Email communication
+Email is our primary means of communication with you; make sure you check your City St George’s email several times a day, especially first thing in the morning, in case there are any last minute changes to your timetable due to staff illness.
+
+Remember that email is a formal means of communication:
+Address all members of our community politely and formally.
+When emailing City St Georges staff, please include your student ID, course name and subject of query, this helps us to find you on the system and resolve your query quickly.
+
+Do not say something in an email or message that you would not say to that person’s face, or in a way that you would not want to be addressed yourself.
+
+Remember that humour or sarcasm can easily be misunderstood, especially when not accompanied by facial expressions or body language.
+
+Remember that most staff work 9-5 Monday-Friday so you are should not expect to receive a response outside these times.
+
+
+# Resources for staff
+[Toolkit for Supporting Students](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents): includes resources, guidance and signposting to aid you in supporting students. Useful information and links for all staff, [personal tutors](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx), course officers and school support staff.
+
+## [Wellbeing & Mental Health E-Learning](https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning)
+City has collaborated with Charlie Waller Trust, the UK mental health charity, to create a series of e-learning courses aimed at equipping staff with a baseline knowledge of mental health awareness to help themselves, other members of staff and our students. These modules also signpost to key university teams and resources that can further support with wellbeing and mental health.
+Course 1: [Staff Supporting Students](https://elearning.charliewaller.org/course-details/681ed6fc-46e1-4753-8a18-21063ad94f1f)
+Course 2: [Managers Supporting Staff](https://elearning.charliewaller.org/course-details/630cf33e-725b-4d3e-948e-2fcd279e400d)
+Course 3: [Wellbeing Strategies](https://elearning.charliewaller.org/course-details/655f3612-b251-4001-a3a1-5d9106e67491)
+Course 4:[Risks and Crises](https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7)
+
+## [Attendance and Engagement Monitoring](https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments)
+Undergraduate students can download a new [SEAtS Mobile App](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in) through which they will be able to view their timetable, view their attendance information, submit authorised absences requests and receive updates on class/timetable changes.
+Academic staff can view students’ overall attendance per module, monitor absences and lateness, as well as run reports by programme and module through SEAtS.
+We ask that all colleagues involved in teaching engage with this system to support student attendance. Log into [SEAtS](https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120) via Single Sign On to access this data. You can [find out more about SEAtS attendance and monitoring training here](https://staffcommunications.newsweaver.com/1cuay0lb4l/5u2ufkq6fke1ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
+
+## Transition for Academic Success Programme
+The Transition for Academic Success Programme aims to address the unique academic challenges faced by first year students when transitioning from secondary education or when returning to Higher Education from employment. The programme of online modules, which will run throughout terms 1 and 2, has been fully co-created with students who have helped identify the topics and areas of focus.
+You can find more information [including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub](https://staffcommunications.newsweaver.com/1cuay0lb4l/jigmhvwn6171ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
+
