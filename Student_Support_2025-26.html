@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Resources and guidance for students. Useful information and links for all students.">
+<meta name="description" content="Design and updates - camilo.calderon@city.ac.uk. Resources and guidance for students. Useful information and links for all students.">
 
-<title>Toolkit Student Support &amp; Experience</title>
+<title>77 Links for Student Support &amp; Experience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,13 +48,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Toolkit Student Support &amp; Experience</h1>
+<h1 class="title">77 Links for Student Support &amp; Experience</h1>
 <p class="subtitle lead">Department of Economics</p>
 </div>
 
 <div>
   <div class="description">
-    Resources and guidance for students. Useful information and links for all students.
+    Design and updates - camilo.calderon@city.ac.uk.<br><br>Resources and guidance for students. Useful information and links for all students.
   </div>
 </div>
 
@@ -169,7 +169,74 @@ ul.task-list li input[type="checkbox"] {
             return keywords.some(k => s.includes(k));
           }
 
-          function chooseIconClass(text, href) {
+          // ---- Explicit per-tile icon overrides (exact label match) ----
+// Add/modify entries to force a specific icon for a specific tile label.
+// Uses Bootstrap Icons (https://icons.getbootstrap.com/) classes like 'bi-calendar3'.
+const ICON_EXACT_MAP = {
+  // Already agreed / good
+  "Term Dates": "bi-calendar3",
+  "Timetable Information": "bi-calendar3",
+  "Examination Timetable": "bi-clock",
+  "Extensions": "bi-file-earmark-text",
+  "Academic Misconduct": "bi-shield-exclamation",
+  "Student Appeals": "bi-clipboard-check",
+  "Student Union Advise & Support": "bi-people",
+  "Library": "bi-book",
+
+  // Fix obvious mismatches
+  "SEAtS Mobile app": "bi-phone",
+  "Student Health & Wellbeing e-Referral": "bi-heart-pulse",
+  "Student Support Hub Advisers": "bi-person-lines-fill",
+  "The Student Support Hub": "bi-building",
+
+  // Authorised absence forms
+  "PG online Authorised Absence form": "bi-calendar-check",
+  "Authorised Absence for Research students via Research Man…": "bi-calendar-check",
+
+  // Buddying / mentoring
+  "CityBuddy": "bi-people",
+  "Apply to get a mentor that will be your personal guide to…": "bi-person-plus",
+
+  // Core support areas
+  "Accommodation": "bi-house-door",
+  "Uni Cares": "bi-life-preserver",
+  "International Student & Visa Advice": "bi-globe2",
+  "Student Funding": "bi-cash-coin",
+  "School Student Welfare teams": "bi-heart",
+
+  // Study support / skills
+  "Academic English support": "bi-chat-text",
+  "Academic Skills": "bi-mortarboard",
+  "Digital Skills": "bi-laptop",
+
+  // Student Hub catch-all
+  "Help and support | Student Hub | City, University of London": "bi-question-circle",
+
+  // SU / reps / nominations
+  "the nomination form": "bi-pencil-square",
+
+  // Careers / mentoring
+  "Professional Mentoring Scheme": "bi-person-badge",
+
+  // Faith & culture
+  "Faith, belief and culture at City St George’s": "bi-people",
+
+  // Staff resources
+  "Toolkit for Supporting Students": "bi-tools",
+  "personal tutors": "bi-person-workspace",
+
+  // E-learning / teaching resources
+  "Staff Supporting Students": "bi-play-circle",
+  "Managers Supporting Staff": "bi-play-circle",
+  "Risks and Crises": "bi-shield-exclamation",
+  "including Powerpoint slides to incorporate into Induction…": "bi-easel2"
+};
+
+// ---------------------------------------------------------------
+
+            function chooseIconClass(text, href) {
+            const k = (text || '').trim();
+            if (ICON_EXACT_MAP[k]) return ICON_EXACT_MAP[k];
             const s = (text + ' ' + (href || '')).toLowerCase();
             // more specific matches first to reduce reuse
             if (s.includes('youtube.com') || s.includes('youtube')) return 'bi-youtube';
@@ -223,21 +290,21 @@ ul.task-list li input[type="checkbox"] {
         }
       });
 
-      // insert the consolidated tiles index after the subtitle (if present)
-      // so the subtitle stays directly under the main title.
-      var subtitle = main.querySelector('.subtitle, .quarto-subtitle, h2.subtitle, p.subtitle, .page-subtitle');
-      var insertAfter = (subtitle && subtitle.textContent && subtitle.textContent.trim()) ? subtitle : mainTitle;
-      insertAfter.insertAdjacentElement('afterend', index);
+      // insert after the title description (so credit + instructions stay above tiles)
+var desc = document.querySelector('#title-block-header .description');
+var subtitle = main.querySelector('.subtitle, .quarto-subtitle, h2.subtitle, p.subtitle, .page-subtitle');
+
+var insertAfter =
+  (desc && desc.textContent && desc.textContent.trim()) ? desc :
+  ((subtitle && subtitle.textContent && subtitle.textContent.trim()) ? subtitle : mainTitle);
+
+insertAfter.insertAdjacentElement('afterend', index);
     } catch (e) { console.error('Tiles index generator error', e); }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildTilesIndex); else buildTilesIndex();
 })();
 </script>
-<section id="general-information" class="level1">
-<h1>General information</h1>
-<p><a href="https://www.city.ac.uk/about/vision-and-strategy/academic-excellence/education/academic-year-and-term-dates">Term Dates</a></p>
-</section>
 <section id="assessment-timetable-information" class="level1">
 <h1>Assessment &amp; Timetable Information</h1>
 <p><a href="https://mytimetable.city.ac.uk/">Timetable Information</a></p>
@@ -252,8 +319,8 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://csgsu.co.uk/advice-and-support">Student Union Advise &amp; Support</a>: you can contact the Student Union for advise and support, contact the union to make an appointment.</p>
 <p><a href="https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards">Progression and Awards</a>: important information about your assessment results, your programme and the support available to you and details of the timescales if you want to make an appeal.</p>
 </section>
-<section id="key-staff-for-student-support" class="level1">
-<h1>Key Staff for Student Support</h1>
+<section id="key-economics-staff-for-student-support" class="level1">
+<h1>Key Economics Staff for Student Support</h1>
 <p><strong>Your Module Leader</strong> is the first point of contact for any queries about the content or organisation of the module you are studying. you can also book a meeting with a Module Leader during their designated ‘office hours’. Module leader details are available in Moodle.</p>
 <p><strong>Your Personal Tutor</strong> acts as a mentor and guide you to any support you may need. You can talk to your personal tutor about any struggles with your studies and personal life. Your personal tutor also can refer you to the University’s more specialised services for academic, mental health and wellbeing support. You can discuss your career aspirations with your personal tutor and receive advice on how to plan your studies accordingly.</p>
 <p><a href="mailto:econ-y1-tutor@city.ac.uk">Personal Tutor Year 1</a>: Dr Seefat-E-Rabbi Khan</p>
@@ -288,18 +355,41 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="student-support-services" class="level1">
 <h1>Student Support services</h1>
-<p><a href="https://libraryservices.city.ac.uk/">Library</a> - provides printed resources, study spaces (for group study, quiet study and individual silent study), networked PCs and wi-fi across five levels. <a href="https://studenthub.city.ac.uk/information-technology/citynav">Study Spaces</a> - these spaces include quiet areas for focused work, silent study zones, and more social spaces for collaborative learning. For more information on where to find these Study Spaces, visit <a href="https://studenthub.city.ac.uk/information-technology/citynav">CityNav</a>. ## IT support If students experience IT issues, a ticket can be logged via <a href="https://www.city.ac.uk/itservicedesk">service now</a>. Alternatively, students can call the IT help desk on 0207 040 8181 or visit the IT help desk in person where they can help with basic issues such as wi-fi access etc. The helpdesk in located in University Building.</p>
+<p><a href="https://libraryservices.city.ac.uk/">Library</a>: provides printed resources, study spaces (for group study, quiet study and individual silent study), networked PCs and wi-fi across five levels.</p>
+<p><a href="https://studenthub.city.ac.uk/information-technology/citynav">Study Spaces</a>: these spaces include quiet areas for focused work, silent study zones, and more social spaces for collaborative learning.</p>
+<p><a href="https://studenthub.city.ac.uk/information-technology/citynav">CityNav</a>: hor more information on where to find these Study Spaces.</p>
+<section id="it-support" class="level2">
+<h2 class="anchored" data-anchor-id="it-support">IT support</h2>
+<p><a href="https://www.city.ac.uk/itservicedesk">service now</a>: If students experience IT issues, a ticket can be logged on this link.</p>
+<p>Alternatively, students can call the IT help desk on 0207 040 8181 or visit the IT help desk in person where they can help with issues such as wi-fi access etc. The helpdesk in located in University Building.</p>
 <p><a href="https://city-uk-ett.libguides.com/student">Student Guides to Educational Technology</a>: guidance on the use of educational technology at City St Georges, such as Moodle, Microsoft teams, etc., is available here.</p>
-<p><a href="https://buddy.city.ac.uk/apply/mentee/">CityBuddy</a> is a second- or third-year student who will mentor a first-year student on their course. They are there to show new students all that City has to offer; answer any questions they may have and provide a valuable insight into studying on the course. <a href="https://cityunilondon.eu.qualtrics.com/jfe/form/SV_9M41s2FmiwmYVM2">Apply to get a mentor that will be your personal guide to studying at City</a>. <a href="https://support.city.ac.uk/create-case/?_gl=1%2asv17k1%2a_ga%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.%2a_ga_YLSK0292X4%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w">Support@City</a> - is the online system allowing students to submit and track their queries through a dedicated portal. The platform brings together many of City St George’s student support services in a secure portal to better understand and address students’ needs. The system includes the following teams: <a href="https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub">Accommodation</a> - <a href="https://studenthub.city.ac.uk/help-and-support/city-cares">Uni Cares</a> - City’s dedicated support network for care-experienced students, young adult carers, young estranged students, refugees and asylum seekers. <a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students">International Student &amp; Visa Advice</a> <a href="https://studenthub.city.ac.uk/help-and-support/student-funding">Student Funding</a> <a href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing">Student Health &amp; Wellbeing</a> <a href="https://studenthub.city.ac.uk/help-and-support/support-within-your-school">School Student Welfare teams</a> <a href="https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team">Student Support Hub Advisers</a></p>
-<p><a href="https://www.city.ac.uk/about/facilities/specialist-facilities/student-support-hub">The Student Support Hub</a> - (located in Level 1, Drysdale Building) is designed to provide in-person access to a wide range of essential student support services. The Student Support Hub will operate from 9:00am to 6:30pm during term time. Along with general enquiries, you can visit the following support services: - <a href="https://studenthub.city.ac.uk/help-and-support/english-for-academic-purposes">Academic English support</a> - academic writing and English language support for international students and for students whose first language is not English. - <a href="https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills">Academic Skills</a> – runs workshops, webinars and one-to-one support sessions to help you to become a more effective learner. - <a href="https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub">Accommodation</a> - can help with the application process, any queries regarding the rooms, halls, fees and contracts, support if you are looking for accommodation during the academic year, viewing halls and much more. - <a href="https://studenthub.city.ac.uk/careers-and-employability">Careers &amp; Employability</a> - encompass careers, employability, and student development activities, including careers resources and appointments, skills sessions, employer events, community volunteering, professional mentoring, the Micro-Placement Programme and the City Buddies scheme. - <a href="https://studenthub.city.ac.uk/help-and-support/city-cares">Uni Cares</a> - City’s dedicated support network for care-experienced students, young adult carers, young estranged students, refugees and asylum seekers. - <a href="https://studenthub.city.ac.uk/help-and-support/studying-online/digital-skills-and-support">Digital Skills</a> - supports you to effectively use digital technologies and incorporate them into your learning, student experience and employability.</p>
+<p><a href="https://buddy.city.ac.uk/apply/mentee/">CityBuddy</a> is a second- or third-year student who will mentor a first-year student on their course. They are there to show new students all that City has to offer; answer any questions they may have and provide a valuable insight into studying on the course.</p>
+<p><a href="https://cityunilondon.eu.qualtrics.com/jfe/form/SV_9M41s2FmiwmYVM2">Apply to get a mentor</a></p>
+<p><a href="https://support.city.ac.uk/create-case/?_gl=1%2asv17k1%2a_ga%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.%2a_ga_YLSK0292X4%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w">Support@City</a>: it’s the online system allowing students to submit and track their queries through a dedicated portal. The platform brings together many of City St George’s student support services in a secure portal to better understand and address students’ needs.</p>
+<p>The system includes the following teams:</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub">Accommodation</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/city-cares">Uni Cares</a>: City’s dedicated support network for care-experienced students, young adult carers, young estranged students, refugees and asylum seekers.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students">International Student &amp; Visa Advice</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-funding">Student Funding</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing">Student Health &amp; Wellbeing</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/support-within-your-school">School Student Welfare teams</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team">Student Support Hub Advisers</a></p>
+<p><a href="https://www.city.ac.uk/about/facilities/specialist-facilities/student-support-hub">The Student Support Hub</a>: located in Level 1, Drysdale Building, it’s designed to provide in-person access to a wide range of essential student support services. The Student Support Hub will operate from 9:00am to 6:30pm during term time.</p>
+<p>Along with general enquiries, you can visit the following support services:</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/english-for-academic-purposes">Academic English support</a>: academic writing and English language support for international students and for students whose first language is not English.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills">Academic Skills</a>: runs workshops, webinars and one-to-one support sessions to help you to become a more effective learner.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/accommodation-student-hub">Accommodation</a>: can help with the application process, any queries regarding the rooms, halls, fees and contracts, support if you are looking for accommodation during the academic year, viewing halls and much more.</p>
+<p><a href="https://studenthub.city.ac.uk/careers-and-employability">Careers &amp; Employability</a>: encompass careers, employability, and student development activities, including careers resources and appointments, skills sessions, employer events, community volunteering, professional mentoring, the Micro-Placement Programme and the City Buddies scheme.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/city-cares">Uni Cares</a>: City’s dedicated support network for care-experienced students, young adult carers, young estranged students, refugees and asylum seekers.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/studying-online/digital-skills-and-support">Digital Skills</a>: supports you to effectively use digital technologies and incorporate them into your learning, student experience and employability.</p>
+<p><a href="https://city-uk-ett.libguides.com/student">Student Guides to Educational Technology</a>: guidance on the use of educational technology at City St Georges, such as Moodle, Microsoft Teams, and other learning tools.</p>
+<p><a href="https://studentcommunications.newsweaver.com/1w52bcjsfr/18i0udma1fv/external?a=6&amp;p=4118384&amp;t=27571">AppsAnywhere</a>: a platform where you can access many City St George’s applications remotely.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students/responsibilities">International Student &amp; Visa Advice</a>: provides confidential advice and guidance to applicants and students on study-related visa and immigration issues.</p>
+<p><a href="https://studenthub.citystgeorges.ac.uk/student-support-services/it-services">IT Service Desk</a>: is the first point of contact for all IT queries.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-funding">Student Funding</a>: provides advice on student funding available to support your studies at City.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing">Student Health &amp; Wellbeing</a>: provides practical, emotional and specialist disability related support to our students.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team">Student Support Hub Advisers</a>: helps with:</p>
 <ul>
-<li><a href="https://city-uk-ett.libguides.com/student">Student Guides to Educational Technology</a> - guidance on the use of educational technology at City St Georges, such as Moodle, Microsoft Teams, and other learning tools.</li>
-<li><a href="https://studentcommunications.newsweaver.com/1w52bcjsfr/18i0udma1fv/external?a=6&amp;p=4118384&amp;t=27571">AppsAnywhere</a> - a platform where you can access many City St George’s applications remotely.</li>
-<li><a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students/responsibilities">International Student &amp; Visa Advice</a> - provides confidential advice and guidance to applicants and students on study-related visa and immigration issues.</li>
-<li><a href="https://studenthub.citystgeorges.ac.uk/student-support-services/it-services">IT Service Desk</a> - is the first point of contact for all IT queries.</li>
-<li><a href="https://studenthub.city.ac.uk/help-and-support/student-funding">Student Funding</a> - provides advice on student funding available to support your studies at City.</li>
-<li><a href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing">Student Health &amp; Wellbeing</a> - provides practical, emotional and specialist disability related support to our students.</li>
-<li><a href="https://studenthub.city.ac.uk/help-and-support/student-support-hub-adviser-team">Student Support Hub Advisers</a></li>
 <li>Production of ID cards - expired, lost/stolen, new (outside of the main registration period)</li>
 <li>Production of a range of letters, student status, bank letter, Schengen visa letter</li>
 <li>Help with 18+ oyster card application</li>
@@ -308,36 +398,59 @@ ul.task-list li input[type="checkbox"] {
 <li>Updating student details</li>
 <li>Collection point for graduation certificates</li>
 </ul>
-<p><a href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing/togetherall">Togetherall</a> - is a safe, online peer support community where you can get and give support to improve your mental health and wellbeing. The community is moderated 24/7 by mental health professionals ensuring the safety and anonymity of all members.</p>
-<p><a href="https://reportandsupport.city.ac.uk/">The Report+Support platform</a> - provides staff and students with a confidential way to report instances of unacceptable behaviour, such as bullying, harassment, discrimination, hate incidents, domestic abuse, or sexual violence. Whether you have personally experienced these behaviours or have witnessed them happening to someone else, the platform offers a straightforward and accessible way to report your concerns.</p>
-<p><a href="https://studenthub.city.ac.uk/help-and-support/stay-city-safe">Stay City Safe</a> initiative provides you with essential information on what to do in case of an incident, how to report it, and where to seek assistance. You can download our safety booklet: <a href="https://studenthub.city.ac.uk/__data/assets/pdf_file/0006/814416/3748-Stay-City-Safe-booklet-AL1i-digital-1.pdf">Your guide to staying safe in London</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/student-health-wellbeing/togetherall">Togetherall</a>: it’s a safe, online peer support community where you can get and give support to improve your mental health and wellbeing. The community is moderated 24/7 by mental health professionals ensuring the safety and anonymity of all members.</p>
+<p><a href="https://reportandsupport.city.ac.uk/">The Report+Support platform</a>: provides staff and students with a confidential way to report instances of unacceptable behaviour, such as bullying, harassment, discrimination, hate incidents, domestic abuse, or sexual violence. Whether you have personally experienced these behaviours or have witnessed them happening to someone else, the platform offers a straightforward and accessible way to report your concerns.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/stay-city-safe">Stay City Safe</a>: this initiative provides you with essential information on what to do in case of an incident, how to report it, and where to seek assistance.</p>
+<p><a href="https://studenthub.city.ac.uk/__data/assets/pdf_file/0006/814416/3748-Stay-City-Safe-booklet-AL1i-digital-1.pdf">Your guide to staying safe in London</a>: download our safety booklet.</p>
+</section>
 </section>
 <section id="students-union" class="level1">
-<h1><a href="https://www.csgsu.co.uk/">Student’s Union</a></h1>
-<p>City St George’s, University of London Students’ Union is a membership-led organisation, independent of the University, which exists to make sure you have the best overall experience at City both socially and academically. The Union is in Level 2 of the Student Support Hub in Drysdale Building. SU offers: - <a href="https://csgsu.co.uk/advice-and-support">Union advice</a> - on academic appeals, academic misconduct, complaints, extenuating circumstances and more. - <a href="https://csgsu.co.uk/explore-and-join/societies">Student Societies</a> - are groups created, run and lead by students for students. These can be hobbies, campaigns, cultural, academic, basically anything you can think of. Any student can join a society. Joining a society is super easy through our website, just click on any society you are interested in and purchase the standard membership (even if it is free)! - <a href="https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group">Start a new society</a> Any student at City St George’s can apply to set up a new student group. Setting up a new student group equips you with employability skills including; leadership, teamwork, communication and events planning. When you have a society idea and your committee together, please fill out <a href="https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group">the form here</a>! - <a href="https://events.csgsu.co.uk/">SU Events</a> - <a href="https://csgsu.co.uk/sports">Sports</a> - <a href="https://csgsu.co.uk/advice-and-support/finances">Short Term Loans</a> – Interest free loans of up to £200. - <a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Program rep training</a> - <a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Program rep training</a> - <a href="https://city.unitu.co.uk/Account/Login">GetHeard@City</a> - digital platform for student voice to ask questions to your Programme Reps, discuss your experiences with other students, and give feedback to the Students’ Union and University staff. <a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Become a Program rep</a>. You are invited to nominate yourself to become a Program rep. Programme Reps play a key role in ensuring that all students have a voice and an opportunity to share feedback about their learning experience. They help students make as many positive changes as possible and ultimately, help improve the quality of education at City St George’s. You can nominate yourself by submitting <a href="https://forms.office.com/e/6MEdG2EStU">the nomination form</a> by Wednesday, October 15, 2025. You can find more information from <a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Programme Reps (csgsu.co.uk)</a>. For any questions or queries, email studentrep@city.ac.uk or visit SU Welcome Desk in Student Support Hub!</p>
+<h1>Students Union</h1>
+<p><a href="https://www.csgsu.co.uk/">Student’s Union</a>:it’s a membership-led organisation, independent of the University, which exists to make sure you have the best overall experience at City both socially and academically. The Union is in Level 2 of the Student Support Hub in Drysdale Building.</p>
+<p>SU offers:</p>
+<p><a href="https://csgsu.co.uk/advice-and-support">Union advice</a>: on academic appeals, academic misconduct, complaints, extenuating circumstances and more.</p>
+<p><a href="https://csgsu.co.uk/explore-and-join/societies">Student Societies</a>: these are groups created, run and lead by students for students. These can be hobbies, campaigns, cultural, academic, basically anything you can think of. Any student can join a society. Joining a society is super easy through our website, just click on any society you are interested in and purchase the standard membership (even if it is free)!</p>
+<p><a href="https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group">Start a new society</a>: Any student at City St George’s can apply to set up a new student group. Setting up a new student group equips you with employability skills including; leadership, teamwork, communication and events planning.</p>
+<p><a href="https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group">Society idea - application form</a>!</p>
+<p><a href="https://events.csgsu.co.uk/">SU Events</a></p>
+<p><a href="https://csgsu.co.uk/sports">Sports</a></p>
+<p><a href="https://csgsu.co.uk/advice-and-support/finances">Short Term Loans</a>: Interest free loans of up to £200.</p>
+<p><a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Programme rep training</a></p>
+<p><a href="https://city.unitu.co.uk/Account/Login">GetHeard@City</a>: digital platform for student voice to ask questions to your Programme Reps, discuss your experiences with other students, and give feedback to the Students’ Union and University staff.</p>
+<p><a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Become a Programme rep</a>. You are invited to nominate yourself to become a Program rep. Programme Reps play a key role in ensuring that all students have a voice and an opportunity to share feedback about their learning experience. They help students make as many positive changes as possible and ultimately, help improve the quality of education at City St George’s.</p>
+<p><a href="https://forms.office.com/e/6MEdG2EStU">Programme Rep nomination form</a>: usually by early October.</p>
+<p><a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">more info about Programme Reps (csgsu.co.uk)</a>.</p>
+<p><a href="studentrep@city.ac.uk">Questions about Reps</a>: or visit SU Welcome Desk in Student Support Hub.</p>
 </section>
-<section id="careers-employability" class="level1">
-<h1><a href="https://studenthub.city.ac.uk/careers-and-employability">Careers &amp; Employability</a></h1>
-<p>Year 2 students can apply to the SPGA Placement and Exchange Programmes: ## SPGA Placement Programme ## SPGA Exchange Programme</p>
+<section id="careers-and-employability" class="level1">
+<h1>Careers and Employability</h1>
 <p>Careers &amp; Employability team encompasses careers, employability, and student development activities, including careers resources and appointments, skills sessions, employer events, community volunteering, professional mentoring, the Micro-Placement Programme and the City Buddies scheme. Our resourceful careers team can offer expertise and support, to assist you in developing your career prospects whilst at City, and beyond.</p>
+<p><a href="https://cityuni.sharepoint.com/teams/CUoL-Employability-Economics/SitePages/LearningTeamHome.aspx">Employability Economics</a></p>
+<p><a href="https://studenthub.city.ac.uk/careers-and-employability">Careers &amp; Employability</a></p>
+<p>Year 2 students can apply to the SPGA Placement and Exchange Programmes:</p>
 <ul>
-<li><a href="https://careershub.city.ac.uk/s/resources">Careers Hub</a> has everything you need to start your career journey. Each section has a list of key information for that topic and links to documents and websites on the subject.</li>
-<li><a href="https://careershub.city.ac.uk/students/events">Careers Fairs and employer events</a></li>
-<li><a href="https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme">Micro-Placements</a> are an exciting way to gain professional experience via short summer placements with a wide range of UK-based employers for year 1 and 2 UG students. The deadline for application is 12:00 noon on Monday 14 October 2024.</li>
-<li>The <a href="https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme">Professional Mentoring Scheme</a> is a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. The deadline for application is 23:59, Sunday, October 6th, 2024.</li>
-<li><a href="https://www.unitemps.com/">Unitemps</a> - City St George’s in-house temporary jobs agency which offers part time paid temporary work in and around the University for students and graduates: You can sign up and apply for roles on the <a href="https://www.unitemps.com/">Unitemps website</a>.</li>
-<li><a href="https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme">Student Ambassador scheme</a>. Develop your skills, make friends and earn some extra money by becoming a Student Ambassador at City St George’s!</li>
-<li><a href="https://careershub.city.ac.uk/students/appointments/topics?campusId=704">Book a Career appointment</a>. The best way to think about your career is in conversation with one of our expert career consultants. They can respond directly to your questions and concerns and help give you direction, even if you are not sure of exactly what career path you want to follow.</li>
+<li>SPGA Placement Programme</li>
+<li>SPGA Exchange Programme</li>
 </ul>
+<p><a href="https://careershub.city.ac.uk/s/resources">Careers Hub</a> has everything you need to start your career journey. Each section has a list of key information for that topic and links to documents and websites on the subject.</p>
+<p><a href="https://careershub.city.ac.uk/students/events">Careers Fairs and employer events</a></p>
+<p><a href="https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme">Micro-Placements</a> are an exciting way to gain professional experience via short summer placements with a wide range of UK-based employers for year 1 and 2 UG students. The deadline for application is usually in October.</p>
+<p><a href="https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme">Professional Mentoring Scheme</a>: it’s a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. The deadline for application is 23:59, Sunday, October 6th, 2024.</p>
+<p><a href="https://www.unitemps.com/">Unitemps</a>: City St George’s in-house temporary jobs agency which offers part time paid temporary work in and around the University for students and graduates: You can sign up and apply for roles on the <a href="https://www.unitemps.com/">Unitemps website</a>.</p>
+<p><a href="https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme">Student Ambassador scheme</a>: Develop your skills, make friends and earn some extra money by becoming a Student Ambassador at City St George’s!</p>
+<p><a href="https://careershub.city.ac.uk/students/appointments/topics?campusId=704">Book a Career appointment</a>: The best way to think about your career is in conversation with one of our expert career consultants. They can respond directly to your questions and concerns and help give you direction, even if you are not sure of exactly what career path you want to follow.</p>
 </section>
 <section id="other-useful-information" class="level1">
 <h1>Other useful information</h1>
+<p><a href="https://www.city.ac.uk/about/vision-and-strategy/academic-excellence/education/academic-year-and-term-dates">Term Dates</a></p>
 <p><a href="https://studenthub.city.ac.uk/student-administration/registration">Registration</a> - all new and returning students of City, University of London are required to register for their course each year. If you have any other questions regarding registration, please email the <a href="mailto:registration@city.ac.uk">Registration team</a> If you think you may be late completing registration and need more time, please contact the Course Officer for your course within your Department as this will need to be considered by your academic Course Director.</p>
 <p><a href="https://studenthub.city.ac.uk/student-administration/fees-and-finance">Fees and Finance</a>- financial information for students who are studying at City St George’s, University of London.</p>
 <p><a href="https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w">Evision-Get Official Letters and Pay Fees</a>. You may need a proof of study letter for various things such as council tax exemption, registering with a doctors surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.</p>
 <p><a href="https://www.citysport.org.uk/">CitySport</a> - manages the high-quality sport facilities at CitySport and deliver a range of health, fitness, and wellbeing initiatives across the University. <a href="https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support">Faith, belief and culture at City St George’s</a></p>
-<p>For International Students: - <a href="https://studenthub.city.ac.uk/help-and-support/your-health">Health information</a> - <a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students">International Student &amp; Visa Advice</a> - advice and guidance to applicants and students on study-related visa and immigration issues.</p>
-<p>You can find more information about student services from <a href="https://studenthub.city.ac.uk/help-and-support">Help and support | Student Hub | City, University of London</a></p>
+<p>For International Students:</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/your-health">Health information</a></p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students">International Student &amp; Visa Advice</a>: advice and guidance to applicants and students on study-related visa and immigration issues.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support">Help and support | Student Hub | City, University of London</a>: You can find more information about student services.</p>
 </section>
 <section id="expected-behaviour-in-the-classroom" class="level1">
 <h1>Expected Behaviour in the Classroom</h1>
