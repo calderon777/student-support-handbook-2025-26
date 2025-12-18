@@ -1,5 +1,5 @@
 ---
-title: "Toolkit Student Support & Experience"
+title: "77 links for Student Support & Experience"
 subtitle: "Department of Economics"
 description: "Resources and guidance for students. Useful information and links for all students."
 format:
