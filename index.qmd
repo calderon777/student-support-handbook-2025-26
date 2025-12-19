@@ -302,6 +302,10 @@ insertAfter.insertAdjacentElement('afterend', index);
 <div class="tiles-group">
   <div class="group-title">Key Economics Staff for Student Support</div>
   <div class="quarto-tiles-grid">
+<a class="tile-card" href="mailto:dagmara.celik@city.ac.uk" target="_blank" rel="noopener">
+  <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
+  <div class="tile-label">Economics Employability Lead</div>
+</a>
 <a class="tile-card" href="mailto:econ-y1-tutor@city.ac.uk" target="_blank" rel="noopener">
   <span class="tile-icon tile-icon--email"><i class="bi bi-person"></i></span>
   <div class="tile-label">Personal Tutor Year 1</div>
@@ -677,6 +681,10 @@ Late submission policy for coursework: Any work that is submitted more than 1 mi
 [Progression and Awards](https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards): important information about your assessment results, your programme and the support available to you and details of the timescales if you want to make an appeal.
 
 # Key  Economics Staff for Student Support
+
+**Your Employability Economics leader** is th first point of contact about job opportunities and employability matters.
+
+[Employability Economics](dagmara.celik@city.ac.uk)
 
 **Your Module Leader** is the first point of contact for any queries about the content or organisation of the module you are studying. you can also book a meeting with a Module Leader during their designated ‘office hours’. Module leader details are available in Moodle.
 
