@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Design and updates: camilo.calderon@city.ac.uk. Resources and guidance for students. Useful information and links for all students.">
+<meta name="description" content="Design and updates: camilo.calderon@city.ac.uk. Use the search box to jump to exams, support, wellbeing, library, and careers resources. The tiles below surface the most time-sensitive links for your academic year, with full guidance further down the page.">
 
-<title>77 Links for Student Support &amp; Experience</title>
+<title>Links for Student Support &amp; Experience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3808,13 +3808,13 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">77 Links for Student Support &amp; Experience</h1>
+<h1 class="title">Links for Student Support &amp; Experience</h1>
 <p class="subtitle lead">Department of Economics</p>
 </div>
 
 <div>
   <div class="description">
-    Design and updates: camilo.calderon@city.ac.uk.<br><br>Resources and guidance for students. Useful information and links for all students.
+    Design and updates: camilo.calderon@city.ac.uk.<br><br>Use the search box to jump to exams, support, wellbeing, library, and careers resources. The tiles below surface the most time-sensitive links for your academic year, with full guidance further down the page.
   </div>
 </div>
 
@@ -3843,6 +3843,26 @@ section.level1 > h1 { margin-top: 0.25rem; }
 .quarto-tiles-index { margin: 1.25rem 0 1.75rem; }
 .quarto-tiles-index .tiles-group { margin-top: 1.25rem; margin-bottom: 0.75rem; }
 .quarto-tiles-index .group-title { font-weight:700; margin:0.5rem 0 0.35rem; }
+
+.tiles-search { display:flex; justify-content:center; align-items:center; margin: 0.35rem auto 0.2rem; width:100%; max-width: none; padding: 0 1rem; box-sizing: border-box; }
+.tiles-search input { width: clamp(260px, 90vw, 1100px); max-width: 100%; padding: 1rem 1.35rem; border-radius: 999px; border:1.3px solid rgba(0,0,0,0.12); box-shadow: 0 8px 22px rgba(0,0,0,0.05); font-size: 1.05rem; box-sizing: border-box; display:block; }
+.tiles-search input:focus-visible { outline:3px solid rgba(11,102,160,0.2); border-color: rgba(11,102,160,0.35); box-shadow: 0 10px 26px rgba(11,102,160,0.16); }
+.tiles-search-hint { text-align:center; font-size:0.9rem; color:#555; margin-bottom:0.35rem; }
+.tiles-search-empty { text-align:center; padding:0.65rem 0.75rem; background: rgba(200,30,45,0.08); border:1px solid rgba(200,30,45,0.18); border-radius:10px; color:#8c1c28; display:none; }
+.search-text-results { background: linear-gradient(180deg, rgba(11,102,160,0.05), rgba(11,102,160,0.015)); border:1px solid rgba(11,102,160,0.18); border-radius:12px; padding:0.75rem 0.85rem 0.95rem; display:none; }
+.search-text-results .group-title { color:#0b66a0; margin-top:0; }
+.search-text-results ul { margin:0.35rem 0 0; padding-left:1.15rem; }
+.search-text-results li { margin-bottom:0.15rem; font-size:0.95rem; }
+.tiles-group.search-results { background: linear-gradient(180deg, rgba(11,102,160,0.05), rgba(11,102,160,0.02)); border:1px solid rgba(11,102,160,0.16); border-radius: 12px; padding: 0.75rem 0.8rem 0.95rem; display:none; }
+.tiles-group.search-results .group-title { margin-top:0; color:#0b66a0; }
+.tiles-group.search-results .tile-card { border-color: rgba(11,102,160,0.28); box-shadow: 0 10px 24px rgba(11,102,160,0.12); }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+.quarto-tiles-index .tiles-group.crucial-tiles { background: linear-gradient(180deg, rgba(200,30,45,0.08), rgba(200,30,45,0.02)); border:1px solid rgba(200,30,45,0.12); border-radius: 12px; padding: 0.85rem 0.85rem 1.05rem; }
+.quarto-tiles-index .tiles-group.crucial-tiles .group-title { margin-top:0; color:#8c1c28; }
+.quarto-tiles-index .tiles-group.crucial-tiles .tile-card { border-color: rgba(200,30,45,0.25); }
+.quarto-tiles-index .tiles-group.crucial-tiles .tile-card .tile-icon { color:#a32030; }
+.quarto-tiles-index .tiles-group.crucial-tiles .tile-card:hover { box-shadow: 0 12px 28px rgba(200,30,45,0.18); }
 .quarto-tiles-grid { display: grid; gap: 0.5rem; grid-template-columns: repeat(1, 1fr); margin: 0.5rem 0; }
 @media (min-width: 576px) { .quarto-tiles-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 768px) { .quarto-tiles-grid { grid-template-columns: repeat(5, 1fr); } }
@@ -3936,11 +3956,17 @@ const ICON_EXACT_MAP = {
   "Term Dates": "bi-calendar3",
   "Timetable Information": "bi-calendar3",
   "Examination Timetable": "bi-clock",
+  "Personal Tutors": "bi-person-workspace",
+  "Extenuating Circumstances": "bi-clipboard-check",
   "Extensions": "bi-file-earmark-text",
   "Academic Misconduct": "bi-shield-exclamation",
   "Student Appeals": "bi-clipboard-check",
   "Student Union Advise & Support": "bi-people",
   "Library": "bi-book",
+  "Library Resources": "bi-book",
+  "e-referral": "bi-heart-pulse",
+  "Support with Revision": "bi-mortarboard",
+  "Employability Economics": "bi-briefcase",
 
   // Fix obvious mismatches
   "SEAtS Mobile app": "bi-phone",
@@ -4061,13 +4087,73 @@ insertAfter.insertAdjacentElement('afterend', index);
     } catch (e) { console.error('Tiles index generator error', e); }
   }
 
-  if (ENABLE_DYNAMIC_TILES) {
+  if (typeof ENABLE_DYNAMIC_TILES !== 'undefined' && ENABLE_DYNAMIC_TILES) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildTilesIndex); else buildTilesIndex();
   }
 })();
 </script>
 <!-- Static tiles index (SharePoint-safe: no JS required) -->
 <div id="quarto-tiles-index-static" class="quarto-tiles-index">
+<div class="tiles-search">
+<p><label for="tiles-search-input" class="sr-only">Search for support links</label> <input id="tiles-search-input" type="search" placeholder="Search support, exams, library, wellbeing…" aria-describedby="tiles-search-hint"></p>
+</div>
+<div id="tiles-search-hint" class="tiles-search-hint">
+Try keywords like “exam timetable”, “extensions”, “personal tutor”, “library”, “wellbeing”, “employability”.
+</div>
+<div id="tiles-search-noresults" class="tiles-search-empty">
+No matches found. Try a different word.
+</div>
+<div id="tiles-search-results" class="tiles-group search-results">
+<div class="group-title">
+Search results
+</div>
+<div id="tiles-search-grid" class="quarto-tiles-grid">
+
+</div>
+</div>
+<div id="text-search-results" class="tiles-group search-text-results">
+<div class="group-title">
+Other matches in this page
+</div>
+<ul id="text-search-list">
+</ul>
+</div>
+<div class="tiles-group crucial-tiles">
+<div class="group-title">
+We think these links are crucial for the time of your academic year:
+</div>
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://studenthub.city.ac.uk/timetabling-term-dates-exams/exams/exam-timetable" target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-clock"></i></span>
+<div class="tile-label">
+Examination Timetable
+</div>
+</a> <a class="tile-card" href="https://evision.city.ac.uk/" target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-person-workspace"></i></span>
+<div class="tile-label">
+Personal Tutors
+</div>
+</a> <a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx" target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-clipboard-check"></i></span>
+<div class="tile-label">
+Extenuating Circumstances
+</div>
+</a> <a class="tile-card" href="https://libraryservices.city.ac.uk/" target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-book"></i></span>
+<div class="tile-label">
+Library Resources
+</div>
+</a> <a class="tile-card" href="https://support.city.ac.uk/eReferral/?_gl=1%2A1yf5nzx%2A_gcl_au%2AMTUzMzI5MTY4Ny4xNzQ4NjAxODEy%2A_ga%2ANzcwMjIyODIzLjE3NDA2NTA3Mjg.%2A_ga_YLSK0292X4%2AczE3NTU1OTIyOTkkbzM2MiRnMSR0MTc1NTU5NDg4MCRqMzYkbDAkaDA." target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-heart-pulse"></i></span>
+<div class="tile-label">
+e-referral
+</div>
+</a> <a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills" target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-mortarboard"></i></span>
+<div class="tile-label">
+Support with Revision
+</div>
+</a> <a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-Employability-Economics/SitePages/LearningTeamHome.aspx" target="_blank" rel="noopener"> <span class="tile-icon"><i class="bi bi-briefcase"></i></span>
+<div class="tile-label">
+Employability Economics
+</div>
+</a>
+</div>
+</div>
 <div class="tiles-group">
 <div class="group-title">
 Assessment &amp; Timetable Information
@@ -4433,6 +4519,149 @@ Help and support | Student Hub | City, University of London
 </div>
 </div>
 </div>
+<script>
+  window.initTilesSearch = function() {
+    const input = document.getElementById('tiles-search-input');
+    const empty = document.getElementById('tiles-search-noresults');
+    const resultsBlock = document.getElementById('tiles-search-results');
+    const resultsGrid = document.getElementById('tiles-search-grid');
+    const textResultsBlock = document.getElementById('text-search-results');
+    const textResultsList = document.getElementById('text-search-list');
+    
+    console.log('initTilesSearch called');
+    console.log('input:', input);
+    console.log('resultsBlock:', resultsBlock);
+    console.log('resultsGrid:', resultsGrid);
+    
+    if (!input || !resultsBlock || !resultsGrid || !textResultsBlock || !textResultsList) {
+      console.error('Search elements not found', {input, resultsBlock, resultsGrid, textResultsBlock, textResultsList});
+      return;
+    }
+
+    function applyFilter(value) {
+      const q = (value || '').trim().toLowerCase();
+      console.log('applyFilter called with:', q);
+      
+      resultsGrid.innerHTML = '';
+      textResultsList.innerHTML = '';
+
+      if (!q) {
+        resultsBlock.style.display = 'none';
+        textResultsBlock.style.display = 'none';
+        if (empty) empty.style.display = 'none';
+        return;
+      }
+
+      // Get all tiles, excluding search results block
+      const allTiles = Array.from(document.querySelectorAll('#quarto-tiles-index-static .tile-card'));
+      console.log('Total tiles found:', allTiles.length);
+      
+      const sourceTiles = allTiles.filter(t => !t.closest('#tiles-search-results'));
+      console.log('Source tiles (excluding search results):', sourceTiles.length);
+
+      const seen = new Set();
+      let matches = 0;
+      let textMatches = 0;
+
+      sourceTiles.forEach(tile => {
+        const txt = (tile.textContent || '').toLowerCase();
+        const href = tile.getAttribute('href') || '';
+        const key = href + '|' + txt;
+        
+        if (txt.includes(q) && !seen.has(key)) {
+          console.log('Match found:', txt);
+          const clone = tile.cloneNode(true);
+          resultsGrid.appendChild(clone);
+          seen.add(key);
+          matches += 1;
+        }
+      });
+
+      // Text matches in page content (headings, paragraphs, list items)
+      const textNodes = Array.from(document.querySelectorAll('main h1, main h2, main h3, main h4, main p, main li'))
+        .filter(el => !el.closest('#quarto-tiles-index-static'));
+
+      function getAnchor(el) {
+        const section = el.closest('section[id]');
+        if (section && section.id) return '#' + section.id;
+        const heading = el.closest('h1[id],h2[id],h3[id],h4[id]');
+        if (heading && heading.id) return '#' + heading.id;
+        return '';
+      }
+
+      function makeSnippet(text, query) {
+        const lower = text.toLowerCase();
+        const idx = lower.indexOf(query);
+        if (idx === -1) return text.slice(0, 120) + (text.length > 120 ? '…' : '');
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + query.length + 60);
+        const snippet = text.slice(start, end);
+        return (start > 0 ? '…' : '') + snippet + (end < text.length ? '…' : '');
+      }
+
+      const textSeen = new Set();
+      for (const el of textNodes) {
+        const raw = (el.textContent || '').trim();
+        if (!raw) continue;
+        const lower = raw.toLowerCase();
+        if (!lower.includes(q)) continue;
+        const anchor = getAnchor(el);
+        if (!anchor) continue;
+        const key = anchor + '|' + lower;
+        if (textSeen.has(key)) continue;
+        textSeen.add(key);
+        const snippet = makeSnippet(raw, q);
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = anchor;
+        a.textContent = snippet;
+        li.appendChild(a);
+        textResultsList.appendChild(li);
+        textMatches += 1;
+        if (textMatches >= 5) break; // keep concise
+      }
+
+      console.log('Total matches:', matches);
+      console.log('Total text matches:', textMatches);
+
+      if (matches > 0) {
+        resultsBlock.style.display = 'block';
+        if (empty) empty.style.display = 'none';
+      } else {
+        resultsBlock.style.display = 'none';
+        if (empty) empty.style.display = 'block';
+      }
+
+      if (textMatches > 0) {
+        textResultsBlock.style.display = 'block';
+      } else {
+        textResultsBlock.style.display = 'none';
+      }
+    }
+
+    input.addEventListener('input', evt => applyFilter(evt.target.value));
+    console.log('Event listener attached to input');
+    applyFilter('');
+  };
+
+  if (document.readyState === 'loading') {
+    console.log('DOM still loading, attaching DOMContentLoaded listener');
+    document.addEventListener('DOMContentLoaded', window.initTilesSearch);
+  } else {
+    console.log('DOM ready, calling initTilesSearch immediately');
+    window.initTilesSearch();
+  }
+  </script>
+<section id="we-think-these-links-are-crucial-for-the-time-of-your-academic-year" class="level1">
+<h1>We think these links are crucial for the time of your academic year:</h1>
+<p><a href="https://studenthub.city.ac.uk/timetabling-term-dates-exams/exams/exam-timetable">Examination Timetable</a>: find upcoming exam dates.</p>
+<p><a href="https://evision.city.ac.uk/">Personal Tutors</a>: view your assigned personal tutor.</p>
+<p><a href="https://cityuni.sharepoint.com/teams/CUoL-SASSStudentSupport/SitePages/SASS-Extensions.aspx">Extenuating Circumstances</a>: guidance on applying for deferrals.</p>
+<p><a href="https://libraryservices.city.ac.uk/">Library Resources</a>: access online resources, study spaces and support.</p>
+<p><a href="https://support.city.ac.uk/eReferral/?_gl=1%2A1yf5nzx%2A_gcl_au%2AMTUzMzI5MTY4Ny4xNzQ4NjAxODEy%2A_ga%2ANzcwMjIyODIzLjE3NDA2NTA3Mjg.%2A_ga_YLSK0292X4%2AczE3NTU1OTIyOTkkbzM2MiRnMSR0MTc1NTU5NDg4MCRqMzYkbDAkaDA.">e-referral</a>: self-refer to Student Health &amp; Wellbeing.</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support/improve-your-study-skills">Support with Revision</a>: study skills and revision workshops.</p>
+<p><a href="https://cityuni.sharepoint.com/teams/CUoL-Employability-Economics/SitePages/LearningTeamHome.aspx">Employability Economics</a>: employability resources tailored to Economics students.</p>
+</section>
 <section id="assessment-timetable-information" class="level1">
 <h1>Assessment &amp; Timetable Information</h1>
 <p><a href="https://mytimetable.city.ac.uk/">Timetable Information</a></p>
@@ -4581,57 +4810,8 @@ Help and support | Student Hub | City, University of London
 <p><a href="https://studenthub.city.ac.uk/help-and-support/your-health">Health information</a></p>
 <p><a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students">International Student &amp; Visa Advice</a>: advice and guidance to applicants and students on study-related visa and immigration issues.</p>
 <p><a href="https://studenthub.city.ac.uk/help-and-support">Help and support | Student Hub | City, University of London</a>: You can find more information about student services.</p>
-</section>
-<section id="expected-behaviour-in-the-classroom" class="level1">
-<h1>Expected Behaviour in the Classroom</h1>
-<section id="general-conduct" class="level2">
-<h2 class="anchored" data-anchor-id="general-conduct">General conduct</h2>
-<p>Behave professionally – be punctual, engaged and nondisruptive in all teaching and learning sessions.</p>
-<p>Respect the physical and digital environment of the institution and our local community.</p>
-<p>Behave responsibly and respectfully.</p>
-<p>Be aware that people come from different backgrounds and cultures.</p>
-<p>Treat fellow students, staff and visitors with respect.</p>
-<p>Behave collaboratively and collegially in shared spaces – classrooms, library, computer rooms and online spaces.</p>
-</section>
-<section id="attendance" class="level2">
-<h2 class="anchored" data-anchor-id="attendance">Attendance</h2>
-<p>It is in your interests to attend; you will gain far more from your university experience if you attend classes and engage with your studies, your tutors and your classmates. There is clear evidence that those who attend classes get better results.</p>
-<p>It is also worth noting that your attendance / engagement record may be requested as part of a reference.</p>
-<p>Attendance at classes is monitored; both so that we can comply with UKVI requirements, for students on visas, and to help us identify students who may need support.</p>
-<p>We won’t ask you to explain every absence but we will contact you if your attendance / engagement raises concerns about your wellbeing. Remember to take your student card to class so that you can ‘tap in’.</p>
-<p>Do not “tap into” a class and then leave before it begins or not long into it, just to get your attendance recorded. This disturbs classes and does not benefit you in any way. It is also dishonest.</p>
-<p>We conduct manual checks of electronic attendance records and, if you are found to be falsifying your record in this way, you could be subject to a disciplinary investigation.</p>
-<p>If you can’t stay for the whole class, leave during the break, rather than disturbing others.</p>
-<p>Remember all lectures are recorded so, if you can’t attend, you can watch it at a more convenient time.</p>
-<p>If you cannot attend a small group class for some good reason you should request to attend an alternative class, where this is available. Contact your lecturer or course office for more information.</p>
-<p>Arrive on time for all your scheduled classes. Be present and in a seat, ready to begin the class at the scheduled start time. If there is a break, return promptly.</p>
-<p><strong>If you are late:</strong> enter as quietly as possible, and take the closest available seat so that you minimise the disturbance to others.</p>
-<p>In a lecture theatre, use the rear entrance, where available.</p>
-</section>
-</section>
-<section id="classroom-engagement" class="level1">
-<h1>Classroom engagement</h1>
-<p>Prepare the work set.</p>
-<p>Whether this is reading and / or carrying out specific exercises, if you have not prepared you will not get the full benefit from the class.</p>
-<p>Being prepared benefits your group; for example, ensuring there is active discussion; or that you all play your part in the skills based classes.</p>
-<p>If you cannot prepare, for some good reason, you should let your tutor know. This may prevent you from being put on the spot when called upon to answer a question which you do not know the answer to.</p>
-<p>Engage with the class by:</p>
-<ul>
-<li><p>Taking part in any polls or quizzes / questions set by the tutor.</p></li>
-<li><p>Taking an active part in the smaller group classes. Join in with group discussions; answer the questions asked of you; listen and pay attention.</p></li>
-</ul>
-<p>If you were not able to prepare fully, or at all, pay close attention; answer or discuss any aspect you are able to. Often you will find you can take a more active part than you thought.</p>
-<p>Don’t talk during class, unless you are participating in the class. This is a distraction to other students who want to listen to the class and gain the benefit from it. You will not learn from the class if you’re talking about something else.</p>
-<section id="email-communication" class="level2">
-<h2 class="anchored" data-anchor-id="email-communication">Email communication</h2>
-<p>Email is our primary means of communication with you; make sure you check your City St George’s email several times a day, especially first thing in the morning, in case there are any last minute changes to your timetable due to staff illness.</p>
-<p>Remember that email is a formal means of communication: Address all members of our community politely and formally. When emailing City St Georges staff, please include your student ID, course name and subject of query, this helps us to find you on the system and resolve your query quickly.</p>
-<p>Do not say something in an email or message that you would not say to that person’s face, or in a way that you would not want to be addressed yourself.</p>
-<p>Remember that humour or sarcasm can easily be misunderstood, especially when not accompanied by facial expressions or body language.</p>
-<p>Remember that most staff work 9-5 Monday-Friday so you are should not expect to receive a response outside these times.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
