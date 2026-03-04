@@ -311,7 +311,7 @@ insertAfter.insertAdjacentElement('afterend', index);
   <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
   <div class="tile-label">MyTimetable - Overview</div>
 </a>
-<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj" target="_blank" rel="noopener">
+<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAajukwxYoTtrZKsxTeKEWKA?e=r8PeQA" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
   <div class="tile-label">Referees for student reference letters</div>
 </a>
@@ -324,7 +324,7 @@ insertAfter.insertAdjacentElement('afterend', index);
   <span class="tile-icon"><i class="bi bi-tools"></i></span>
   <div class="tile-label">Toolkit for Supporting Students</div>
 </a>
-<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj" target="_blank" rel="noopener">
+<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAajukwxYoTtrZKsxTeKEWKA?e=r8PeQA" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
   <div class="tile-label">Referees for student reference letters</div>
 </a>
@@ -807,7 +807,7 @@ if (document.readyState === 'loading') {
 
 # Resources for staff
 [Toolkit for Supporting Students](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents): includes resources, guidance and signposting to aid you in supporting students. Useful information and links for all staff, [personal tutors](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx), course officers and school support staff.
-[Referees for student reference letters](https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj)
+[Referees for student reference letters](https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAajukwxYoTtrZKsxTeKEWKA?e=r8PeQA)
 
 ## Staff Quick Links
 
