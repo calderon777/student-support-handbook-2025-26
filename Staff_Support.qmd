@@ -326,6 +326,35 @@ insertAfter.insertAdjacentElement('afterend', index);
   </div>
 </div>
 <div class="tiles-group">
+  <div class="group-title">Resources for staff</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-tools"></i></span>
+  <div class="tile-label">Toolkit for Supporting Students</div>
+</a>
+<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
+  <div class="tile-label">Referees for student reference letters</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_CityLearningTeachngPortal" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-book"></i></span>
+  <div class="tile-label">Learning and Teaching Hub</div>
+</a>
+<a class="tile-card" href="https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
+  <div class="tile-label">Wellbeing &amp; Mental Health E-Learning</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&amp;parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">Attendance and Engagement Monitoring</div>
+</a>
+<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">SEAtS</div>
+</a>
+  </div>
+</div>
+<div class="tiles-group">
   <div class="group-title">Assessment &amp; Timetable Information</div>
   <div class="quarto-tiles-grid">
 <a class="tile-card" href="https://mytimetable.city.ac.uk/" target="_blank" rel="noopener">
@@ -667,59 +696,6 @@ insertAfter.insertAdjacentElement('afterend', index);
 </a>
   </div>
 </div>
-<div class="tiles-group">
-  <div class="group-title">Resources for staff</div>
-  <div class="quarto-tiles-grid">
-<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-tools"></i></span>
-  <div class="tile-label">Toolkit for Supporting Students</div>
-</a>
-<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-person-workspace"></i></span>
-  <div class="tile-label">personal tutors</div>
-</a>
-<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
-  <div class="tile-label">Referees for student reference letters</div>
-</a>
-<a class="tile-card" href="https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
-  <div class="tile-label">Wellbeing &amp; Mental Health E-Learning</div>
-</a>
-<a class="tile-card" href="https://elearning.charliewaller.org/course-details/681ed6fc-46e1-4753-8a18-21063ad94f1f" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-play-circle"></i></span>
-  <div class="tile-label">Staff Supporting Students</div>
-</a>
-<a class="tile-card" href="https://elearning.charliewaller.org/course-details/630cf33e-725b-4d3e-948e-2fcd279e400d" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-play-circle"></i></span>
-  <div class="tile-label">Managers Supporting Staff</div>
-</a>
-<a class="tile-card" href="https://elearning.charliewaller.org/course-details/655f3612-b251-4001-a3a1-5d9106e67491" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-heart"></i></span>
-  <div class="tile-label">Wellbeing Strategies</div>
-</a>
-<a class="tile-card" href="https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-shield-exclamation"></i></span>
-  <div class="tile-label">Risks and Crises</div>
-</a>
-<a class="tile-card" href="https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&amp;parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
-  <div class="tile-label">Attendance and Engagement Monitoring</div>
-</a>
-<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
-  <div class="tile-label">SEAtS</div>
-</a>
-<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/5u2ufkq6fke1ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
-  <div class="tile-label">find out more about SEAtS attendance and monitoring training here</div>
-</a>
-<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/jigmhvwn6171ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-laptop"></i></span>
-  <div class="tile-label">including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub</div>
-</a>
-</div>
-</div>
 </div>
 
 <script>
@@ -835,6 +811,146 @@ if (document.readyState === 'loading') {
   window.initTilesSearch();
 }
 </script>
+
+
+# Resources for staff
+[Toolkit for Supporting Students](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents): includes resources, guidance and signposting to aid you in supporting students. Useful information and links for all staff, [personal tutors](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx), course officers and school support staff.
+[Referees for student reference letters](https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj)
+
+## Staff Quick Links
+
+### Teaching
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://mytimetable.city.ac.uk/overview/tt_moduleoffer?d=TT2526" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
+  <div class="tile-label">MyTimetable - Overview</div>
+</a>
+<a class="tile-card" href="https://www.economicsnetwork.ac.uk/moodle/my/courses.php" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-mortarboard"></i></span>
+  <div class="tile-label">Economics Network Resources</div>
+</a>
+<a class="tile-card" href="https://mediaspace.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-camera-video"></i></span>
+  <div class="tile-label">MediaSpace - City, University of London</div>
+</a>
+</div>
+
+### Teaching Administration
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://evision.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-badge"></i></span>
+  <div class="tile-label">e:Vision Portal</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-JointSchoolAcademicServicesQualityHub/SitePages/Joint-School-Academic-Services.aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-diagram-3"></i></span>
+  <div class="tile-label">Joint School Academic Services Team</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-SPGAAcademicServicesQualityHub" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">CUoL-SPGA Quality and Student Experience Hub</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_CityLearningTeachngPortal" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-book"></i></span>
+  <div class="tile-label">City St George's Learning and Teaching Hub</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_quadhub/SitePages/Curriculum-Management-System-(CMS).aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-collection"></i></span>
+  <div class="tile-label">CMS Hub</div>
+</a>
+</div>
+
+### Student Support
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://reportandsupport.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-lock"></i></span>
+  <div class="tile-label">Report + Support</div>
+</a>
+</div>
+
+### Staff Administration
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://iahmme.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-building-gear"></i></span>
+  <div class="tile-label">Oracle</div>
+</a>
+<a class="tile-card" href="https://emea5.lumessetalentlink.com/?tlk_idp=871" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-vcard"></i></span>
+  <div class="tile-label">TalentLink - Generic Dashboard</div>
+</a>
+</div>
+
+### IT
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.service-now.com/sp?id=index" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-tools"></i></span>
+  <div class="tile-label">IT Self Service</div>
+</a>
+<a class="tile-card" href="https://cityuni.service-now.com/nav_to.do?uri=%2Fhome.do" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-headset"></i></span>
+  <div class="tile-label">IT Service Desk</div>
+</a>
+<a class="tile-card" href="https://staffhub.city.ac.uk/finance/procurement/marketplace" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-cart3"></i></span>
+  <div class="tile-label">Marketplace</div>
+</a>
+</div>
+
+### Productivity
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://www.office.com/?auth=2" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-microsoft"></i></span>
+  <div class="tile-label">Office 365</div>
+</a>
+<a class="tile-card" href="https://clients.mapsindoors.com/cul/7f348b58b4314fe79ecc0213/search" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-compass"></i></span>
+  <div class="tile-label">CityNav</div>
+</a>
+<a class="tile-card" href="https://client.wvd.microsoft.com/arm/webclient/index.html" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-display"></i></span>
+  <div class="tile-label">Remote Desktop Web Client</div>
+</a>
+<a class="tile-card" href="https://appsanywhere.city.ac.uk/login" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-box-seam"></i></span>
+  <div class="tile-label">AppsAnywhere</div>
+</a>
+</div>
+
+### Research
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.sharepoint.com/:l:/t/CUoL-EconDepartment/FLuhvdG3zc1ImEeSOQz2S9YB9SWu0oBU7F07aFcc7Ux57g" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-journal-text"></i></span>
+  <div class="tile-label">Econ Dept Log</div>
+</a>
+<a class="tile-card" href="https://forms.office.com/e/dzWdW3VnZX" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
+  <div class="tile-label">Econ Grant Support form</div>
+</a>
+<a class="tile-card" href="https://city-research.worktribe.com/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-diagram-2"></i></span>
+  <div class="tile-label">Worktribe</div>
+</a>
+<a class="tile-card" href="https://bsky.app/profile/cityeconomics.bsky.social" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-chat-dots"></i></span>
+  <div class="tile-label">City St George's Economics (Bluesky)</div>
+</a>
+</div>
+
+## [Wellbeing & Mental Health E-Learning](https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning)
+City has collaborated with Charlie Waller Trust, the UK mental health charity, to create a series of e-learning courses aimed at equipping staff with a baseline knowledge of mental health awareness to help themselves, other members of staff and our students. These modules also signpost to key university teams and resources that can further support with wellbeing and mental health.
+Course 1: [Staff Supporting Students](https://elearning.charliewaller.org/course-details/681ed6fc-46e1-4753-8a18-21063ad94f1f)
+Course 2: [Managers Supporting Staff](https://elearning.charliewaller.org/course-details/630cf33e-725b-4d3e-948e-2fcd279e400d)
+Course 3: [Wellbeing Strategies](https://elearning.charliewaller.org/course-details/655f3612-b251-4001-a3a1-5d9106e67491)
+Course 4: [Risks and Crises](https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7)
+
+## [Attendance and Engagement Monitoring](https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments)
+Undergraduate students can download a new [SEAtS Mobile App](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in) through which they will be able to view their timetable, view their attendance information, submit authorised absences requests and receive updates on class/timetable changes.
+Academic staff can view students’ overall attendance per module, monitor absences and lateness, as well as run reports by programme and module through SEAtS.
+We ask that all colleagues involved in teaching engage with this system to support student attendance. Log into [SEAtS](https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120) via Single Sign On to access this data. You can [find out more about SEAtS attendance and monitoring training here](https://staffcommunications.newsweaver.com/1cuay0lb4l/5u2ufkq6fke1ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
+
+## Transition for Academic Success Programme
+The Transition for Academic Success Programme aims to address the unique academic challenges faced by first year students when transitioning from secondary education or when returning to Higher Education from employment. The programme of online modules, which will run throughout terms 1 and 2, has been fully co-created with students who have helped identify the topics and areas of focus.
+You can find more information [including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub](https://staffcommunications.newsweaver.com/1cuay0lb4l/jigmhvwn6171ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
+
 
 
 # Assessment & Timetable Information
@@ -1080,141 +1196,4 @@ For International Students:
 
 [Help and support | Student Hub | City, University of London](https://studenthub.city.ac.uk/help-and-support): You can find more information about student services.
 
-# Resources for staff
-[Toolkit for Supporting Students](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents): includes resources, guidance and signposting to aid you in supporting students. Useful information and links for all staff, [personal tutors](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx), course officers and school support staff.
-[Referees for student reference letters](https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj)
-
-## Staff Quick Links
-
-### Teaching
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://mytimetable.city.ac.uk/overview/tt_moduleoffer?d=TT2526" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
-  <div class="tile-label">MyTimetable - Overview</div>
-</a>
-<a class="tile-card" href="https://www.economicsnetwork.ac.uk/moodle/my/courses.php" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-mortarboard"></i></span>
-  <div class="tile-label">Economics Network Resources</div>
-</a>
-<a class="tile-card" href="https://mediaspace.city.ac.uk/" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-camera-video"></i></span>
-  <div class="tile-label">MediaSpace - City, University of London</div>
-</a>
-</div>
-
-### Teaching Administration
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://evision.city.ac.uk/" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-person-badge"></i></span>
-  <div class="tile-label">e:Vision Portal</div>
-</a>
-<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-JointSchoolAcademicServicesQualityHub/SitePages/Joint-School-Academic-Services.aspx" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-diagram-3"></i></span>
-  <div class="tile-label">Joint School Academic Services Team</div>
-</a>
-<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-SPGAAcademicServicesQualityHub" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-people"></i></span>
-  <div class="tile-label">CUoL-SPGA Quality and Student Experience Hub</div>
-</a>
-<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_CityLearningTeachngPortal" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-book"></i></span>
-  <div class="tile-label">City St George's Learning and Teaching Hub</div>
-</a>
-<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_quadhub/SitePages/Curriculum-Management-System-(CMS).aspx" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-collection"></i></span>
-  <div class="tile-label">CMS Hub</div>
-</a>
-</div>
-
-### Student Support
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://reportandsupport.city.ac.uk/" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-shield-lock"></i></span>
-  <div class="tile-label">Report + Support</div>
-</a>
-</div>
-
-### Staff Administration
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://iahmme.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-building-gear"></i></span>
-  <div class="tile-label">Oracle</div>
-</a>
-<a class="tile-card" href="https://emea5.lumessetalentlink.com/?tlk_idp=871" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-person-vcard"></i></span>
-  <div class="tile-label">TalentLink - Generic Dashboard</div>
-</a>
-</div>
-
-### IT
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://cityuni.service-now.com/sp?id=index" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-tools"></i></span>
-  <div class="tile-label">IT Self Service</div>
-</a>
-<a class="tile-card" href="https://cityuni.service-now.com/nav_to.do?uri=%2Fhome.do" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-headset"></i></span>
-  <div class="tile-label">IT Service Desk</div>
-</a>
-<a class="tile-card" href="https://staffhub.city.ac.uk/finance/procurement/marketplace" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-cart3"></i></span>
-  <div class="tile-label">Marketplace</div>
-</a>
-</div>
-
-### Productivity
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://www.office.com/?auth=2" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-microsoft"></i></span>
-  <div class="tile-label">Office 365</div>
-</a>
-<a class="tile-card" href="https://clients.mapsindoors.com/cul/7f348b58b4314fe79ecc0213/search" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-compass"></i></span>
-  <div class="tile-label">CityNav</div>
-</a>
-<a class="tile-card" href="https://client.wvd.microsoft.com/arm/webclient/index.html" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-display"></i></span>
-  <div class="tile-label">Remote Desktop Web Client</div>
-</a>
-<a class="tile-card" href="https://appsanywhere.city.ac.uk/login" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-box-seam"></i></span>
-  <div class="tile-label">AppsAnywhere</div>
-</a>
-</div>
-
-### Research
-<div class="quarto-tiles-grid">
-<a class="tile-card" href="https://cityuni.sharepoint.com/:l:/t/CUoL-EconDepartment/FLuhvdG3zc1ImEeSOQz2S9YB9SWu0oBU7F07aFcc7Ux57g" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-journal-text"></i></span>
-  <div class="tile-label">Econ Dept Log</div>
-</a>
-<a class="tile-card" href="https://forms.office.com/e/dzWdW3VnZX" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
-  <div class="tile-label">Econ Grant Support form</div>
-</a>
-<a class="tile-card" href="https://city-research.worktribe.com/" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-diagram-2"></i></span>
-  <div class="tile-label">Worktribe</div>
-</a>
-<a class="tile-card" href="https://bsky.app/profile/cityeconomics.bsky.social" target="_blank" rel="noopener">
-  <span class="tile-icon"><i class="bi bi-chat-dots"></i></span>
-  <div class="tile-label">City St George's Economics (Bluesky)</div>
-</a>
-</div>
-
-## [Wellbeing & Mental Health E-Learning](https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning)
-City has collaborated with Charlie Waller Trust, the UK mental health charity, to create a series of e-learning courses aimed at equipping staff with a baseline knowledge of mental health awareness to help themselves, other members of staff and our students. These modules also signpost to key university teams and resources that can further support with wellbeing and mental health.
-Course 1: [Staff Supporting Students](https://elearning.charliewaller.org/course-details/681ed6fc-46e1-4753-8a18-21063ad94f1f)
-Course 2: [Managers Supporting Staff](https://elearning.charliewaller.org/course-details/630cf33e-725b-4d3e-948e-2fcd279e400d)
-Course 3: [Wellbeing Strategies](https://elearning.charliewaller.org/course-details/655f3612-b251-4001-a3a1-5d9106e67491)
-Course 4: [Risks and Crises](https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7)
-
-## [Attendance and Engagement Monitoring](https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments)
-Undergraduate students can download a new [SEAtS Mobile App](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in) through which they will be able to view their timetable, view their attendance information, submit authorised absences requests and receive updates on class/timetable changes.
-Academic staff can view students’ overall attendance per module, monitor absences and lateness, as well as run reports by programme and module through SEAtS.
-We ask that all colleagues involved in teaching engage with this system to support student attendance. Log into [SEAtS](https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120) via Single Sign On to access this data. You can [find out more about SEAtS attendance and monitoring training here](https://staffcommunications.newsweaver.com/1cuay0lb4l/5u2ufkq6fke1ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
-
-## Transition for Academic Success Programme
-The Transition for Academic Success Programme aims to address the unique academic challenges faced by first year students when transitioning from secondary education or when returning to Higher Education from employment. The programme of online modules, which will run throughout terms 1 and 2, has been fully co-created with students who have helped identify the topics and areas of focus.
-You can find more information [including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub](https://staffcommunications.newsweaver.com/1cuay0lb4l/jigmhvwn6171ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
 
