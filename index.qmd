@@ -1,4 +1,4 @@
----
+﻿---
 title: "Links for Student Support & Experience"
 subtitle: "Department of Economics"
 description: "Design and updates: camilo.calderon@city.ac.uk.<br><br>Use the search box to jump to exams, support, wellbeing, library, and careers resources. The tiles below surface the most time-sensitive links for your academic year, with full guidance further down the page."
@@ -15,268 +15,8 @@ format:
 
 ```{=html}
 <!-- Consolidated tiles index inserted after the main title. Groups tiles by subsection headings (h2) and hides them in print. -->
-<style>
-  /* hide left-hand sidebar and add 1cm left/right page padding */
-  #quarto-margin-sidebar, .sidebar.margin-sidebar { display: none !important; }
-  #quarto-content { grid-template-columns: 1fr !important; padding-left: 1cm; padding-right: 1cm; box-sizing: border-box; }
-  main.content { width: 100% !important; max-width: none !important; margin-left: 0 !important; }
-
-  /* Increase spacing before each main subsection */
-  section.level1 { margin-top: 2.25rem; }
-  section.level1 > h1 { margin-top: 0.25rem; }
-  .quarto-tiles-index { margin: 1.25rem 0 1.75rem; }
-  .quarto-tiles-index .tiles-group { margin-top: 1.25rem; margin-bottom: 0.75rem; }
-  .quarto-tiles-index .group-title { font-weight:700; margin:0.5rem 0 0.35rem; }
-  /* search bar above tiles */
-  .tiles-search { display:flex; justify-content:center; align-items:center; margin: 0.35rem auto 0.2rem; width:100%; max-width: none; padding: 0 1rem; box-sizing: border-box; }
-  .tiles-search input { width: clamp(260px, 90vw, 1100px); max-width: 100%; padding: 1rem 1.35rem; border-radius: 999px; border:1.3px solid rgba(0,0,0,0.12); box-shadow: 0 8px 22px rgba(0,0,0,0.05); font-size: 1.05rem; box-sizing: border-box; display:block; }
-  .tiles-search input:focus-visible { outline:3px solid rgba(11,102,160,0.2); border-color: rgba(11,102,160,0.35); box-shadow: 0 10px 26px rgba(11,102,160,0.16); }
-  .tiles-search-hint { text-align:center; font-size:0.9rem; color:#555; margin-bottom:0.35rem; }
-  .tiles-search-empty { text-align:center; padding:0.65rem 0.75rem; background: rgba(200,30,45,0.08); border:1px solid rgba(200,30,45,0.18); border-radius:10px; color:#8c1c28; display:none; }
-  .search-text-results { background: linear-gradient(180deg, rgba(11,102,160,0.05), rgba(11,102,160,0.015)); border:1px solid rgba(11,102,160,0.18); border-radius:12px; padding:0.75rem 0.85rem 0.95rem; display:none; }
-  .search-text-results .group-title { color:#0b66a0; margin-top:0; }
-  .search-text-results ul { margin:0.35rem 0 0; padding-left:1.15rem; }
-  .search-text-results li { margin-bottom:0.15rem; font-size:0.95rem; }
-  .tiles-group.search-results { background: linear-gradient(180deg, rgba(11,102,160,0.05), rgba(11,102,160,0.02)); border:1px solid rgba(11,102,160,0.16); border-radius: 12px; padding: 0.75rem 0.8rem 0.95rem; display:none; }
-  .tiles-group.search-results .group-title { margin-top:0; color:#0b66a0; }
-  .tiles-group.search-results .tile-card { border-color: rgba(11,102,160,0.28); box-shadow: 0 10px 24px rgba(11,102,160,0.12); }
-  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-  /* soft red highlight for the crucial tiles block */
-  .quarto-tiles-index .tiles-group.crucial-tiles { background: linear-gradient(180deg, rgba(200,30,45,0.08), rgba(200,30,45,0.02)); border:1px solid rgba(200,30,45,0.12); border-radius: 12px; padding: 0.85rem 0.85rem 1.05rem; }
-  .quarto-tiles-index .tiles-group.crucial-tiles .group-title { margin-top:0; color:#8c1c28; }
-  .quarto-tiles-index .tiles-group.crucial-tiles .tile-card { border-color: rgba(200,30,45,0.25); }
-  .quarto-tiles-index .tiles-group.crucial-tiles .tile-card .tile-icon { color:#a32030; }
-  .quarto-tiles-index .tiles-group.crucial-tiles .tile-card:hover { box-shadow: 0 12px 28px rgba(200,30,45,0.18); }
-  .quarto-tiles-grid { display: grid; gap: 0.5rem; grid-template-columns: repeat(1, 1fr); margin: 0.5rem 0; }
-  @media (min-width: 576px) { .quarto-tiles-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 768px) { .quarto-tiles-grid { grid-template-columns: repeat(5, 1fr); } }
-  .quarto-tiles-grid .tile-card { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0.75rem; min-height:68px; border-radius:10px; border:1.3px solid rgba(0,0,0,0.08); background:#fff; text-align:center; color:inherit; text-decoration:none }
-  .quarto-tiles-grid .tile-card { position:relative; padding-top:1rem; padding-left:2.25rem; text-align:left; }
-  .quarto-tiles-grid .tile-card .tile-icon{ position:absolute; top:0.5rem; left:0.6rem; font-size:24px; color:#0b66a0; }
-
-  @media (max-width:575px) {
-    .quarto-tiles-grid .tile-card { padding-left:1rem; }
-    .quarto-tiles-grid .tile-card .tile-icon{ left:0.5rem; }
-  }
-  .quarto-tiles-grid .tile-label{ font-size:0.95rem; margin:0; }
-  .quarto-tiles-grid .tile-card.tile-important { border-color: rgba(200,30,45,0.18); background: linear-gradient(180deg, rgba(255,240,240,0.6), rgba(255,255,255,0.0)); }
-  .quarto-tiles-grid .tile-card.tile-important .tile-icon { color: #c82333; }
-  .quarto-tiles-grid .tile-card:focus-visible{ outline:3px solid #0b66a0; box-shadow:0 8px 20px rgba(11,102,160,0.12) }
-  .quarto-tiles-grid .tile-card { transition: transform 180ms ease, box-shadow 180ms ease; cursor: pointer; will-change: transform; }
-  .quarto-tiles-grid .tile-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(11,102,160,0.14); }
-  @media print { .quarto-tiles-index, .quarto-tiles-grid { display:none !important } }
-  /* email badge: small @ overlay on person icon */
-  .quarto-tiles-grid .tile-icon--email{ position: absolute; }
-  .quarto-tiles-grid .tile-icon--email::after{
-    content: "@";
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: #fff;
-    color: #c82333;
-    font-size: 10px;
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    text-align: center;
-    border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-  }
-</style>
-
-<script>
-(function () {
-  'use strict';
-  function buildTilesIndex() {
-    try {
-      const main = document.querySelector('main.content') || document;
-      const mainTitle = main.querySelector('h1') || document.querySelector('h1');
-      if (!mainTitle) return;
-
-      // remove any existing index
-      const old = main.querySelector('.quarto-tiles-index'); if (old) old.remove();
-
-      // collect headings (skip the main title)
-      const allHeadings = Array.from(main.querySelectorAll('h1,h2'));
-      const headings = allHeadings.filter(h => h !== mainTitle);
-
-      const index = document.createElement('div'); index.className = 'quarto-tiles-index';
-      const seen = new Set();
-
-      headings.forEach(heading => {
-        // gather anchors from nodes until next h1/h2
-        const items = [];
-        let node = heading.nextSibling;
-        while (node && !(node.nodeType === 1 && (node.matches('h1') || node.matches('h2')))) {
-          if (node.nodeType === 1) {
-            Array.from(node.querySelectorAll('a[href]')).forEach(a => {
-              const href = (a.href || a.getAttribute('href') || '').trim();
-              if (!href || href.startsWith('#')) return;
-              if (seen.has(href)) return; // global dedupe: show each service only once
-              seen.add(href);
-              const raw = (a.textContent || a.getAttribute('title') || href).trim();
-              const label = raw.length > 60 ? raw.slice(0,57).trim() + '…' : raw;
-              items.push({ href, label });
-            });
-          }
-          node = node.nextSibling;
-        }
-
-        if (items.length > 0) {
-          const group = document.createElement('div'); group.className = 'tiles-group';
-          const gt = document.createElement('div'); gt.className = 'group-title'; gt.textContent = heading.textContent.trim(); group.appendChild(gt);
-          const grid = document.createElement('div'); grid.className = 'quarto-tiles-grid';
-          // choose a semantic icon for each tile based on label or href
-          function chooseImportant(text, href) {
-            const s = (text + ' ' + (href || '')).toLowerCase();
-            const keywords = ['exam','examination','timetable','registration','evision','extension','extenuating','support@city','support','funding','fees','accommodation','health','wellbeing','attendance','seats','urgent'];
-            return keywords.some(k => s.includes(k));
-          }
-
-          // ---- Explicit per-tile icon overrides (exact label match) ----
-// Add/modify entries to force a specific icon for a specific tile label.
-// Uses Bootstrap Icons (https://icons.getbootstrap.com/) classes like 'bi-calendar3'.
-const ICON_EXACT_MAP = {
-  // Already agreed / good
-  "Term Dates": "bi-calendar3",
-  "Timetable Information": "bi-calendar3",
-  "Examination Timetable": "bi-clock",
-  "Personal Tutors": "bi-person-workspace",
-  "Extenuating Circumstances": "bi-clipboard-check",
-  "Extensions": "bi-file-earmark-text",
-  "Academic Misconduct": "bi-shield-exclamation",
-  "Student Appeals": "bi-clipboard-check",
-  "Student Union Advise & Support": "bi-people",
-  "Library": "bi-book",
-  "Library Resources": "bi-book",
-  "e-referral": "bi-heart-pulse",
-  "Support with Revision": "bi-mortarboard",
-  "Employability Economics": "bi-briefcase",
-
-  // Fix obvious mismatches
-  "SEAtS Mobile app": "bi-phone",
-  "Student Health & Wellbeing e-Referral": "bi-heart-pulse",
-  "Student Support Hub Advisers": "bi-person-lines-fill",
-  "The Student Support Hub": "bi-building",
-
-  // Authorised absence forms
-  "PG online Authorised Absence form": "bi-calendar-check",
-  "Authorised Absence for Research students via Research Man…": "bi-calendar-check",
-
-  // Buddying / mentoring
-  "CityBuddy": "bi-people",
-  "Apply to get a mentor that will be your personal guide to…": "bi-person-plus",
-
-  // Core support areas
-  "Accommodation": "bi-house-door",
-  "Uni Cares": "bi-life-preserver",
-  "International Student & Visa Advice": "bi-globe2",
-  "Student Funding": "bi-cash-coin",
-  "School Student Welfare teams": "bi-heart",
-
-  // Study support / skills
-  "Academic English support": "bi-chat-text",
-  "Academic Skills": "bi-mortarboard",
-  "Digital Skills": "bi-laptop",
-
-  // Student Hub catch-all
-  "Help and support | Student Hub | City, University of London": "bi-question-circle",
-
-  // SU / reps / nominations
-  "the nomination form": "bi-pencil-square",
-
-  // Careers / mentoring
-  "Professional Mentoring Scheme": "bi-person-badge",
-
-  // Faith & culture
-  "Faith, belief and culture at City St George’s": "bi-people",
-
-  // Staff resources
-  "Toolkit for Supporting Students": "bi-tools",
-  "personal tutors": "bi-person-workspace",
-
-  // E-learning / teaching resources
-  "Staff Supporting Students": "bi-play-circle",
-  "Managers Supporting Staff": "bi-play-circle",
-  "Risks and Crises": "bi-shield-exclamation",
-  "including Powerpoint slides to incorporate into Induction…": "bi-easel2"
-};
-
-// ---------------------------------------------------------------
-
-            function chooseIconClass(text, href) {
-            const k = (text || '').trim();
-            if (ICON_EXACT_MAP[k]) return ICON_EXACT_MAP[k];
-            const s = (text + ' ' + (href || '')).toLowerCase();
-            // more specific matches first to reduce reuse
-            if (s.includes('youtube.com') || s.includes('youtube')) return 'bi-youtube';
-            if (s.includes('instagram.com') || s.includes('instagram')) return 'bi-instagram';
-            if (s.includes('progression') || s.includes('award') || s.includes('awards')) return 'bi-trophy';
-            if (s.includes('term dates') || s.includes('term date') || (s.includes('term') && s.includes('dates'))) return 'bi-calendar3';
-            if (s.includes('timetable') || s.includes('mytimetable') || s.includes('calendar')) return 'bi-calendar3';
-            if (s.includes('examin') || s.includes('exam')) return 'bi-clock';
-            if (s.includes('extension') || s.includes('extensions') || s.includes('late submission')) return 'bi-file-earmark-text';
-            if (s.includes('count me in') || s.includes('attendance') || s.includes('seats')) return 'bi-check2-square';
-            if (s.includes('getheard') || s.includes('get heard') || s.includes('feedback') || s.includes('voice') || s.includes('unitu')) return 'bi-megaphone';
-            if (s.includes('citynav') || s.includes('city nav') || s.includes('map') || s.includes('nav')) return 'bi-compass';
-            if (s.includes('study spaces') || s.includes('library') || s.includes('libguides')) return 'bi-book';
-            if (s.includes('student guides') || s.includes('educational technology') || s.includes('educational') || s.includes('technology')) return 'bi-laptop';
-            if (s.includes('appsanywhere') || s.includes('apps anywhere') || s.includes('appsanywhere') || s.includes('apps anywhere')) return 'bi-box-seam';
-            if (s.includes('careers') || s.includes('employability') || s.includes('jobs') || s.includes('unitemps')) return 'bi-briefcase';
-            if (s.includes('union') || s.includes('students union') || s.includes('csgsu')) return 'bi-people';
-            if (s.includes('misconduct') || s.includes('academic misconduct')) return 'bi-shield-exclamation';
-            if (s.includes('appeal') || s.includes('appeals')) return 'bi-file-earmark-text';
-            if (s.includes('progression') || s.includes('award') || s.includes('awards')) return 'bi-trophy';
-            if (s.includes('reportandsupport') || s.includes('report+support') || (s.includes('report') && s.includes('support'))) return 'bi-shield-lock';
-            if (s.includes('stay city safe') || s.includes('stay city') || s.includes('stay-city')) return 'bi-shield-check';
-            if (s.includes('citysport') || s.includes('sport') || s.includes('sports')) return 'bi-trophy';
-            if (s.includes('registration') || s.includes('register')) return 'bi-person-badge';
-            if (s.includes('fee') || s.includes('finance') || s.includes('fees')) return 'bi-wallet2';
-            if (s.includes('evision')) return 'bi-person-badge';
-            if (s.includes('it') || s.includes('it service') || s.includes('helpdesk') || s.includes('service now')) return 'bi-laptop';
-            if (s.includes('support@city') || s.includes('support hub') || s.includes('create-case') || s.includes('support.city')) return 'bi-headset';
-            if (s.includes('health') || s.includes('wellbeing') || s.includes('mental') || s.includes('togetherall')) return 'bi-heart';
-            return 'bi-link-45deg';
-          }
-
-          items.forEach(it => {
-            const tile = document.createElement('a'); tile.className = 'tile-card'; tile.href = it.href; tile.target = '_blank'; tile.rel = 'noopener noreferrer'; tile.setAttribute('aria-label', it.label);
-            // mark important tiles
-            if (chooseImportant(it.label, it.href)) tile.classList.add('tile-important');
-            const icon = document.createElement('i');
-            const iconClass = chooseIconClass(it.label, it.href);
-            const emailRegex = /\S+@\S+\.\S+/;
-            const isEmail = (it.href && it.href.startsWith('mailto:')) || emailRegex.test(it.href) || emailRegex.test(it.label);
-            if (isEmail) {
-              icon.className = 'tile-icon bi bi-person tile-icon--email';
-            } else {
-              icon.className = 'tile-icon bi ' + iconClass;
-            }
-            icon.setAttribute('aria-hidden', 'true');
-            const txt = document.createElement('div'); txt.className = 'tile-label'; txt.textContent = it.label;
-            tile.appendChild(icon); tile.appendChild(txt); grid.appendChild(tile);
-          });
-          group.appendChild(grid); index.appendChild(group);
-        }
-      });
-
-      // insert after the title description (so credit + instructions stay above tiles)
-var desc = document.querySelector('#title-block-header .description');
-var subtitle = main.querySelector('.subtitle, .quarto-subtitle, h2.subtitle, p.subtitle, .page-subtitle');
-
-var insertAfter =
-  (desc && desc.textContent && desc.textContent.trim()) ? desc :
-  ((subtitle && subtitle.textContent && subtitle.textContent.trim()) ? subtitle : mainTitle);
-
-insertAfter.insertAdjacentElement('afterend', index);
-    } catch (e) { console.error('Tiles index generator error', e); }
-  }
-
-  if (typeof ENABLE_DYNAMIC_TILES !== 'undefined' && ENABLE_DYNAMIC_TILES) {
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildTilesIndex); else buildTilesIndex();
-  }
-})();
-</script>
+<link rel="stylesheet" href="tiles-shared.css">
+<script src="tiles-shared.js"></script>
 ```
 
 
@@ -286,7 +26,7 @@ insertAfter.insertAdjacentElement('afterend', index);
 <div class="quarto-tiles-index" id="quarto-tiles-index-static">
 <div class="tiles-search">
   <label for="tiles-search-input" class="sr-only">Search for support links</label>
-  <input id="tiles-search-input" type="search" placeholder="Search support, exams, library, wellbeing…" aria-describedby="tiles-search-hint">
+  <input id="tiles-search-input" type="search" placeholder="Search support, exams, library, wellbeingâ€¦" aria-describedby="tiles-search-hint">
 </div>
 <div class="tiles-search-hint" id="tiles-search-hint">Try keywords like "exam timetable", "extensions", "personal tutor", "library", "wellbeing", "employability".</div>
 <div class="tiles-search-empty" id="tiles-search-noresults">No matches found. Try a different word.</div>
@@ -559,7 +299,7 @@ insertAfter.insertAdjacentElement('afterend', index);
   <div class="quarto-tiles-grid">
 <a class="tile-card" href="https://www.csgsu.co.uk/" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-people"></i></span>
-  <div class="tile-label">Student’s Union</div>
+  <div class="tile-label">Studentâ€™s Union</div>
 </a>
 <a class="tile-card" href="https://csgsu.co.uk/explore-and-join/societies" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-people"></i></span>
@@ -665,7 +405,7 @@ insertAfter.insertAdjacentElement('afterend', index);
 </a>
 <a class="tile-card" href="https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-people"></i></span>
-  <div class="tile-label">Faith, belief and culture at City St George’s</div>
+  <div class="tile-label">Faith, belief and culture at City St Georgeâ€™s</div>
 </a>
 <a class="tile-card" href="https://studenthub.city.ac.uk/help-and-support/your-health" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-laptop"></i></span>
@@ -753,11 +493,11 @@ insertAfter.insertAdjacentElement('afterend', index);
       function makeSnippet(text, query) {
         const lower = text.toLowerCase();
         const idx = lower.indexOf(query);
-        if (idx === -1) return text.slice(0, 120) + (text.length > 120 ? '…' : '');
+        if (idx === -1) return text.slice(0, 120) + (text.length > 120 ? 'â€¦' : '');
         const start = Math.max(0, idx - 30);
         const end = Math.min(text.length, idx + query.length + 60);
         const snippet = text.slice(start, end);
-        return (start > 0 ? '…' : '') + snippet + (end < text.length ? '…' : '');
+        return (start > 0 ? 'â€¦' : '') + snippet + (end < text.length ? 'â€¦' : '');
       }
 
       const textSeen = new Set();
@@ -860,11 +600,11 @@ Late submission policy for coursework: Any work that is submitted more than 1 mi
 
 **Your Employability Economics leader** is th first point of contact about job opportunities and employability matters.
 
-[Employability Economics](dagmara.celik@city.ac.uk)
+[Employability Economics](mailto:dagmara.celik@city.ac.uk)
 
-**Your Module Leader** is the first point of contact for any queries about the content or organisation of the module you are studying. you can also book a meeting with a Module Leader during their designated ‘office hours’. Module leader details are available in Moodle.
+**Your Module Leader**â€¯is the first point of contact for any queries about the content or organisation of the module you are studying. you can also book a meeting with a Module Leader during their designated â€˜office hoursâ€™. Module leader details are available in Moodle.
 
-**Your Personal Tutor** acts as a mentor and guide you to any support you may need. You can talk to your personal tutor about any struggles with your studies and personal life. Your personal tutor also can refer you to the University’s more specialised services for academic, mental health and wellbeing support. You can discuss your career aspirations with your personal tutor and receive advice on how to plan your studies accordingly.
+**Your Personal Tutor**â€¯acts as a mentor and guide you to any support you may need. You can talk to your personal tutor about any struggles with your studies and personal life.â€¯Your personal tutor also can refer you to the Universityâ€™s more specialised services for academic, mental health and wellbeing support.â€¯You can discuss your career aspirations with your personal tutor and receive advice on how to plan your studies accordingly.
 
 [Personal Tutor Year 1](mailto:econ-y1-tutor@city.ac.uk): Dr Seefat-E-Rabbi Khan
 
@@ -876,7 +616,7 @@ Late submission policy for coursework: Any work that is submitted more than 1 mi
 
 [Personal Tutor & PG Director](mailto:lena.hassani-nezhad@city.ac.uk): Dr lena.hassani-nezhad@city.ac.uk
 
-[Course Officers UG](mailto:economics.ug@city.ac.uk) and [Course Officers PG](mailto:pgspga@city.ac.uk); or visit the Course Office information desk in Room A129, College Building (Monday–Friday, 10:00 AM–5:00 PM).Course Officers handle the course and official records of students, including:
+[Course Officers UG](mailto:economics.ug@city.ac.uk) and [Course Officers PG](mailto:pgspga@city.ac.uk); or visit the Course Office information desk in Room A129, College Building (Mondayâ€“Friday, 10:00 AMâ€“5:00 PM).Course Officers handle the course and official records of students, including:
 
 - Moodle page enrolment
 - Programme or module changes
@@ -893,7 +633,7 @@ Late submission policy for coursework: Any work that is submitted more than 1 mi
 
 [eVision for Personal Tutor contact](https://evision.city.ac.uk/): How to contact:   Details of student Personal Tutors will be available on Evision.
 
-**Student Welfare and Engagement Officers** are your first points of contact for any wellbeing or student experience related issues. Some topics which students discuss with Student Engagement Officers can include, but are not limited to; stress and anxiety, general wellbeing issues, financial stress, challenging living environments, time-consuming work or caring commitments, and disabilities. Based on the topic either a Student Welfare or Student Engagement Officer will reply to your query and provide advice on how you can best access the support services available to you at the University. They may also suggest that you meet with them so they can get more details on the support you need. 
+**Student Welfare and Engagement Officers**â€¯are your first points of contact for any wellbeing or student experience related issues. Some topics which students discuss with Student Engagement Officers can include, but are not limited to; stress and anxiety, general wellbeing issues, financial stress, challenging living environments, time-consuming work or caring commitments, and disabilities. Based on the topic either a Student Welfare or Student Engagement Officer will reply to your query and provide advice on how you can best access the support services available to you at the University. They may also suggest that you meet with them so they can get more details on the support you need. 
 
 [SPGA Student Wellbeing Support](https://outlook.office365.com/book/SchoolofPolicyandGlobalAffairsStudentWellbeingSupport@cityuni.onmicrosoft.com/?ae=true&ismsaljsauthenabled=true)
 
@@ -933,7 +673,7 @@ Alternatively, students can call the IT help desk on 0207 040 8181 or visit the 
 
 [Apply to get a mentor](https://cityunilondon.eu.qualtrics.com/jfe/form/SV_9M41s2FmiwmYVM2)
 
-[Support@City](https://support.city.ac.uk/create-case/?_gl=1%2asv17k1%2a_ga%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.%2a_ga_YLSK0292X4%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w): it's the online system allowing students to submit and track their queries through a dedicated portal. The platform brings together many of City St George’s student support services in a secure portal to better understand and address students' needs. 
+[Support@City](https://support.city.ac.uk/create-case/?_gl=1%2asv17k1%2a_ga%2aODU0NDA5NDU1LjE2MjA5ODEyNjI.%2a_ga_YLSK0292X4%2aMTY5NDcwNDk3Ni4xOTcuMS4xNjk0NzA1MDMwLjYuMC4w): it's the online system allowing students to submit and track their queries through a dedicated portal. The platform brings together many of City St Georgeâ€™s student support services in a secure portal to better understand and address students' needs. 
 
 The system includes the following teams:
 
@@ -999,7 +739,7 @@ Along with general enquiries, you can visit the following support services:
 
 # Students Union
 
-[Student’s Union](https://www.csgsu.co.uk/):it's a membership-led organisation, independent of the University, which exists to make sure you have the best overall experience at City both socially and academically. The Union is in Level 2 of the Student Support Hub in Drysdale Building.
+[Studentâ€™s Union](https://www.csgsu.co.uk/):it's a membership-led organisation, independent of the University, which exists to make sure you have the best overall experience at City both socially and academically. The Union is in Level 2 of the Student Support Hub in Drysdale Building.
 
 SU offers:
 
@@ -1016,13 +756,13 @@ SU offers:
 
 [Sports](https://csgsu.co.uk/sports)
 
-[Short Term Loans](https://csgsu.co.uk/advice-and-support/finances): Interest free loans of up to £200.
+[Short Term Loans](https://csgsu.co.uk/advice-and-support/finances): Interest free loans of up to Â£200.
 
 [Programme rep training](https://csgsu.co.uk/your-voice/programme-and-year-representatives)
 
-[GetHeard@City](https://city.unitu.co.uk/Account/Login): digital platform for student voice to ask questions to your Programme Reps, discuss your experiences with other students, and give feedback to the Students’ Union and University staff.
+[GetHeard@City](https://city.unitu.co.uk/Account/Login): digital platform for student voice to ask questions to your Programme Reps, discuss your experiences with other students, and give feedback to the Studentsâ€™ Union and University staff.
 
-[Become a Programme rep](https://csgsu.co.uk/your-voice/programme-and-year-representatives). You are invited to nominate yourself to become a Program rep. Programme Reps play a key role in ensuring that all students have a voice and an opportunity to share feedback about their learning experience. They help students make as many positive changes as possible and ultimately, help improve the quality of education at City St George’s.
+[Become a Programme rep](https://csgsu.co.uk/your-voice/programme-and-year-representatives). You are invited to nominate yourself to become a Program rep. Programme Reps play a key role in ensuring that all students have a voice and an opportunity to share feedback about their learning experience. They help students make as many positive changes as possible and ultimately, help improve the quality of education at City St Georgeâ€™s.
 
 [Programme Rep nomination form](https://forms.office.com/e/6MEdG2EStU): usually by early October.
 
@@ -1049,11 +789,11 @@ Year 2 students can apply to the SPGA Placement and Exchange Programmes:
 
 [Micro-Placements](https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme) are an exciting way to gain professional experience via short summer placements with a wide range of UK-based employers for year 1 and 2 UG students. The deadline for application is usually in October.
 
-[Professional Mentoring Scheme](https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme): it's a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. The deadline for application is 23:59, Sunday, October 6th, 2024.
+[Professional Mentoring Scheme](https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme): it's a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. Check the linked page for the latest application deadline.
 
-[Unitemps](https://www.unitemps.com/): City St George’s in-house temporary jobs agency which offers part time paid temporary work in and around the University for students and graduates: You can sign up and apply for roles on the [Unitemps website](https://www.unitemps.com/).
+[Unitemps](https://www.unitemps.com/): City St Georgeâ€™s in-house temporary jobs agency which offers part time paid temporary work in and around the University for students and graduates: You can sign up and apply for roles on the [Unitemps website](https://www.unitemps.com/).
 
-[Student Ambassador scheme](https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme): Develop your skills, make friends and earn some extra money by becoming a Student Ambassador at City St George’s!
+[Student Ambassador scheme](https://studenthub.city.ac.uk/careers-and-employability/student-ambassador-scheme): Develop your skills, make friends and earn some extra money by becoming a Student Ambassador at City St Georgeâ€™s!
 
 [Book a Career appointment](https://careershub.city.ac.uk/students/appointments/topics?campusId=704): The best way to think about your career is in conversation with one of our expert career consultants. They can respond directly to your questions and concerns and help give you direction, even if you are not sure of exactly what career path you want to follow.
 
@@ -1064,7 +804,7 @@ Year 2 students can apply to the SPGA Placement and Exchange Programmes:
 [Registration](https://studenthub.city.ac.uk/student-administration/registration) - all new and returning students of City, University of London are required to register for their course each year. If you have any other questions regarding registration, please email the [Registration team](mailto:registration@city.ac.uk)
 If you think you may be late completing registration and need more time, please contact the Course Officer for your course within your Department as this will need to be considered by your academic Course Director.
 
-[Fees and Finance](https://studenthub.city.ac.uk/student-administration/fees-and-finance)- financial information for students who are studying at City St George’s, University of London.
+[Fees and Finance](https://studenthub.city.ac.uk/student-administration/fees-and-finance)- financial information for students who are studying at City St Georgeâ€™s, University of London.
 
 [Evision-Get Official Letters and Pay Fees](https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w). You may need a proof of study letter for various things such as council tax exemption, registering with a doctors surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.
 
@@ -1078,3 +818,4 @@ For International Students:
 [International Student & Visa Advice](https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students): advice and guidance to applicants and students on study-related visa and immigration issues.
 
 [Help and support | Student Hub | City, University of London](https://studenthub.city.ac.uk/help-and-support): You can find more information about student services.
+
