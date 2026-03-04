@@ -27,6 +27,26 @@ format:
   .quarto-tiles-index { margin: 1.25rem 0 1.75rem; }
   .quarto-tiles-index .tiles-group { margin-top: 1.25rem; margin-bottom: 0.75rem; }
   .quarto-tiles-index .group-title { font-weight:700; margin:0.5rem 0 0.35rem; }
+  /* search bar above tiles */
+  .tiles-search { display:flex; justify-content:center; align-items:center; margin: 0.35rem auto 0.2rem; width:100%; max-width: none; padding: 0 1rem; box-sizing: border-box; }
+  .tiles-search input { width: clamp(260px, 90vw, 1100px); max-width: 100%; padding: 1rem 1.35rem; border-radius: 999px; border:1.3px solid rgba(0,0,0,0.12); box-shadow: 0 8px 22px rgba(0,0,0,0.05); font-size: 1.05rem; box-sizing: border-box; display:block; }
+  .tiles-search input:focus-visible { outline:3px solid rgba(11,102,160,0.2); border-color: rgba(11,102,160,0.35); box-shadow: 0 10px 26px rgba(11,102,160,0.16); }
+  .tiles-search-hint { text-align:center; font-size:0.9rem; color:#555; margin-bottom:0.35rem; }
+  .tiles-search-empty { text-align:center; padding:0.65rem 0.75rem; background: rgba(200,30,45,0.08); border:1px solid rgba(200,30,45,0.18); border-radius:10px; color:#8c1c28; display:none; }
+  .search-text-results { background: linear-gradient(180deg, rgba(11,102,160,0.05), rgba(11,102,160,0.015)); border:1px solid rgba(11,102,160,0.18); border-radius:12px; padding:0.75rem 0.85rem 0.95rem; display:none; }
+  .search-text-results .group-title { color:#0b66a0; margin-top:0; }
+  .search-text-results ul { margin:0.35rem 0 0; padding-left:1.15rem; }
+  .search-text-results li { margin-bottom:0.15rem; font-size:0.95rem; }
+  .tiles-group.search-results { background: linear-gradient(180deg, rgba(11,102,160,0.05), rgba(11,102,160,0.02)); border:1px solid rgba(11,102,160,0.16); border-radius: 12px; padding: 0.75rem 0.8rem 0.95rem; display:none; }
+  .tiles-group.search-results .group-title { margin-top:0; color:#0b66a0; }
+  .tiles-group.search-results .tile-card { border-color: rgba(11,102,160,0.28); box-shadow: 0 10px 24px rgba(11,102,160,0.12); }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  /* soft red highlight for the crucial tiles block */
+  .quarto-tiles-index .tiles-group.crucial-tiles { background: linear-gradient(180deg, rgba(200,30,45,0.08), rgba(200,30,45,0.02)); border:1px solid rgba(200,30,45,0.12); border-radius: 12px; padding: 0.85rem 0.85rem 1.05rem; }
+  .quarto-tiles-index .tiles-group.crucial-tiles .group-title { margin-top:0; color:#8c1c28; }
+  .quarto-tiles-index .tiles-group.crucial-tiles .tile-card { border-color: rgba(200,30,45,0.25); }
+  .quarto-tiles-index .tiles-group.crucial-tiles .tile-card .tile-icon { color:#a32030; }
+  .quarto-tiles-index .tiles-group.crucial-tiles .tile-card:hover { box-shadow: 0 12px 28px rgba(200,30,45,0.18); }
   .quarto-tiles-grid { display: grid; gap: 0.5rem; grid-template-columns: repeat(1, 1fr); margin: 0.5rem 0; }
   @media (min-width: 576px) { .quarto-tiles-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 768px) { .quarto-tiles-grid { grid-template-columns: repeat(5, 1fr); } }
@@ -246,7 +266,7 @@ insertAfter.insertAdjacentElement('afterend', index);
     } catch (e) { console.error('Tiles index generator error', e); }
   }
 
-  if (ENABLE_DYNAMIC_TILES) {
+  if (typeof ENABLE_DYNAMIC_TILES !== 'undefined' && ENABLE_DYNAMIC_TILES) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildTilesIndex); else buildTilesIndex();
   }
 })();
@@ -258,6 +278,53 @@ insertAfter.insertAdjacentElement('afterend', index);
 
 <!-- Static tiles index (SharePoint-safe: no JS required) -->
 <div class="quarto-tiles-index" id="quarto-tiles-index-static">
+<div class="tiles-search">
+  <label for="tiles-search-input" class="sr-only">Search staff and student support links</label>
+  <input id="tiles-search-input" type="search" placeholder="Search staff tools, SEAtS, support, timetable, wellbeing..." aria-describedby="tiles-search-hint">
+</div>
+<div class="tiles-search-hint" id="tiles-search-hint">Try keywords like "SEAtS", "teaching hub", "IT service", "oracle", "wellbeing", "timetable".</div>
+<div class="tiles-search-empty" id="tiles-search-noresults">No matches found. Try a different word.</div>
+<div class="tiles-group search-results" id="tiles-search-results">
+  <div class="group-title">Search results</div>
+  <div class="quarto-tiles-grid" id="tiles-search-grid"></div>
+</div>
+<div class="tiles-group search-text-results" id="text-search-results">
+  <div class="group-title">Other matches in this page</div>
+  <ul id="text-search-list"></ul>
+</div>
+<div class="tiles-group crucial-tiles">
+  <div class="group-title">We think these links are crucial for colleagues at this stage of the academic year:</div>
+  <div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-tools"></i></span>
+  <div class="tile-label">Toolkit for Supporting Students</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_CityLearningTeachngPortal" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-book"></i></span>
+  <div class="tile-label">Learning and Teaching Hub</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&amp;parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">Attendance and Engagement Monitoring</div>
+</a>
+<a class="tile-card" href="https://staffcommunications.newsweaver.com/1cuay0lb4l/yzpv63vjgnc1ttzyvuq1bs/external?email=true&amp;a=5&amp;p=5297842&amp;t=217120" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-check2-square"></i></span>
+  <div class="tile-label">SEAtS</div>
+</a>
+<a class="tile-card" href="https://cityuni.service-now.com/sp?id=index" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-tools"></i></span>
+  <div class="tile-label">IT Self Service</div>
+</a>
+<a class="tile-card" href="https://mytimetable.city.ac.uk/overview/tt_moduleoffer?d=TT2526" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
+  <div class="tile-label">MyTimetable - Overview</div>
+</a>
+<a class="tile-card" href="https://reportandsupport.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-lock"></i></span>
+  <div class="tile-label">Report + Support</div>
+</a>
+  </div>
+</div>
 <div class="tiles-group">
   <div class="group-title">Assessment &amp; Timetable Information</div>
   <div class="quarto-tiles-grid">
@@ -611,6 +678,10 @@ insertAfter.insertAdjacentElement('afterend', index);
   <span class="tile-icon"><i class="bi bi-person-workspace"></i></span>
   <div class="tile-label">personal tutors</div>
 </a>
+<a class="tile-card" href="https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
+  <div class="tile-label">Referees for student reference letters</div>
+</a>
 <a class="tile-card" href="https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning" target="_blank" rel="noopener">
   <span class="tile-icon"><i class="bi bi-laptop"></i></span>
   <div class="tile-label">Wellbeing &amp; Mental Health E-Learning</div>
@@ -647,9 +718,123 @@ insertAfter.insertAdjacentElement('afterend', index);
   <span class="tile-icon"><i class="bi bi-laptop"></i></span>
   <div class="tile-label">including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub</div>
 </a>
-  </div>
 </div>
 </div>
+</div>
+
+<script>
+window.initTilesSearch = function() {
+  const input = document.getElementById('tiles-search-input');
+  const empty = document.getElementById('tiles-search-noresults');
+  const resultsBlock = document.getElementById('tiles-search-results');
+  const resultsGrid = document.getElementById('tiles-search-grid');
+  const textResultsBlock = document.getElementById('text-search-results');
+  const textResultsList = document.getElementById('text-search-list');
+
+  if (!input || !resultsBlock || !resultsGrid || !textResultsBlock || !textResultsList) return;
+
+  function applyFilter(value) {
+    const q = (value || '').trim().toLowerCase();
+
+    resultsGrid.innerHTML = '';
+    textResultsList.innerHTML = '';
+
+    if (!q) {
+      resultsBlock.style.display = 'none';
+      textResultsBlock.style.display = 'none';
+      if (empty) empty.style.display = 'none';
+      return;
+    }
+
+    const allTiles = Array.from(document.querySelectorAll('#quarto-tiles-index-static .tile-card'));
+    const sourceTiles = allTiles.filter(t => !t.closest('#tiles-search-results'));
+
+    const seen = new Set();
+    let matches = 0;
+    let textMatches = 0;
+
+    sourceTiles.forEach(tile => {
+      const txt = (tile.textContent || '').toLowerCase();
+      const href = tile.getAttribute('href') || '';
+      const key = href + '|' + txt;
+
+      if (txt.includes(q) && !seen.has(key)) {
+        const clone = tile.cloneNode(true);
+        resultsGrid.appendChild(clone);
+        seen.add(key);
+        matches += 1;
+      }
+    });
+
+    const textNodes = Array.from(document.querySelectorAll('main h1, main h2, main h3, main h4, main p, main li'))
+      .filter(el => !el.closest('#quarto-tiles-index-static'));
+
+    function getAnchor(el) {
+      const section = el.closest('section[id]');
+      if (section && section.id) return '#' + section.id;
+      const heading = el.closest('h1[id],h2[id],h3[id],h4[id]');
+      if (heading && heading.id) return '#' + heading.id;
+      return '';
+    }
+
+    function makeSnippet(text, query) {
+      const lower = text.toLowerCase();
+      const idx = lower.indexOf(query);
+      if (idx === -1) return text.slice(0, 120) + (text.length > 120 ? '...' : '');
+      const start = Math.max(0, idx - 30);
+      const end = Math.min(text.length, idx + query.length + 60);
+      const snippet = text.slice(start, end);
+      return (start > 0 ? '...' : '') + snippet + (end < text.length ? '...' : '');
+    }
+
+    const textSeen = new Set();
+    for (const el of textNodes) {
+      const raw = (el.textContent || '').trim();
+      if (!raw) continue;
+      const lower = raw.toLowerCase();
+      if (!lower.includes(q)) continue;
+      const anchor = getAnchor(el);
+      if (!anchor) continue;
+      const key = anchor + '|' + lower;
+      if (textSeen.has(key)) continue;
+      textSeen.add(key);
+
+      const snippet = makeSnippet(raw, q);
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = anchor;
+      a.textContent = snippet;
+      li.appendChild(a);
+      textResultsList.appendChild(li);
+      textMatches += 1;
+      if (textMatches >= 5) break;
+    }
+
+    if (matches > 0) {
+      resultsBlock.style.display = 'block';
+      if (empty) empty.style.display = 'none';
+    } else {
+      resultsBlock.style.display = 'none';
+      if (empty) empty.style.display = 'block';
+    }
+
+    if (textMatches > 0) {
+      textResultsBlock.style.display = 'block';
+    } else {
+      textResultsBlock.style.display = 'none';
+    }
+  }
+
+  input.addEventListener('input', evt => applyFilter(evt.target.value));
+  applyFilter('');
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', window.initTilesSearch);
+} else {
+  window.initTilesSearch();
+}
+</script>
 
 
 # Assessment & Timetable Information
@@ -684,15 +869,15 @@ Late submission policy for coursework: Any work that is submitted more than 1 mi
 
 [Personal Tutor Year 1](mailto:econ-y1-tutor@city.ac.uk): Dr Seefat-E-Rabbi Khan
 
-[Personal Tutor Year 2](mailto:econ-y2-tutor@city.ac.uk): P Klaus Zauner
+[Personal Tutor Year 2](mailto:econ-y2-tutor@city.ac.uk): Prof Klaus Zauner
 
-[Personal Tutor Year 3](mailto:econ-y3-tutor@city.ac.uk): P Keith Pilbeam
+[Personal Tutor Year 3](mailto:econ-y3-tutor@city.ac.uk): Prof Keith Pilbeam
 
 [UG Programmes Director](mailto:pipat.wongsa-art@city.ac.uk): Dr Wongsa Pipat 
 
 [Personal Tutor & PG Director](mailto:lena.hassani-nezhad@city.ac.uk): Dr lena.hassani-nezhad@city.ac.uk
 
-[Course Officers UG](mailto:economics.ug@city.ac.uk) and [Course Officers PG](mailto:pgspga@city.ac.uk); or visit the Course Office information desk in Room A129, College Building (Monday–Friday, 10:00 AM–5:00 PM).Course Officers handle the course and official records of students, including:
+[Course Officers UG](mailto:economics.ug@city.ac.uk) and [Course Officers PG](mailto:pgspga@city.ac.uk); or visit the Course Office information desk in Room A129, College Building (Monday–Friday, 10:00 AM–5:00 PM). Course Officers handle the course and official records of students, including:
 
 - Moodle page enrolment
 - Programme or module changes
@@ -865,7 +1050,7 @@ Year 2 students can apply to the SPGA Placement and Exchange Programmes:
 
 [Micro-Placements](https://studenthub.city.ac.uk/careers-and-employability/micro-placements-programme) are an exciting way to gain professional experience via short summer placements with a wide range of UK-based employers for year 1 and 2 UG students. The deadline for application is usually in October.
 
-[Professional Mentoring Scheme](https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme): it's a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. The deadline for application is 23:59, Sunday, October 6th, 2024.
+[Professional Mentoring Scheme](https://studenthub.citystgeorges.ac.uk/career-development/professional-mentoring-scheme): it's a six-month programme that pairs students with industry professionals in order to develop their skills, confidence and future employability. Check the linked page for the latest application deadline.
 
 [Unitemps](https://www.unitemps.com/): City St George’s in-house temporary jobs agency which offers part time paid temporary work in and around the University for students and graduates: You can sign up and apply for roles on the [Unitemps website](https://www.unitemps.com/).
 
@@ -975,13 +1160,132 @@ Remember that most staff work 9-5 Monday-Friday so you are should not expect to 
 
 # Resources for staff
 [Toolkit for Supporting Students](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents): includes resources, guidance and signposting to aid you in supporting students. Useful information and links for all staff, [personal tutors](https://cityuni.sharepoint.com/sites/cs_Supportingyourstudents/SitePages/Guidance-for-personal-tutors.aspx), course officers and school support staff.
+[Referees for student reference letters](https://cityuni-my.sharepoint.com/:x:/g/personal/camilo_calderon_city_ac_uk/IQAUe7FI-KTdS4m78-MP3stYAaGpDIOUL8nGH2zQfEw7570?e=vRz1lj)
+
+## Staff Quick Links
+
+### Teaching
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://mytimetable.city.ac.uk/overview/tt_moduleoffer?d=TT2526" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-calendar3"></i></span>
+  <div class="tile-label">MyTimetable - Overview</div>
+</a>
+<a class="tile-card" href="https://www.economicsnetwork.ac.uk/moodle/my/courses.php" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-mortarboard"></i></span>
+  <div class="tile-label">Economics Network Resources</div>
+</a>
+<a class="tile-card" href="https://mediaspace.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-camera-video"></i></span>
+  <div class="tile-label">MediaSpace - City, University of London</div>
+</a>
+</div>
+
+### Teaching Administration
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://evision.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-badge"></i></span>
+  <div class="tile-label">e:Vision Portal</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-JointSchoolAcademicServicesQualityHub/SitePages/Joint-School-Academic-Services.aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-diagram-3"></i></span>
+  <div class="tile-label">Joint School Academic Services Team</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/teams/CUoL-SPGAAcademicServicesQualityHub" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-people"></i></span>
+  <div class="tile-label">CUoL-SPGA Quality and Student Experience Hub</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_CityLearningTeachngPortal" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-book"></i></span>
+  <div class="tile-label">City St George's Learning and Teaching Hub</div>
+</a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/sites/cs_quadhub/SitePages/Curriculum-Management-System-(CMS).aspx" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-collection"></i></span>
+  <div class="tile-label">CMS Hub</div>
+</a>
+</div>
+
+### Student Support
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://reportandsupport.city.ac.uk/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-shield-lock"></i></span>
+  <div class="tile-label">Report + Support</div>
+</a>
+</div>
+
+### Staff Administration
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://iahmme.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-building-gear"></i></span>
+  <div class="tile-label">Oracle</div>
+</a>
+<a class="tile-card" href="https://emea5.lumessetalentlink.com/?tlk_idp=871" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-person-vcard"></i></span>
+  <div class="tile-label">TalentLink - Generic Dashboard</div>
+</a>
+</div>
+
+### IT
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.service-now.com/sp?id=index" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-tools"></i></span>
+  <div class="tile-label">IT Self Service</div>
+</a>
+<a class="tile-card" href="https://cityuni.service-now.com/nav_to.do?uri=%2Fhome.do" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-headset"></i></span>
+  <div class="tile-label">IT Service Desk</div>
+</a>
+<a class="tile-card" href="https://staffhub.city.ac.uk/finance/procurement/marketplace" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-cart3"></i></span>
+  <div class="tile-label">Marketplace</div>
+</a>
+</div>
+
+### Productivity
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://www.office.com/?auth=2" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-microsoft"></i></span>
+  <div class="tile-label">Office 365</div>
+</a>
+<a class="tile-card" href="https://clients.mapsindoors.com/cul/7f348b58b4314fe79ecc0213/search" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-compass"></i></span>
+  <div class="tile-label">CityNav</div>
+</a>
+<a class="tile-card" href="https://client.wvd.microsoft.com/arm/webclient/index.html" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-display"></i></span>
+  <div class="tile-label">Remote Desktop Web Client</div>
+</a>
+<a class="tile-card" href="https://appsanywhere.city.ac.uk/login" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-box-seam"></i></span>
+  <div class="tile-label">AppsAnywhere</div>
+</a>
+</div>
+
+### Research
+<div class="quarto-tiles-grid">
+<a class="tile-card" href="https://cityuni.sharepoint.com/:l:/t/CUoL-EconDepartment/FLuhvdG3zc1ImEeSOQz2S9YB9SWu0oBU7F07aFcc7Ux57g" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-journal-text"></i></span>
+  <div class="tile-label">Econ Dept Log</div>
+</a>
+<a class="tile-card" href="https://forms.office.com/e/dzWdW3VnZX" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-file-earmark-text"></i></span>
+  <div class="tile-label">Econ Grant Support form</div>
+</a>
+<a class="tile-card" href="https://city-research.worktribe.com/" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-diagram-2"></i></span>
+  <div class="tile-label">Worktribe</div>
+</a>
+<a class="tile-card" href="https://bsky.app/profile/cityeconomics.bsky.social" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-chat-dots"></i></span>
+  <div class="tile-label">City St George's Economics (Bluesky)</div>
+</a>
+</div>
 
 ## [Wellbeing & Mental Health E-Learning](https://staffhub.city.ac.uk/develop-at-city/wellbeing-at-city-hub/wellbeing-and-mental-health-e-learning)
 City has collaborated with Charlie Waller Trust, the UK mental health charity, to create a series of e-learning courses aimed at equipping staff with a baseline knowledge of mental health awareness to help themselves, other members of staff and our students. These modules also signpost to key university teams and resources that can further support with wellbeing and mental health.
 Course 1: [Staff Supporting Students](https://elearning.charliewaller.org/course-details/681ed6fc-46e1-4753-8a18-21063ad94f1f)
 Course 2: [Managers Supporting Staff](https://elearning.charliewaller.org/course-details/630cf33e-725b-4d3e-948e-2fcd279e400d)
 Course 3: [Wellbeing Strategies](https://elearning.charliewaller.org/course-details/655f3612-b251-4001-a3a1-5d9106e67491)
-Course 4:[Risks and Crises](https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7)
+Course 4: [Risks and Crises](https://elearning.charliewaller.org/course-details/ed3f83c6-5a72-440d-9bc4-6d26966e15a7)
 
 ## [Attendance and Engagement Monitoring](https://cityuni.sharepoint.com/sites/CSGMerger/Files/Forms/AllItems.aspx?id=%2Fsites%2FCSGMerger%2FFiles%2FDocuments%2FAttendance%20and%20monitoring%20changes%20for%202025%2D26%2Epdf&parent=%2Fsites%2FCSGMerger%2FFiles%2FDocuments)
 Undergraduate students can download a new [SEAtS Mobile App](https://studenthub.citystgeorges.ac.uk/academic-resources/learning-and-study-support/study-skills-and-support/attendance-and-engagement/count-me-in) through which they will be able to view their timetable, view their attendance information, submit authorised absences requests and receive updates on class/timetable changes.
@@ -991,4 +1295,3 @@ We ask that all colleagues involved in teaching engage with this system to suppo
 ## Transition for Academic Success Programme
 The Transition for Academic Success Programme aims to address the unique academic challenges faced by first year students when transitioning from secondary education or when returning to Higher Education from employment. The programme of online modules, which will run throughout terms 1 and 2, has been fully co-created with students who have helped identify the topics and areas of focus.
 You can find more information [including Powerpoint slides to incorporate into Induction activities, as well as more information on programme content on the Learning and Teaching Hub](https://staffcommunications.newsweaver.com/1cuay0lb4l/jigmhvwn6171ttzyvuq1bs/external?email=true&a=5&p=5297842&t=217120).
-
