@@ -154,3 +154,51 @@ This file tracks session outcomes, decisions, and recommended next steps so futu
 1. Build a shortlist of 8-12 interview-heavy enterprise knowledge-fragmentation papers for the methods section.
 2. Define a minimum viable mixed-method protocol for this app (instrumentation + interviews).
 3. Prepare a data protection checklist (consent, minimization, retention, pseudonymization) before live analytics.
+
+## 2026-03-17 - Public Site Scope and QA Cleanup
+
+### Scope
+- Focused on public-output hygiene for `index.qmd`, `Staff_Support.qmd`, and the generated `docs/` site.
+- Prioritized publishing/indexing scope, rendered page cleanup, and lightweight validation.
+- Left larger editorial/refactor decisions open where manual review is still needed.
+
+### What We Did Together
+- Restricted Quarto render scope in `_quarto.yml` to the two public pages:
+  - `index.qmd`
+  - `Staff_Support.qmd`
+- Re-rendered the site so internal working files and backup pages are no longer indexed as public pages.
+- Removed production `console.log` debugging from the tile search implementation in `index.qmd`.
+- Fixed the end-of-page `Change log` rendering issue in both source pages by correcting the markdown separation before the heading.
+- Removed the public-page reference to `HANDOFF_LOG.md` from both pages so internal notes are no longer surfaced in public content/search text.
+- Ran a QA pass on the rendered outputs and source pages.
+- Ran `scripts/check-links.ps1` successfully:
+  - Files scanned: 2
+  - Unique HTTP(S) links: 107
+  - Errors: 0
+  - Warnings: 0
+- Applied a small copy cleanup in both source pages:
+  - `Advise` -> `Advice`
+  - `hor more` -> `for more`
+  - `Â£200` -> `GBP 200`
+  - `doctors surgery` -> `doctor's surgery`
+
+### Outcome
+- `docs/search.json` no longer exposes:
+  - backup page output
+  - `HANDOFF_LOG.md` as a rendered public page
+  - `DATE_REVIEW_CHECKLIST.md` as a rendered public page
+- `docs/index.html` and `docs/Staff_Support.html` now render the `Change log` heading correctly.
+- Public output is cleaner and the current publishing scope is aligned with the intended site surface.
+
+### Open Items Intentionally Left for Next Session
+1. Review duplicated content between `index.qmd` and `Staff_Support.qmd`.
+   - Keep this as a manual editorial decision because the two pages serve different audiences.
+   - Only deduplicate sections where shared text creates maintenance risk.
+2. Review whether any further tile/search consolidation is still needed.
+   - Immediate public-output issues are resolved, so this is now optional cleanup rather than urgent remediation.
+3. Add a lightweight repeatable pre-publish QA workflow.
+   - Base it on Quarto render, date review, and `scripts/check-links.ps1`.
+
+### Notes
+- Rendering with the narrowed publish scope removed previously generated public files under `docs/` that are no longer part of the intended site surface.
+- Temporary next-session handoff note has been folded into this log and can be removed.

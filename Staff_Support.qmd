@@ -819,7 +819,7 @@ Late submission policy for coursework: Any work that is submitted more than 1 mi
 
 [Student Appeals](https://studenthub.city.ac.uk/help-and-support/extenuating-circumstances-complaints-appeals): The appeals process is intended for the very rare cases where no resolution or remedy was possible at an earlier stage (i.e. prior to the Assessment Board approving the results of taught students or a decision being made regarding the registration status or examination results of research students).
 
-[Student Union Advise & Support](https://csgsu.co.uk/advice-and-support): you can contact the Student Union for advise and support, contact the union to make an appointment.
+[Student Union Advice & Support](https://csgsu.co.uk/advice-and-support): you can contact the Student Union for advice and support, or contact the union to make an appointment.
 
 [Progression and Awards](https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards): important information about your assessment results, your programme and the support available to you and details of the timescales if you want to make an appeal.
 
@@ -882,7 +882,7 @@ If you are unable to attend classes for more than seven calendar days due to ext
 
 [Study Spaces](https://studenthub.city.ac.uk/information-technology/citynav): these spaces include quiet areas for focused work, silent study zones, and more social spaces for collaborative learning.
 
-[CityNav](https://studenthub.city.ac.uk/information-technology/citynav): hor more information on where to find these Study Spaces.
+[CityNav](https://studenthub.city.ac.uk/information-technology/citynav): for more information on where to find these study spaces.
 
 ## IT support
 
@@ -979,7 +979,7 @@ SU offers:
 
 [Sports](https://csgsu.co.uk/sports)
 
-[Short Term Loans](https://csgsu.co.uk/advice-and-support/finances): Interest free loans of up to Â£200.
+[Short Term Loans](https://csgsu.co.uk/advice-and-support/finances): Interest free loans of up to GBP 200.
 
 [Programme rep training](https://csgsu.co.uk/your-voice/programme-and-year-representatives)
 
@@ -1029,7 +1029,7 @@ If you think you may be late completing registration and need more time, please 
 
 [Fees and Finance](https://studenthub.city.ac.uk/student-administration/fees-and-finance)- financial information for students who are studying at City St George's, University of London.
 
-[Evision-Get Official Letters and Pay Fees](https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w). You may need a proof of study letter for various things such as council tax exemption, registering with a doctors surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.
+[Evision-Get Official Letters and Pay Fees](https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w). You may need a proof of study letter for various things such as council tax exemption, registering with a doctor's surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.
 
 [CitySport](https://www.citysport.org.uk/) - manages the high-quality sport facilities at CitySport and deliver a range of health, fitness, and wellbeing initiatives across the University.
 [Faith, belief and culture at City St George's](https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support)
@@ -1041,9 +1041,9 @@ For International Students:
 [International Student & Visa Advice](https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students): advice and guidance to applicants and students on study-related visa and immigration issues.
 
 [Help and support | Student Hub | City, University of London](https://studenthub.city.ac.uk/help-and-support): You can find more information about student services.
+
 ## Change log
 
 - 2026-03-04: Added shared tile CSS/JS and fixed malformed `mailto` links.
 - 2026-03-04: Replaced stale dated deadline text with evergreen wording.
 - 2026-03-04: Applied copy and encoding cleanup for glossary/search content.
-- See [HANDOFF_LOG.md](HANDOFF_LOG.md) for detailed session-level updates.

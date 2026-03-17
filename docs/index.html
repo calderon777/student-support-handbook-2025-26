@@ -549,12 +549,7 @@ Help and support | Student Hub | City, University of London
     const resultsGrid = document.getElementById('tiles-search-grid');
     const textResultsBlock = document.getElementById('text-search-results');
     const textResultsList = document.getElementById('text-search-list');
-    
-    console.log('initTilesSearch called');
-    console.log('input:', input);
-    console.log('resultsBlock:', resultsBlock);
-    console.log('resultsGrid:', resultsGrid);
-    
+
     if (!input || !resultsBlock || !resultsGrid || !textResultsBlock || !textResultsList) {
       console.error('Search elements not found', {input, resultsBlock, resultsGrid, textResultsBlock, textResultsList});
       return;
@@ -562,8 +557,7 @@ Help and support | Student Hub | City, University of London
 
     function applyFilter(value) {
       const q = (value || '').trim().toLowerCase();
-      console.log('applyFilter called with:', q);
-      
+
       resultsGrid.innerHTML = '';
       textResultsList.innerHTML = '';
 
@@ -576,10 +570,8 @@ Help and support | Student Hub | City, University of London
 
       // Get all tiles, excluding search results block
       const allTiles = Array.from(document.querySelectorAll('#quarto-tiles-index-static .tile-card'));
-      console.log('Total tiles found:', allTiles.length);
-      
+
       const sourceTiles = allTiles.filter(t => !t.closest('#tiles-search-results'));
-      console.log('Source tiles (excluding search results):', sourceTiles.length);
 
       const seen = new Set();
       let matches = 0;
@@ -591,7 +583,6 @@ Help and support | Student Hub | City, University of London
         const key = href + '|' + txt;
         
         if (txt.includes(q) && !seen.has(key)) {
-          console.log('Match found:', txt);
           const clone = tile.cloneNode(true);
           resultsGrid.appendChild(clone);
           seen.add(key);
@@ -643,9 +634,6 @@ Help and support | Student Hub | City, University of London
         if (textMatches >= 5) break; // keep concise
       }
 
-      console.log('Total matches:', matches);
-      console.log('Total text matches:', textMatches);
-
       if (matches > 0) {
         resultsBlock.style.display = 'block';
         if (empty) empty.style.display = 'none';
@@ -662,15 +650,12 @@ Help and support | Student Hub | City, University of London
     }
 
     input.addEventListener('input', evt => applyFilter(evt.target.value));
-    console.log('Event listener attached to input');
     applyFilter('');
   };
 
   if (document.readyState === 'loading') {
-    console.log('DOM still loading, attaching DOMContentLoaded listener');
     document.addEventListener('DOMContentLoaded', window.initTilesSearch);
   } else {
-    console.log('DOM ready, calling initTilesSearch immediately');
     window.initTilesSearch();
   }
   </script>
@@ -695,7 +680,7 @@ Help and support | Student Hub | City, University of London
 <p>Late submission policy for coursework: Any work that is submitted more than 1 minute past the deadline but within 48 hours will have 10 marks deducted as a penalty. Work submitted after 48 hours will receive a zero.</p>
 <p><a href="https://studenthub.city.ac.uk/help-and-support/academic-integrity-and-misconduct">Academic Misconduct</a>: any action that produces or seeks to produce an improper advantage for you in relation to your assessment(s) or deliberately and unnecessarily disadvantages other students. It includes, but it is not limited to plagiarism, collusion and contract cheating.</p>
 <p><a href="https://studenthub.city.ac.uk/help-and-support/extenuating-circumstances-complaints-appeals">Student Appeals</a>: The appeals process is intended for the very rare cases where no resolution or remedy was possible at an earlier stage (i.e.&nbsp;prior to the Assessment Board approving the results of taught students or a decision being made regarding the registration status or examination results of research students).</p>
-<p><a href="https://csgsu.co.uk/advice-and-support">Student Union Advise &amp; Support</a>: you can contact the Student Union for advise and support, contact the union to make an appointment.</p>
+<p><a href="https://csgsu.co.uk/advice-and-support">Student Union Advice &amp; Support</a>: you can contact the Student Union for advice and support, or contact the union to make an appointment.</p>
 <p><a href="https://studenthub.city.ac.uk/timetabling-term-dates-exams/progression-and-awards">Progression and Awards</a>: important information about your assessment results, your programme and the support available to you and details of the timescales if you want to make an appeal.</p>
 </section>
 <section id="key-economics-staff-for-student-support" class="level1">
@@ -738,7 +723,7 @@ Help and support | Student Hub | City, University of London
 <h1>Student Support services</h1>
 <p><a href="https://libraryservices.city.ac.uk/">Library</a>: provides printed resources, study spaces (for group study, quiet study and individual silent study), networked PCs and wi-fi across five levels.</p>
 <p><a href="https://studenthub.city.ac.uk/information-technology/citynav">Study Spaces</a>: these spaces include quiet areas for focused work, silent study zones, and more social spaces for collaborative learning.</p>
-<p><a href="https://studenthub.city.ac.uk/information-technology/citynav">CityNav</a>: hor more information on where to find these Study Spaces.</p>
+<p><a href="https://studenthub.city.ac.uk/information-technology/citynav">CityNav</a>: for more information on where to find these study spaces.</p>
 <section id="it-support" class="level2">
 <h2 class="anchored" data-anchor-id="it-support">IT support</h2>
 <p><a href="https://www.city.ac.uk/itservicedesk">service now</a>: If students experience IT issues, a ticket can be logged on this link.</p>
@@ -795,7 +780,7 @@ Help and support | Student Hub | City, University of London
 <p><a href="https://csgsu.co.uk/explore-and-join/start-or-adopt-a-group">Society idea - application form</a>!</p>
 <p><a href="https://events.csgsu.co.uk/">SU Events</a></p>
 <p><a href="https://csgsu.co.uk/sports">Sports</a></p>
-<p><a href="https://csgsu.co.uk/advice-and-support/finances">Short Term Loans</a>: Interest free loans of up to Â£200.</p>
+<p><a href="https://csgsu.co.uk/advice-and-support/finances">Short Term Loans</a>: Interest free loans of up to GBP 200.</p>
 <p><a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Programme rep training</a></p>
 <p><a href="https://city.unitu.co.uk/Account/Login">GetHeard@City</a>: digital platform for student voice to ask questions to your Programme Reps, discuss your experiences with other students, and give feedback to the Students’ Union and University staff.</p>
 <p><a href="https://csgsu.co.uk/your-voice/programme-and-year-representatives">Become a Programme rep</a>. You are invited to nominate yourself to become a Program rep. Programme Reps play a key role in ensuring that all students have a voice and an opportunity to share feedback about their learning experience. They help students make as many positive changes as possible and ultimately, help improve the quality of education at City St George’s.</p>
@@ -826,20 +811,22 @@ Help and support | Student Hub | City, University of London
 <p><a href="https://www.city.ac.uk/about/vision-and-strategy/academic-excellence/education/academic-year-and-term-dates">Term Dates</a></p>
 <p><a href="https://studenthub.city.ac.uk/student-administration/registration">Registration</a> - all new and returning students of City, University of London are required to register for their course each year. If you have any other questions regarding registration, please email the <a href="mailto:registration@city.ac.uk">Registration team</a> If you think you may be late completing registration and need more time, please contact the Course Officer for your course within your Department as this will need to be considered by your academic Course Director.</p>
 <p><a href="https://studenthub.city.ac.uk/student-administration/fees-and-finance">Fees and Finance</a>- financial information for students who are studying at City St George’s, University of London.</p>
-<p><a href="https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w">Evision-Get Official Letters and Pay Fees</a>. You may need a proof of study letter for various things such as council tax exemption, registering with a doctors surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.</p>
+<p><a href="https://evision.city.ac.uk/?_gl=1*7eeo8m*_ga*NjM2MTY1Mjk3LjE2NjY3MTIwOTU.*_ga_YLSK0292X4*MTY5NDUxMTg4OS4xNC4xLjE2OTQ1MTIxMjkuNjAuMC4w">Evision-Get Official Letters and Pay Fees</a>. You may need a proof of study letter for various things such as council tax exemption, registering with a doctor’s surgery, or even opening a student bank account. You can produce some of these documents yourselves by logging into Evision with their student details.</p>
 <p><a href="https://www.citysport.org.uk/">CitySport</a> - manages the high-quality sport facilities at CitySport and deliver a range of health, fitness, and wellbeing initiatives across the University. <a href="https://studenthub.citystgeorges.ac.uk/student-support-services/faith-and-cultural-support">Faith, belief and culture at City St George’s</a></p>
 <p>For International Students:</p>
 <p><a href="https://studenthub.city.ac.uk/help-and-support/your-health">Health information</a></p>
 <p><a href="https://studenthub.city.ac.uk/help-and-support/visa-advice-for-international-students">International Student &amp; Visa Advice</a>: advice and guidance to applicants and students on study-related visa and immigration issues.</p>
-<p><a href="https://studenthub.city.ac.uk/help-and-support">Help and support | Student Hub | City, University of London</a>: You can find more information about student services. ## Change log</p>
+<p><a href="https://studenthub.city.ac.uk/help-and-support">Help and support | Student Hub | City, University of London</a>: You can find more information about student services.</p>
+<section id="change-log" class="level2">
+<h2 class="anchored" data-anchor-id="change-log">Change log</h2>
 <ul>
 <li>2026-03-04: Added shared tile CSS/JS and fixed malformed <code>mailto</code> links.</li>
 <li>2026-03-04: Replaced stale dated deadline text with evergreen wording.</li>
 <li>2026-03-04: Applied copy and encoding cleanup for glossary/search content.</li>
-<li>See <a href="./HANDOFF_LOG.html">HANDOFF_LOG.md</a> for detailed session-level updates.</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
