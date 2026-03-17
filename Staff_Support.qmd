@@ -135,6 +135,10 @@ format:
   <span class="tile-icon"><i class="bi bi-archive"></i></span>
   <div class="tile-label">CMS Hub</div>
 </a>
+<a class="tile-card" href="https://cityuni.sharepoint.com/:f:/s/cs_SCCSPGACommsHub/IgA-eUBgwq7gQIN2ItfG4GR9AZM7YmXvKgtMic6OWKnQ-a8?xsdata=MDV8MDJ8Q2FtaWxvLkNhbGRlcm9uQGNpdHlzdGdlb3JnZXMuYWMudWt8NDhmZTBiNGI4ZmQ5NDA1MTk3NWUwOGRlODExODZlZDZ8ZGQ2MTU5NDk1YmQwNGRhMGFjNTIyOGVmOGQzMzYzNzN8MHwwfDYzOTA5MDEzOTEwNjQyMjE4N3xVbmtub3dufFRXRnBiR1pzYjNkOGV5SkZiWEIwZVUxaGNHa2lPblJ5ZFdVc0lsWWlPaUl3TGpBdU1EQXdNQ0lzSWxBaU9pSlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJbGRVSWpveWZRPT18MHx8fA%3d%3d&sdata=b2RoYzRzOUNBeU52WHRyMlZRMk1QSVJ4alBoUkVidHFxZmxzUkdUVVlxQT0%3d" target="_blank" rel="noopener">
+  <span class="tile-icon"><i class="bi bi-mortarboard"></i></span>
+  <div class="tile-label">Associate Dean PGR Hub</div>
+</a>
   </div>
 </div>
 <div class="tiles-group">
@@ -738,6 +742,8 @@ if (document.readyState === 'loading') {
 [City St George's Learning and Teaching Hub](https://cityuni.sharepoint.com/sites/cs_CityLearningTeachngPortal): teaching guidance, curriculum support, and practice development resources.
 
 [CMS Hub](https://cityuni.sharepoint.com/sites/cs_quadhub/SitePages/Curriculum-Management-System-(CMS).aspx): curriculum management system information and related workflows.
+
+[Associate Dean PGR Hub](https://cityuni.sharepoint.com/:f:/s/cs_SCCSPGACommsHub/IgA-eUBgwq7gQIN2ItfG4GR9AZM7YmXvKgtMic6OWKnQ-a8?xsdata=MDV8MDJ8Q2FtaWxvLkNhbGRlcm9uQGNpdHlzdGdlb3JnZXMuYWMudWt8NDhmZTBiNGI4ZmQ5NDA1MTk3NWUwOGRlODExODZlZDZ8ZGQ2MTU5NDk1YmQwNGRhMGFjNTIyOGVmOGQzMzYzNzN8MHwwfDYzOTA5MDEzOTEwNjQyMjE4N3xVbmtub3dufFRXRnBiR1pzYjNkOGV5SkZiWEIwZVUxaGNHa2lPblJ5ZFdVc0lsWWlPaUl3TGpBdU1EQXdNQ0lzSWxBaU9pSlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJbGRVSWpveWZRPT18MHx8fA%3d%3d&sdata=b2RoYzRzOUNBeU52WHRyMlZRMk1QSVJ4alBoUkVidHFxZmxzUkdUVVlxQT0%3d): central SPGA space for PhD supervision information, including key policies, handbook guidance, and a dedicated folder for new supervisor training dates and joining links.
 
 ### Student Support
 [Report + Support](https://reportandsupport.city.ac.uk/): report incidents and access guidance on student/staff wellbeing and safety concerns.
