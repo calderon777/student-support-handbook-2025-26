@@ -79,13 +79,22 @@ foreach ($file in $Files) {
 if ($Online) {
   Write-Host "Running online checks for HTTP(S) links..."
   foreach ($url in $httpLinks) {
+    $checkUrl = $url -replace '&amp;', '&'
     try {
-      $resp = Invoke-WebRequest -Uri $url -Method Head -MaximumRedirection 5 -TimeoutSec $TimeoutSec -ErrorAction Stop
+      $resp = Invoke-WebRequest -Uri $checkUrl -Method Head -MaximumRedirection 5 -TimeoutSec $TimeoutSec -ErrorAction Stop
       if ($resp.StatusCode -ge 400) {
         Add-Issue -Type "ERROR" -File "<online>" -Line 0 -Link $url -Message "HTTP status $($resp.StatusCode)"
       }
     } catch {
-      Add-Issue -Type "WARNING" -File "<online>" -Line 0 -Link $url -Message "HEAD failed: $($_.Exception.Message)"
+      # Many servers reject HEAD (403/404/405/417); retry with GET before warning.
+      try {
+        $resp = Invoke-WebRequest -Uri $checkUrl -Method Get -MaximumRedirection 5 -TimeoutSec $TimeoutSec -ErrorAction Stop
+        if ($resp.StatusCode -ge 400) {
+          Add-Issue -Type "ERROR" -File "<online>" -Line 0 -Link $url -Message "HTTP status $($resp.StatusCode)"
+        }
+      } catch {
+        Add-Issue -Type "WARNING" -File "<online>" -Line 0 -Link $url -Message "GET failed: $($_.Exception.Message)"
+      }
     }
   }
 }

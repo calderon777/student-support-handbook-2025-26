@@ -202,3 +202,22 @@ This file tracks session outcomes, decisions, and recommended next steps so futu
 ### Notes
 - Rendering with the narrowed publish scope removed previously generated public files under `docs/` that are no longer part of the intended site surface.
 - Temporary next-session handoff note has been folded into this log and can be removed.
+
+## 2026-10-21 - Academic Advisers Update and Content Review
+
+### What Changed
+- Personal Tutors renamed to Academic Advisers on both pages and in `tiles-shared.js` (old term kept as "formerly Personal Tutor" so text search still finds it).
+- New adviser mailboxes: `y1-economics-adviser@`, `y2-economics-adviser@`, `y3-economics-adviser@city.ac.uk`.
+- Year 1 adviser: Dr Daniel Silva-Junior (replaces Dr Seefat-E-Rabbi Khan). Years 2 and 3 (Prof Klaus Zauner, Prof Keith Pilbeam) confirmed unchanged.
+- PG Director entry now "PG Director & Academic Adviser: Dr Lena Hassani-Nezhad"; UG Programmes Director name order fixed to Dr Pipat Wongsa-art.
+- Fixed broken Stay City Safe link (old studenthub URL redirected to a 404) on both pages.
+- Programme Rep nomination form updated to the new Microsoft Forms link.
+- Staff page: timetable links moved to `TT2627`; the 2025-26 attendance PDF replaced by the current Student Hub SEAtS page, with key rules summarised.
+- Removed `_gl` tracking parameters, fixed "Advise" -> "Advice", updated "City, University of London" wording, refreshed "Last reviewed" to 21 October 2026.
+- Safety booklet link switched to the 2025 edition.
+- Deleted stale files: `Student_Support_2025-26_static_tiles.{html,pdf,tex}`, `backup/Student_Support_2025-26.qmd` and the orphaned `Student_Support_2025-26b_files/`.
+- `scripts/check-links.ps1 -Online` now retries with GET before warning, avoiding HEAD false positives.
+
+### Still Unverified
+- `elearning.charliewaller.org` links (4) fail TLS from the dev machine; check in a browser.
+

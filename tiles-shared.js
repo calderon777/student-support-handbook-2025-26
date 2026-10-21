@@ -54,12 +54,12 @@ const ICON_EXACT_MAP = {
   "Term Dates": "bi-calendar3",
   "Timetable Information": "bi-calendar3",
   "Examination Timetable": "bi-clock",
-  "Personal Tutors": "bi-person-workspace",
+  "Academic Advisers": "bi-person-workspace",
   "Extenuating Circumstances": "bi-clipboard-check",
   "Extensions": "bi-file-earmark-text",
   "Academic Misconduct": "bi-shield-exclamation",
   "Student Appeals": "bi-clipboard-check",
-  "Student Union Advise & Support": "bi-people",
+  "Student Union Advice & Support": "bi-people",
   "Library": "bi-book",
   "Library Resources": "bi-book",
   "e-referral": "bi-heart-pulse",
@@ -93,7 +93,7 @@ const ICON_EXACT_MAP = {
   "Digital Skills": "bi-laptop",
 
   // Student Hub catch-all
-  "Help and support | Student Hub | City, University of London": "bi-question-circle",
+  "Help and support | Student Hub | City St George's, University of London": "bi-question-circle",
 
   // SU / reps / nominations
   "the nomination form": "bi-pencil-square",
@@ -106,7 +106,7 @@ const ICON_EXACT_MAP = {
 
   // Staff resources
   "Toolkit for Supporting Students": "bi-tools",
-  "personal tutors": "bi-person-workspace",
+  "academic advisers": "bi-person-workspace",
 
   // E-learning / teaching resources
   "Staff Supporting Students": "bi-play-circle",
